@@ -3,63 +3,60 @@
 This chapter presents the design and implementation of the autonomous parcel delivery navigation system. It covers the development approach, performance metrics, software architecture, algorithm design, simulation setup, and prototype demonstration. The chapter explains the step-by-step development process and testing methods used to ensure the system operates reliably and efficiently in complex indoor environments.
 \section{Proposed Design Methodology}
 
-The proposed design methodology develops an autonomous navigation system for the parcel delivery robot through modular path planning, optimization, and trajectory control.
+The proposed design methodology develops an autonomous parcel delivery system by integrating a web-based management platform with the ROS2 navigation framework, simulation environment, visualization tools, and autonomous navigation algorithms. The system enables users to assign delivery tasks, monitor the robot in real time, manage maps, and visualize robot operations through a unified interface.
 
-Figure~\ref{overall} illustrates the system architecture organized in three layers. The top layer provides a web interface for map creation, obstacle drawing, and algorithm selection.The Flask backend server forms the middle layer in that it coordinates the communication between the path-planning component, which uses the A-star search  and the path-optimization component, which includes pruning strategies and the Particle Swarm Optimization smoothing techniques. The lower layer incorporates ROS 2, MPC controller, Gazebo simulation, and the embodiment of the robot with LiDAR and camera sensors to be intensively tested and validated.
+Figure~\ref{overall} illustrates the overall system architecture. The top layer consists of a web interface that provides live robot telemetry, task assignment, map management, and delivery log monitoring. The web interface communicates with a Flask-based backend server, which manages the application logic, REST APIs, database operations, and acts as a bridge between the web platform and ROS2. The ROS2 communication layer coordinates the interaction among the navigation stack, Gazebo simulation, RViz visualization, and the TurtleBot3 robot model. The navigation stack consists of the Improved A* path planning algorithm, Particle Swarm Optimization (PSO)-based path smoothing, and a Model Predictive Controller (MPC) for trajectory tracking. Gazebo provides the simulation environment for testing robot navigation, while RViz visualizes the generated maps, planned paths, and live robot telemetry.
 
 The project is outlined into six development stages:
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.78\textwidth]{overall architecture.png}
-	\caption{Overall System Architcture}
+	\includegraphics[width=1\textwidth]{overall architecture.png}
+	\caption{Overall Architecture of the Proposed Autonomous Parcel Delivery System}
 	\label{overall}
 \end{figure}
 
-\subsection*{Phase 1: Core Path Planning Algorithm Development}
- All the required  base path-planning algorithms were independently implemented and tested where the major goal is to provide collision-free and efficient exploration of the working space.
+\subsection*{Phase 1: Navigation Algorithm Development}
 
-\subsection*{Phase 2: Web-Based Planning Interface Development}
+The Improved A* path planning algorithm was implemented to generate collision-free global paths within the simulated environment. The generated paths were further enhanced using Particle Swarm Optimization (PSO)-based path smoothing to obtain shorter, smoother, and more feasible trajectories for autonomous navigation.
 
-The Python-based end-to-end web interface that uses Flask micro-framework; it includes interactive front-end map building, obstacle insertion, and trajectory dynamic rendering tools.
-\subsection*{Phase 3: Algorithm Integration with Web Platform}
+\subsection*{Phase 2: Web-Based Management Platform Development}
 
+A Flask-based web application was developed to provide an intuitive interface for users to assign delivery tasks, monitor live robot telemetry, manage occupancy maps, and access delivery logs. The interface serves as the primary interaction point between the user and the autonomous delivery system.
 
-The above modules of path planning, pruning as well as smoothing have been integrated well within the web platform thus giving the user easy interaction abilities as well as real-time visual feedbacks of the calculated routes.
+\subsection*{Phase 3: Backend and ROS2 Integration}
+
+The backend server was integrated with ROS2 to establish seamless communication between the web platform and the robotic system. User commands, delivery goals, and map management requests are forwarded to ROS2, while robot status and telemetry information are continuously transmitted back to the web interface.
 
 \subsection*{Phase 4: Model Predictive Control Implementation}
 
-Trajectory adherence Trajectory adherence is achieved by a Model Predictive Control (MPC) scheme that is connected to VS Code and allows the robot directly track the planned paths to the best of its kinematic limits and velocity limits.
+A Model Predictive Controller (MPC) was implemented to accurately track the optimized navigation path generated by the planning module. The controller computes appropriate velocity commands while satisfying the robot's kinematic constraints, resulting in smooth and stable autonomous motion.
 
-\subsection*{Phase 5: Dynamic Programming Integration}
+\subsection*{Phase 5: Simulation and Visualization Integration}
 
-Dynamic Programming based on cell decomposition is employed and incorporated in the web platform as a substitute global path planner whose performance is augmented by excellent memoization.
+The complete navigation stack was integrated with Gazebo and RViz. Gazebo provides a realistic simulation environment for evaluating robot performance, whereas RViz offers real-time visualization of occupancy maps, robot pose, planned trajectories, and navigation status during autonomous deliveries.
 
-\subsection*{Phase 6: ROS2 and Gazebo Simulation Setup}
-The robotic simulation platform is configured with the help of the Oracle VirtualBox setup, Ubuntu 22.04 setup, ROS2 Jazzy setup, and Gazebo integration with TurtleBot3 models.
+\subsection*{Phase 6: System Deployment and Validation}
+
+The complete autonomous parcel delivery system was deployed using Ubuntu 22.04, ROS2, Gazebo, and the TurtleBot3 robot model equipped with LiDAR and RGB camera sensors. End-to-end testing was performed to validate task execution, autonomous navigation, path tracking, and communication between the web interface and the robotic platform.
 
 
 \subsection{Overall System Architecture}
 
-The proposed autonomous parcel delivery system follows a layered architecture that integrates user interaction, backend processing, robotic middleware, and physical robot control. Figure \ref{fig:system_architecture} illustrates the complete system workflow from task assignment to goal completion.
+The proposed autonomous parcel delivery system follows a modular architecture that integrates a web-based user interface, backend processing, robotic middleware, simulation environment, and the autonomous mobile robot. Figure~\ref{fig:system_architecture} illustrates the overall workflow of the proposed system, beginning with user task assignment and ending with successful delivery completion.
 
-At the top level, the \textbf{User} interacts with the system through a web/mobile \textbf{Interface} to assign delivery tasks and monitor robot status in real-time. The interface communicates with a \textbf{Server} that handles task management, user requests, and coordinate transformations between the user interface and the robotic system.
+At the top level, the \textbf{User} interacts with the \textbf{Web Interface} to assign delivery tasks and monitor the robot's live telemetry throughout the delivery process. The web interface communicates with the \textbf{Backend}, which manages user requests and serves as the communication bridge between the web application and the robotic system.
 
-The server integrates with \textbf{ROS-2} (Robot Operating System 2), which serves as the core middleware framework for all robotic operations. ROS-2 manages three critical subsystems that enable autonomous navigation:
+The backend is integrated with the \textbf{ROS2 Communication Layer}, which acts as the middleware responsible for exchanging information between the software components and the robot. The navigation system is evaluated within the \textbf{Gazebo Simulation} environment, where the TurtleBot3 robot performs autonomous parcel delivery tasks under realistic simulation conditions.
 
-\begin{enumerate}
-	\item \textbf{Task Assignment Module} -- Receives delivery goals from the server and converts them into navigation objectives
-	\item \textbf{Real-Time Tracking System} -- Monitors the robot's position and status throughout the delivery mission  
-	\item \textbf{Onboard Camera Module} -- Provides visual feedback and obstacle detection capabilities
-\end{enumerate}
+The \textbf{TurtleBot3 Robot} is equipped with a \textbf{LiDAR} sensor for localization and obstacle detection, and an RGB \textbf{Camera} for visual perception. Using the navigation algorithms implemented within the ROS2 framework, the robot autonomously follows the assigned delivery route and reaches the specified destination while continuously providing telemetry updates to the web interface.
 
-The \textbf{Autonomous Robot} platform operates at the lowest level, executing navigation commands received from ROS-2. It integrates various \textbf{Sensors} (LiDAR, IMU, encoders) for localization and environment perception, and implements the \textbf{Object Avoidance \& Path Navigation} algorithms to ensure safe and efficient movement toward the destination.
-
-This hierarchical architecture ensures modularity, allowing each component to be developed, tested, and updated independently while maintaining seamless communication through standardized ROS-2 interfaces. The system concludes successfully when the robot reaches the designated \textbf{Destination Point}, completing the delivery task.
+This modular architecture ensures clear separation between user interaction, backend services, robotic middleware, simulation, and robot operation. Such a design improves scalability, maintainability, and simplifies future integration with physical robot hardware.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{overrflow.jpeg}
-	\caption{Overall System Architecture showing the hierarchical flow from user task assignment to autonomous delivery completion}
+	\includegraphics[width=0.8\textwidth]{overflow.png}
+	\caption{Overall System Architecture of the Proposed Autonomous Parcel Delivery System}
 	\label{fig:system_architecture}
 \end{figure}
 \section{Analysis Procedure}
@@ -171,38 +168,56 @@ The current project is fully a simulation project and does not need any physical
 
 \section{Design of the Project Software/Algorithm}
 
+This section presents the software design and development methodology adopted for the proposed autonomous parcel delivery system. The software was developed using a modular approach, where each component was designed, implemented, and tested independently before being integrated into the complete navigation framework. This methodology improves maintainability, simplifies debugging, and allows each module to be validated individually prior to system integration.
 
-In this section, the software design and development methodology that was used to implement the autonomous parcel-delivery navigation system is outlined. The design can be said to be modular in that each part is developed, thought of and tested separately then systematically incorporated into the overall structure.
-
-The software development workflow is depicted in the figure below, which is Figure 1. It starts by developing algorithms whereby the basic path-planning and optimisation algorithms are developed and tested. These algorithms are then integrated into a central algorithm that communicates with three simultaneous modules: the user interface via web development, dynamic programming to plan alternative paths and an MPC controller to follow the trajectory. Finally, everything is put together with the ROS 2 and Gazebo simulation environment, to test and verify everything thoroughly.
+The software development workflow is illustrated in Figure~\ref{fig:flow}. The development process begins with the implementation of the Improved A* path planning algorithm to generate collision-free global paths within the environment. The generated paths are subsequently refined using a Particle Swarm Optimization (PSO)-based path smoothing algorithm to obtain smoother and more efficient trajectories. A Model Predictive Controller (MPC) is then implemented to accurately track the optimized trajectory while satisfying the robot's kinematic constraints. After validating the navigation algorithms, they are integrated with the ROS2 middleware and Gazebo simulation environment to enable autonomous robot navigation. Finally, a Flutter-based web interface and a Flask backend server are developed to provide task assignment, live telemetry monitoring, map management, and delivery log management. Once all software modules are integrated, the complete autonomous parcel delivery system is validated through simulation.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\textwidth]{flow.jpeg}
-	\caption{Software Development Workflow}
+	\includegraphics[width=0.7\textwidth]{flow.png}
+	\caption{Software Development Workflow of the Proposed Autonomous Parcel Delivery System}
 	\label{fig:flow}
 \end{figure}
 
 \subsection{Software Architecture and Integration}
 
-The software system assumes a modular and distributed structure with each being an independent and communicates with other components via well-defined interfaces. Table 2 (software modules) demonstrates the four primary software modules and their functional duties. The architecture comprises a web-based frontend for user interaction, Flask backend for processing and algorithm execution, MPC controller for trajectory tracking, and ROS2-Gazebo simulation layer for testing and validation.
+The proposed software architecture follows a modular and distributed design in which each software module performs a dedicated responsibility while communicating through well-defined interfaces. The navigation algorithms, backend services, web application, robotic middleware, and simulation environment operate independently but collectively provide a complete autonomous delivery solution. This modular design improves scalability, simplifies software maintenance, and allows individual modules to be upgraded without affecting the overall system.
+
+Table~\ref{tab:software_modules} summarizes the primary software modules used in the proposed system along with their corresponding technologies and functional responsibilities.
 
 \begin{table}[H]
 	\centering
 	\caption{Software Modules and Their Functional Responsibilities}
 	\label{tab:software_modules}
-	\begin{tabular}{|p{4cm}|p{3cm}|p{6.6cm}|}
+	\begin{tabular}{|p{4.2cm}|p{3.5cm}|p{6cm}|}
 		\hline
 		\textbf{Software Module} & \textbf{Technology Used} & \textbf{Function} \\
 		\hline
-		Frontend Interface & Dart (Flutter) & Handles user interaction and real-time map visualization for monitoring \\
+		
+		Web Interface & Flutter (Dart) & Provides a user-friendly interface for task assignment, live telemetry monitoring, map management, and viewing delivery logs. \\
+		
 		\hline
-		Backend Server & Python (Flask) & Manages API requests, processes navigation data, and executes core algorithms \\
+		
+		Backend Server & Python (Flask) & Manages API requests, application logic, communication with ROS2, and coordination between the web interface and robotic system. \\
+		
 		\hline
-		MPC Controller & Python & Responsible for trajectory tracking and generating optimal control signals \\
+		
+		Improved A* Path Planner & Python & Generates collision-free global paths between the robot's current position and the assigned delivery destination. \\
+		
 		\hline
-		Simulation Environment & ROS2, Gazebo & Provides the physics engine and sensor simulation for testing the autonomous robot \\
+		
+		PSO-Based Path Smoothing & Python & Optimizes the planned path by reducing unnecessary turns and producing smooth trajectories suitable for autonomous navigation. \\
+		
 		\hline
+		
+		Model Predictive Controller (MPC) & Python & Computes optimal control commands to accurately follow the optimized trajectory while satisfying the robot's motion constraints. \\
+		
+		\hline
+		
+		ROS2 \& Gazebo Integration & ROS2 Humble, Gazebo & Provides robotic middleware, communication, simulation environment, sensor integration, and testing of autonomous navigation. \\
+		
+		\hline
+		
 	\end{tabular}
 \end{table}
 
@@ -341,7 +356,7 @@ After definition of workspaces, users are allowed to draw obstacles in the envir
 
 \begin{itemize}[noitemsep]
 	\item \text{Rectangular Obstacles:}
-	The obstacles are created as a rectangle by clicking and dragging the size and position of the obstacles of any size and shape. 
+	The obstacles are created as a rectangle by clicking and dragging the size and position of the obstacles of any size and shape.
 	\item \text{Circular Obstacles:} Circular obstacles are configured by users when they enter the centre point and the radius.
 	
 \end{itemize}
@@ -627,12 +642,12 @@ The cell decomposition-based Dynamic Programming planner uses the following key 
 	
 	\item[Map Hashing:] SHA-256 hashing detects environment changes. When the map hash matches the saved hash, stored paths are reused; otherwise, replanning occurs.
 	
-\item[Cell Center Calculation:] Cell centroids are computed as:
-\begin{align}
-	x_{\text{center}} &= \frac{\min_x + \max_x}{2} \\
-	y_{\text{center}} &= \frac{\min_y + \max_y}{2}
-\end{align}
-
+	\item[Cell Center Calculation:] Cell centroids are computed as:
+	\begin{align}
+		x_{\text{center}} &= \frac{\min_x + \max_x}{2} \\
+		y_{\text{center}} &= \frac{\min_y + \max_y}{2}
+	\end{align}
+	
 \end{description}\subsubsection*{Complete Parameter Summary}
 
 Table \ref{tab:comprehensive_parameters} provides a comprehensive summary of all algorithm parameters used in the navigation system.
