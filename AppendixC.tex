@@ -1,0 +1,86 @@
+\chapter{ROS Node Source Code}
+\section{ROS Navigation Node}
+\begin{lstlisting}
+
+\vboxuser@Ubuntu:~$ cat ~/ali_ws/delivery_env_tb3.world
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="delivery_env">
+
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"></plugin>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"></plugin>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"></plugin>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre</render_engine>
+    </plugin>
+    
+    <include><uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Sun</uri></include>
+    <include><uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Ground Plane</uri></include>
+
+    <actor name="actor_walking">
+      <skin>
+        <filename>https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae</filename>
+        <scale>1.0</scale>
+        <pose>0 0 0 0 0 -1.57</pose>
+      </skin>
+      <animation name="walk">
+        <filename>https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae</filename>
+        <interpolate_x>true</interpolate_x>
+      </animation>
+      <script>
+        <loop>true</loop>
+        <auto_start>true</auto_start>
+        <trajectory id="0" type="walk">
+          <waypoint><time>0.0</time><pose>0 -2.0 1.0 0 0 1.57</pose></waypoint>
+          <waypoint><time>3.5</time><pose>0 2.0 1.0 0 0 1.57</pose></waypoint>
+          <waypoint><time>4.5</time><pose>0 2.0 1.0 0 0 -1.57</pose></waypoint>
+          <waypoint><time>8.0</time><pose>0 -2.0 1.0 0 0 -1.57</pose></waypoint>
+          <waypoint><time>9.0</time><pose>0 -2.0 1.0 0 0 1.57</pose></waypoint>
+        </trajectory>
+      </script>
+    </actor>
+
+    <include>
+      <uri>model://turtlebot3_burger</uri>
+      <pose>-4.5 1.5 0.01 0 0 0</pose>
+    </include>
+
+    <model name="Red_Wall">
+      <static>true</static><pose>-2.0 0.5 0.5 0 0 0</pose> 
+      <link name="link"><visual name="v"><geometry><box><size>0.2 1.5 1.0</size></box></geometry><material><ambient>1 0 0 1</ambient><emissive>0.6 0 0 1</emissive></material></visual><collision name="c"><geometry><box><size>0.2 1.5 1.0</size></box></geometry></collision></link>
+    </model>
+
+    <model name="Blue_Wall">
+      <static>true</static><pose>2.0 -0.5 0.5 0 0 0</pose>
+      <link name="link"><visual name="v"><geometry><box><size>0.2 1.5 1.0</size></box></geometry><material><ambient>0 0 1 1</ambient><emissive>0 0 0.6 1</emissive></material></visual><collision name="c"><geometry><box><size>0.2 1.5 1.0</size></box></geometry></collision></link>
+    </model>
+
+    <model name="Walls">
+      <static>true</static><pose>0 0 0.5 0 0 0</pose>
+      <link name="link">
+        <visual name="A_Bot"><pose>-3.5 0 0 0 0 0</pose><geometry><box><size>3.5 0.2 2</size></box></geometry><material><ambient>1 0 0 1</ambient><emissive>0.6 0 0 1</emissive></material></visual>
+        <collision name="c_A_Bot"><pose>-3.5 0 0 0 0 0</pose><geometry><box><size>3.5 0.2 2</size></box></geometry></collision>
+        <visual name="A_Top"><pose>-3.5 3 0 0 0 0</pose><geometry><box><size>3.5 0.2 2</size></box></geometry><material><ambient>1 0 0 1</ambient><emissive>0.6 0 0 1</emissive></material></visual>
+        <collision name="c_A_Top"><pose>-3.5 3 0 0 0 0</pose><geometry><box><size>3.5 0.2 2</size></box></geometry></collision>
+        <visual name="A_Back"><pose>-5.15 1.5 0 0 0 0</pose><geometry><box><size>0.2 3.2 2</size></box></geometry><material><ambient>1 0 0 1</ambient><emissive>0.6 0 0 1</emissive></material></visual>
+        <collision name="c_A_Back"><pose>-5.15 1.5 0 0 0 0</pose><geometry><box><size>0.2 3.2 2</size></box></geometry></collision>
+        <visual name="H_Left"><pose>-2 -1.5 0 0 0 0</pose><geometry><box><size>0.2 3.4 2</size></box></geometry><material><ambient>0.5 0.5 0.5 1</ambient><emissive>0.2 0.2 0.2 1</emissive></material></visual>
+        <collision name="c_H_Left"><pose>-2 -1.5 0 0 0 0</pose><geometry><box><size>0.2 3.4 2</size></box></geometry></collision>
+        <visual name="H_Right"><pose>2 1.5 0 0 0 0</pose><geometry><box><size>0.2 3.4 2</size></box></geometry><material><ambient>0.5 0.5 0.5 1</ambient><emissive>0.2 0.2 0.2 1</emissive></material></visual>
+        <collision name="c_H_Right"><pose>2 1.5 0 0 0 0</pose><geometry><box><size>0.2 3.4 2</size></box></geometry></collision>
+        <visual name="H_Top"><pose>0 3 0 0 0 0</pose><geometry><box><size>4.2 0.2 2</size></box></geometry><material><ambient>0.5 0.5 0.5 1</ambient><emissive>0.2 0.2 0.2 1</emissive></material></visual>
+        <collision name="c_H_Top"><pose>0 3 0 0 0 0</pose><geometry><box><size>4.2 0.2 2</size></box></geometry></collision>
+        <visual name="H_Bot"><pose>0 -3 0 0 0 0</pose><geometry><box><size>4.2 0.2 2</size></box></geometry><material><ambient>0.5 0.5 0.5 1</ambient><emissive>0.2 0.2 0.2 1</emissive></material></visual>
+        <collision name="c_H_Bot"><pose>0 -3 0 0 0 0</pose><geometry><box><size>4.2 0.2 2</size></box></geometry></collision>
+        <visual name="B_Bot"><pose>3.5 -3 0 0 0 0</pose><geometry><box><size>3.5 0.2 2</size></box></geometry><material><ambient>0 0 1 1</ambient><emissive>0 0 0.6 1</emissive></material></visual>
+        <collision name="c_B_Bot"><pose>3.5 -3 0 0 0 0</pose><geometry><box><size>3.5 0.2 2</size></box></geometry></collision>
+        <visual name="B_Top"><pose>3.5 0 0 0 0 0</pose><geometry><box><size>3.5 0.2 2</size></box></geometry><material><ambient>0 0 1 1</ambient><emissive>0 0 0.6 1</emissive></material></visual>
+        <collision name="c_B_Top"><pose>3.5 0 0 0 0 0</pose><geometry><box><size>3.5 0.2 2</size></box></geometry></collision>
+        <visual name="B_Back"><pose>5.15 -1.5 0 0 0 0</pose><geometry><box><size>0.2 3.2 2</size></box></geometry><material><ambient>0 0 1 1</ambient><emissive>0 0 0.6 1</emissive></material></visual>
+        <collision name="c_B_Back"><pose>5.15 -1.5 0 0 0 0</pose><geometry><box><size>0.2 3.2 2</size></box></geometry></collision>
+      </link>
+    </model>
+  </world>
+</sdf>
+\end{lstlisting}
+

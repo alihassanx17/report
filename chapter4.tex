@@ -1,0 +1,109 @@
+\chapter{TOOLS AND TECHNIQUES}
+
+\section{Overview}
+This chapter outlines the software tools and development platforms used for the design,
+implementation, simulation,and documentation of the proposed final
+year project. The selected tools were chosen based on their industry relevance,reliability, and support for collaborative development. All these tools enabled an efficient coding, simulation, testing, and documentation process as well as managing the entire project lifecycle.
+
+
+\section{Hardware Tools Used}
+The proposed project is primarily software-based and simulation-oriented. No dedicated
+external hardware components were required during the development and testing phases.
+All activities were carried out using standard personal computing systems with adequate
+processing power, memory, and storage to support software development environments
+and simulation tools.
+
+\section{ Software and Simulation Tools}
+This part describes the major environment and simulation tools to be used in the implementation and testing of the navigation algorithms in the robot.
+
+\subsection{Oracle VirtualBox}
+
+Oracle VirtualBox~\cite{virtualbox2024} is an open-source virtualization platform that is free and also allows running multiple operating systems at the same time and without disrupting the host system. VirtualBox was used in this project to create a dedicated Ubuntu Linux virtual machine on the workstations based on Windows, therefore, providing the necessary Linux environment to develop ROS~2. VirtualBox was the base layer of the whole development architecture where all the project-specific software was installed and ran.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{vbox.png}
+    \caption{Oracle VirtualBox Logo~\cite{virtualbox2024}}
+    \label{fig:vbox_logo}
+\end{figure}
+
+\subsection{Ubuntu Linux}
+Ubuntu Linux~\cite{ubuntu2024} is an open-source operating system that is heavily used in the research and development of robotics. The version chosen to be used in this project was Ubuntu 22.04 LTS (Jammy Jellyfish), which was chosen as the officially supported platform of ROS 2 Jazzy Jalisco; this name has ensured compatibility with all the necessary packages and libraries. As a result, Ubuntu served both as the primary development platform of all associated operations and as the command-line interface to compile ROS2 packages, dependencies, and run simulations.  
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\textwidth]{ubuntu.jpg}
+    \caption{Ubuntu Logo~\cite{ubuntu2024}}
+    \label{fig:ubuntu_logo}
+\end{figure}
+
+\subsection{Visual Studio Code}
+Visual Studio Code~\cite{vscode2024} is a lightweight yet powerful source code editor developed by Microsoft. It was used as the primary development environment for writing, editing, and debugging the project source code. VS Code provides extensive extension support and seamless integration with version control systems.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.20\textwidth]{vscode.png}
+    \caption{Visual Studio Code Logo~\cite{vscode2024}}
+    \label{fig:vscode_logo}
+\end{figure}
+
+\subsection{ROS 2 and Gazebo Simulation Environment}
+Robot Operating System~2 (ROS~2)~\cite{ros2jazzy2024} is an open-source middleware framework for building robotic applications. It organizes software into modular components called nodes, which communicate with each other via topics, services, and action servers. ROS~2 was used as the core framework of this project. ROS~2 was the backbone of the entire system. 
+
+Gazebo~\cite{gazebo2024} is an open-source 3D robot simulator that provides a physics-based environment for testing robotic systems before deploying them on real hardware. It was integrated with ROS~2 to validate the navigation algorithms in a safe virtual environment. The robot model was based on the TurtleBot3 platform~\cite{turtlebot3doc} and was equipped with a simulated LiDAR, depth camera and wheel encoders. Custom indoor environments with corridors, walls, and obstacles were built to test path planning, obstacle avoidance, and multi-waypoint delivery missions, eliminating the need to run unverified code on physical hardware during development.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\textwidth]{ros.png}
+    \caption{ROS~2 Jazzy Jalisco Logo~\cite{ros2jazzy2024}}
+    \label{fig:ros2_logo}
+\end{figure}
+
+\subsection{Google Colaboratory}
+
+Google Colaboratory (Colab)~\cite{colab2024} is a cloud platform which provides a Jupyter notebook platform, and empowers users to write and run Python code in a web browser, thus not necessitating a local configuration. It gives unlimited access to the computational resources of the GPU, which makes it particularly appropriate in the context of the refinement of algorithms and data analytical pursuits.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{colab.png}
+    \caption{Google Colaboratory Logo~\cite{colab2024}}
+    \label{fig:colab_logo}
+\end{figure}
+
+\subsection{GitHub}
+GitHub~\cite{github2024} is an online platform of hosting and managing source-code repositories based on Git version control. It was used during the research in controlling the code, documenting changes and supporting interaction between members of a project. Each team member worked on separate branches, and then could combine changes through pull requests once they had been reviewed. GitHub also served as a reliable cloud backup protecting the project from data loss.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{github.png}
+    \caption{GitHub Logo~\cite{github2024}}
+    \label{fig:github_logo}
+\end{figure}
+
+\subsection{Flutter}
+
+Flutter~\cite{flutter2024} is an open-source framework that Google created to create cross-platform mobile apps in the Dart programming language. It was applied in this project to create the mobile application frontend enabling the customers to make the delivery request, see the real-time location of the robot, and get the status messages. The hot reload support in Flutter allowed the development and testing of the UI quickly, and the cross-platform nature of this environment was useful in ensuring that the application is compatible with both the Android and iOS platforms without needing to maintain two separate codebases.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.3\textwidth]{flutterjpg.jpg}
+\caption{Flutter Framework Logo~\cite{flutter2024}}
+\label{fig:flutter_logo}
+\end{figure}
+
+\subsection{Flask}
+
+Flask~\cite{flask2024} is a lightweight Python framework that is employed in the development of web applications. It was used in this project to build up the back-end server which is responsible in dealing with the communication between the web application and the autonomous robot. The Flask server receives delivery requests using the mobile application, writes the information into the database, and dispatches the navigation instructions to the ROS 2 system.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{flask.png}
+\caption{Python Flask Backend Architecture~\cite{flask2024}}
+\label{fig:flask_logo}
+\end{figure}
+
+\subsection{Overleaf}
+Overleaf~\cite{overleaf2024} is an online collaborative LaTeX editor used for writing and formatting academic documents. It was used in this project to prepare the final report in accordance with the formatting requirements of Capital University of Science and Technology (CUST). Using LaTeX through Overleaf produced a professionally formatted document with consistent headings, captions, equations, and IEEE-style citations. 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\textwidth]{overleaf.png}
+    \caption{Overleaf Logo~\cite{overleaf2024}}
+    \label{fig:overleaf_logo}
+\end{figure}
+
+\section{Summary}
+This chapter presented the software tools used throughout the project. Oracle VirtualBox hosted the Ubuntu development environment, while Visual Studio Code served as the main IDE for all coding tasks. ROS~2 Jazzy formed the core robotics framework, and Gazebo provided a physics-based simulation environment for testing navigation algorithms before hardware deployment. Google Colab supported early algorithm prototyping and for implementation of SLAM, GitHub maintained version control and team collaboration, and Overleaf enabled professional report preparation. Each tool was selected for a specific role, and together they supported every phase of the project from design through to final documentation.
