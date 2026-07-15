@@ -128,6 +128,28 @@ Once both runs completed, the orange path the robot actually took falls almost p
 
 The figure \ref{fig:mpc_end} demonstrates successful mission completion in both environments. The orange actual path overlays the purple reference path in both scenarios, confirming consistent tracking accuracy regardless of environment complexity. This validates that the MPC controller maintains high performance across different map layouts and navigation challenges.
 
+
+\subsection{Keeping the Robot Safe: Obstacle Inflation}
+The obstacle inflation is an essential safety measure that is incorporated into the navigation backend. Instead of the physical barrier of an obstruction as a boundary the system is run over a mathematical expansion of the footprint of the obstacle thus establishing a virtual no-go buffer zone.
+
+Figure \ref{fig:inflation} visualizes this mechanism clearly. The diagram differentiates between two distinct zones:
+\begin{itemize}
+	\item \textbf{Original Obstacle:} 
+	The core, which was marked by a light pink colour, is used to outline the real physical size of the object.
+	
+	\item \textbf{Inflated Obstacle:} 
+	The outer representation, which is shown in deeper red, represents the safety buffer that the algorithm introduces.
+\end{itemize}
+
+By the hard limit is defined as the Inflated edge, the path planner is pushed to maintain a safe distance of the physical object of the robot. This essentially supplies the uncertainties encountered in the real world, such as sensor noise, or small localization errors, and thus the robot (initially in the green marker) will never hit the wall when working towards the goal (red square).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{inflation.png} 
+	\caption{Obstacle inflation}
+	\label{fig:inflation}
+\end{figure}
+
 % ─── Error Analysis ──────────────────────────────────────────────────────────
 \subsection{Measuring the Tracking Error}
 
@@ -200,26 +222,6 @@ When this configuration is accomplished, the static map information is fed into 
 	\label{fig:webapp}
 \end{figure}
 % ─── Inflation ───────────────────────────────────────────────────────────────
-\subsection{Keeping the Robot Safe: Obstacle Inflation}
-The obstacle inflation is an essential safety measure that is incorporated into the navigation backend. Instead of the physical barrier of an obstruction as a boundary the system is run over a mathematical expansion of the footprint of the obstacle thus establishing a virtual no-go buffer zone.
-
-Figure \ref{fig:inflation} visualizes this mechanism clearly. The diagram differentiates between two distinct zones:
-\begin{itemize}
-	\item \textbf{Original Obstacle:} 
-	The core, which was marked by a light pink colour, is used to outline the real physical size of the object.
-	
-	\item \textbf{Inflated Obstacle:} 
-	The outer representation, which is shown in deeper red, represents the safety buffer that the algorithm introduces.
-\end{itemize}
-
-By the hard limit is defined as the Inflated edge, the path planner is pushed to maintain a safe distance of the physical object of the robot. This essentially supplies the uncertainties encountered in the real world, such as sensor noise, or small localization errors, and thus the robot (initially in the green marker) will never hit the wall when working towards the goal (red square).
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]{inflation.png} 
-	\caption{Obstacle inflation}
-	\label{fig:inflation}
-\end{figure}
 \section{2D Global Planner Results}
 
 We ran the global planner on the 2D map environment first before entering the full 3D simulation. The aim of those tests was ensuring that the planner is capable of producing safe and correct paths in varying obstacle layouts. A 2D version allows us to exercise sanity of the path planning code without wasting time on robot dynamics, sensor noise or real-time control issues.
@@ -392,6 +394,23 @@ Figure~\ref{fig:plan_editor_list} shows the floor plan on the left, with each ro
 
 As shown in Figure~\ref{fig:plan_editor_edit}, selecting a room opens an "Edit Room Config" dialog together with a "Room Information" side panel. From here, the administrator can rename the room, directly edit its ROS navigation X and Y coordinates, and adjust the width and height of its bounding box on the visual floor plan using percentage sliders, without affecting the stored navigation coordinates. Saving the position and size updates only how the room is drawn on the map, while the separate "ROS Navigation coordinates" fields control the actual goal pose sent to the robot, keeping the visual layout and the navigation data independently editable. This separation allows the on-screen floor plan to be adjusted for clarity without risking accidental changes to the robot's calibrated delivery points.
 
+
+% ─────────────────────────────────────────────────────────────────────────────
+\subsection{Live Robot Camera Monitoring}
+
+In addition to configuring the navigation environment, the administrator interface provides access to a live video stream from the robot's onboard RGB camera during an active delivery mission. This feature enables operators to monitor the robot's surroundings in real time without requiring direct access to ROS~2 visualization tools.
+
+The camera feed allows the administrator to verify the robot's navigation progress, observe pedestrians and other dynamic obstacles, and ensure that the delivery task is being executed safely. By integrating the live video stream directly into the web application, the system improves situational awareness and provides a convenient method for remotely supervising robot operations.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{live_robot_camera.png}
+	\caption{Live robot camera feed displayed through the administrator interface during an active delivery mission.}
+	\label{fig:live_camera}
+\end{figure}
+
+Figure~\ref{fig:live_camera} shows the live RGB camera feed captured by the robot while navigating through the indoor delivery environment. The administrator can observe the robot's current surroundings, including corridors, room entrances, and nearby pedestrians, allowing continuous monitoring of the delivery process. This capability provides an additional layer of operational awareness and assists in verifying safe autonomous navigation throughout the mission.
+
 \section{Phase 5: ROS 2 and Gazebo Simulation Results}
 
 The final phase moved all previously validated planning and control algorithms into a fully integrated ROS~2 and Gazebo simulation. This milestone marks the shift from isolated two-dimensional testing to a complete stack, combining SLAM, simulated LiDAR and camera sensing, and our own IA*-based global planning, pruning, spline smoothing, and MPC control pipeline, implemented as custom ROS~2 nodes rather than relying on any off-the-shelf navigation planners, to autonomously carry out parcel delivery missions inside a custom multi-room indoor world.
@@ -442,16 +461,6 @@ With the world constructed, the robot was driven through the environment using R
 
 This SLAM-generated map was saved and supplied directly to our own path-planning nodes as the static map, on top of which the same obstacle inflation strategy developed in Phase 3 was applied to build the inflated planning map used for the global path search.
 
-\subsection{Camera Sensor Output}
-
-In addition to the LiDAR, the TurtleBot3 was equipped with a simulated RGB camera to provide a forward-facing visual feed. Figure~\ref{fig:camera} shows a frame captured from the \texttt{/camera/image\_raw} topic while the robot travelled through the corridor. The colour-coded room walls are clearly distinguishable, along with a waste bin and, entering the top-right corner, the hand of the walking human actor. This confirms the camera is correctly mounted and streaming usable data for future vision-based obstacle recognition.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.9\textwidth]{Camera_output_of_robot.png}
-	\caption{RGB camera feed from the robot's onboard camera, viewed in rqt, showing the corridor and an approaching dynamic obstacle}
-	\label{fig:camera}
-\end{figure}
 
 \subsection{Path Planning and Smoothing in RViz}
 
@@ -503,24 +512,39 @@ Together, these results demonstrate that our complete self-developed pipeline, s
 
 
 \section{Challenges Faced}
-During the process of development, we had to deal with and address several critical issues:  
-\begin{itemize}
-	\item \textbf{Obstacle Collision During Path Planning:} 
-	During the early flights, the premeditated paths were too close to the obstacles, which put the risks of collision at a risk. Through the use of an obstacle inflation strategy and using definite safety margins, we successfully ensured that the robot was kept at a comfortable distance to potential hazards.  
-	
-	\item \textbf{Path Smoothing Issues:} 
-	The A* algorithm although very efficient gave jagged paths which had sharp turns that were not practical considering the kinematics of the robot. By smoothing the paths with cubic splines, at the same time maintaining clearance of obstacles, we were able to fine-tune the paths, and tuning of the parameters needed thorough attention.
-	
-	\item \textbf{Web Backend Communication:}The work of conversion of geospatial coordinates into the position of the robots and simultaneous servicing of multiple user requests requires strict validation procedures and strict synchronization processes.
-	
-	\item \textbf{System Integration:}
-	Through the aspects of incorporating the various system modules, it was realized that the anomalies were rife in the data representations and coordinate reference systems hence resulting in the need to engage in an overall standardization exercise through the constituent components.
-	\item \textbf{Gazebo Environment Setup:} Learning to build the simulation world with proper room dimensions, walls, and the walking person actor took multiple iterations to get right.
+
+Throughout the development of the autonomous parcel delivery system, several technical challenges were encountered during the implementation and integration of different software components. These challenges required extensive debugging, parameter tuning, and iterative testing before a stable and reliable system was achieved.\begin{itemize}
+\item \textbf{Obstacle Collision During Path Planning:}
+During the early stages of path planning, some planned paths passed too close to obstacles, increasing the risk of collision. This issue was resolved by implementing obstacle inflation and defining suitable safety margins, allowing the robot to maintain a safe distance while navigating to the goal.
+
+\item \textbf{Path Smoothing Issues:}
+Although the Improved A* algorithm generated valid collision-free paths, the resulting trajectories contained sharp turns that were difficult for the robot to follow smoothly. Cubic spline interpolation was used to generate smoother paths while maintaining a safe distance from obstacles. Several iterations were required to achieve a balance between smoothness and path accuracy.
+
+\item \textbf{Gazebo Installation and Simulation Setup:}
+Setting up the Gazebo simulation environment was one of the initial challenges of the project. The simulator occasionally displayed a black screen or failed to load the world due to rendering and resource configuration issues. These problems were resolved by selecting the correct rendering engine, configuring resource paths, and installing the required dependencies.
+
+\item \textbf{Custom World Development:}
+Creating a realistic indoor environment required designing rooms, corridors, furniture, doors, and moving human actors while ensuring enough space for the robot to navigate safely. Several adjustments were made to model placement, object sizes, and collision properties before a stable simulation environment was achieved.
+
+\item \textbf{Motion Controller (MPC) Tuning:}
+Although the global planner generated suitable paths, the robot initially struggled to follow them accurately. The MPC controller required careful tuning of prediction horizons, control weights, and velocity limits before the robot could smoothly track the planned path in different environments.
+
+\item \textbf{ROS~2 and Web Application Integration:}
+Connecting the Flutter web application with the ROS~2 navigation system was another major challenge. Reliable communication between the Flutter frontend, Flask backend, and ROS~2 nodes was necessary to send delivery requests, receive robot status updates, and display live information correctly.
+
+
+\item \textbf{Package Dependency Conflicts:}
+The project used several ROS~2 packages and third-party libraries, which occasionally caused dependency conflicts during installation and updates. These issues were resolved by installing compatible package versions and rebuilding the workspace whenever required.
+
+\item \textbf{Launch File Configuration:}
+Managing multiple launch files for Gazebo, SLAM Toolbox, Nav2, the Flask backend, and custom ROS~2 nodes increased the complexity of the system. Careful organization and repeated testing were required to ensure that all components started in the correct order and worked together properly.
+
+\item \textbf{System Integration and Testing:}
+The final challenge was integrating all system components, including path planning, motion control, SLAM, Gazebo, ROS~2, the Flask backend, and the Flutter web application, into a single working system. Extensive testing was carried out to verify that all modules communicated correctly and that the robot could successfully complete delivery missions from start to finish.
+
 \end{itemize}
 
-These challenges provided practical experience in building real autonomous systems from planning to simulation.
-
-
+Despite these challenges, continuous debugging, parameter tuning, and repeated testing resulted in a fully integrated autonomous parcel delivery system capable of reliable navigation, obstacle avoidance, and real-time user interaction through the web application.
 % ══════════════════════════════════════════════════════════════════════════════
 
 \section{Summary}
