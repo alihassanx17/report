@@ -21,13 +21,6 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{simonite2017hungry}
-\BIBentryALTinterwordspacing
-T.~Simonite. (2017, March) Hungry? call your neighborhood delivery robot.
-  Accessed: 2025. [Online]. Available:
-  \url{https://www.npr.org/sections/alltechconsidered/2017/03/23/520848983/hungry-call-your-neighborhood-delivery-robot}
-\BIBentrySTDinterwordspacing
-
 \bibitem{teed2021droid}
 Z.~Teed and J.~Deng, ``{DROID-SLAM}: Deep visual {SLAM} for monocular, stereo,
   and {RGB-D} cameras,'' \emph{Advances in Neural Information Processing
@@ -42,81 +35,6 @@ V.~Yugay, Y.~Li, T.~Gevers, and M.~C. Liem, ``{MAGiC-SLAM}: Multi-agent
 K.~Zheng, C.~Wang, and C.-Z. Xu, ``{WildGS-SLAM}: Real-time monocular {SLAM}
   with {Gaussian} splatting in dynamic environments,'' \emph{IEEE Robotics and
   Automation Letters}, vol.~10, no.~2, pp. 1456--1463, 2025.
-
-\bibitem{virtualbox2024}
-\BIBentryALTinterwordspacing
-{Oracle Corporation}. (2024) {Oracle VM VirtualBox}. Accessed: 2025. [Online].
-  Available: \url{https://www.virtualbox.org/}
-\BIBentrySTDinterwordspacing
-
-\bibitem{ubuntu2024}
-\BIBentryALTinterwordspacing
-{Canonical Ltd.} (2024) {Ubuntu 22.04 LTS (Jammy Jellyfish)}. Accessed: 2025.
-  [Online]. Available: \url{https://ubuntu.com/}
-\BIBentrySTDinterwordspacing
-
-\bibitem{vscode2024}
-\BIBentryALTinterwordspacing
-{Microsoft Corporation}. (2024) {Visual Studio Code}. Accessed: 2025. [Online].
-  Available: \url{https://code.visualstudio.com/}
-\BIBentrySTDinterwordspacing
-
-\bibitem{ros2jazzy2024}
-\BIBentryALTinterwordspacing
-{Open Robotics}. (2024) {ROS 2 Jazzy Jalisco Documentation}. Accessed: 2025.
-  [Online]. Available: \url{https://docs.ros.org/en/jazzy/}
-\BIBentrySTDinterwordspacing
-
-\bibitem{colab2024}
-\BIBentryALTinterwordspacing
-{Google LLC}. (2024) {Google Colaboratory}. Accessed: 2025. [Online].
-  Available: \url{https://colab.research.google.com/}
-\BIBentrySTDinterwordspacing
-
-\bibitem{github2024}
-\BIBentryALTinterwordspacing
-{GitHub, Inc.} (2024) {GitHub: Where the World Builds Software}. Accessed:
-  2025. [Online]. Available: \url{https://github.com/}
-\BIBentrySTDinterwordspacing
-
-\bibitem{flutter2024}
-\BIBentryALTinterwordspacing
-{Google LLC}. (2024) {Flutter: Build Apps for Any Screen}. Accessed: 2025.
-  [Online]. Available: \url{https://flutter.dev/}
-\BIBentrySTDinterwordspacing
-
-\bibitem{flask2024}
-\BIBentryALTinterwordspacing
-{Pallets Projects}. (2024) {Flask Web Development Framework}. Accessed: 2025.
-  [Online]. Available: \url{https://flask.palletsprojects.com/}
-\BIBentrySTDinterwordspacing
-
-\bibitem{overleaf2024}
-\BIBentryALTinterwordspacing
-{Digital Science UK Limited}. (2024) {Overleaf: The Easy to Use, Online,
-  Collaborative LaTeX Editor}. Accessed: 2025. [Online]. Available:
-  \url{https://www.overleaf.com/}
-\BIBentrySTDinterwordspacing
-
-\bibitem{un2015sdgs}
-\BIBentryALTinterwordspacing
-{United Nations}. (2015) {Transforming Our World: The 2030 Agenda for
-  Sustainable Development}. Accessed: 2025. [Online]. Available:
-  \url{https://sdgs.un.org/2030agenda}
-\BIBentrySTDinterwordspacing
-
-\bibitem{unsdg4}
-\BIBentryALTinterwordspacing
-------. (2024) {Goal 4: Ensure Inclusive and Equitable Quality Education}.
-  Accessed: 2025. [Online]. Available: \url{https://sdgs.un.org/goals/goal4}
-\BIBentrySTDinterwordspacing
-
-\bibitem{unsdg11}
-\BIBentryALTinterwordspacing
-------. (2024) {Goal 11: Make Cities Inclusive, Safe, Resilient and
-  Sustainable}. Accessed: 2025. [Online]. Available:
-  \url{https://sdgs.un.org/goals/goal11}
-\BIBentrySTDinterwordspacing
 
 \bibitem{ravankar2018path}
 A.~Ravankar, A.~A. Ravankar, Y.~Kobayashi, Y.~Hoshino, and C.-C. Peng, ``Path
@@ -155,6 +73,17 @@ E.~Krell, A.~Sheta, A.~R. Balasubramanian, and S.~A. King, ``Collision-free
   autonomous robot navigation in unknown environments utilizing {PSO} for path
   planning,'' \emph{Journal of Artificial Intelligence and Soft Computing
   Research}, vol.~9, no.~4, pp. 267--282, 2019.
+
+\bibitem{faulwasser2009mpc}
+T.~Faulwasser, B.~Kern, and R.~Findeisen, ``Model predictive path-following for
+  constrained nonlinear systems,'' in \emph{Proceedings of the 48th IEEE
+  Conference on Decision and Control (CDC)}.\hskip 1em plus 0.5em minus
+  0.4em\relax IEEE, 2009, pp. 8642--8647.
+
+\bibitem{cao2024pure}
+K.~Cao, C.~Wang, Y.~Xu, and Z.~Chen, ``Pure pursuit path tracking control with
+  reinforcement learning-based adaptive velocity for autonomous mobile
+  robots,'' \emph{Applied Sciences}, vol.~14, no.~3, p. 1189, 2024.
 
 \bibitem{galceran2013survey}
 E.~Galceran and M.~Carreras, ``A survey on coverage path planning for
@@ -200,11 +129,6 @@ Y.~Li, Y.~Zhuang, H.~Lan, P.~Zhang, X.~Niu, and N.~El-Sheimy, ``Indoor
   navigation: State of the art and future trends,'' \emph{Satellite
   Navigation}, vol.~2, no.~1, pp. 1--23, 2021.
 
-\bibitem{cao2024pure}
-K.~Cao, C.~Wang, Y.~Xu, and Z.~Chen, ``Pure pursuit path tracking control with
-  reinforcement learning-based adaptive velocity for autonomous mobile
-  robots,'' \emph{Applied Sciences}, vol.~14, no.~3, p. 1189, 2024.
-
 \bibitem{ajeil2020grid}
 F.~H. Ajeil, I.~K. Ibraheem, A.~T. Azar, and A.~J. Humaidi, ``Grid-based mobile
   robot path planning using aging-based ant colony optimization algorithm,''
@@ -241,18 +165,5 @@ N.~Koenig and A.~Howard, ``Design and use paradigms for {Gazebo}, an
   open-source multi-robot simulator,'' in \emph{IEEE/RSJ International
   Conference on Intelligent Robots and Systems (IROS)}, vol.~3.\hskip 1em plus
   0.5em minus 0.4em\relax IEEE, 2004, pp. 2149--2154.
-
-\bibitem{gazebo2024}
-\BIBentryALTinterwordspacing
-{Open Robotics}. (2024) {Gazebo Simulator}. Accessed: 2025. [Online].
-  Available: \url{https://gazebosim.org/}
-\BIBentrySTDinterwordspacing
-
-\bibitem{turtlebot3doc}
-\BIBentryALTinterwordspacing
-{ROBOTIS}. (2024) {TurtleBot3 Documentation}. Accessed: 2025. [Online].
-  Available:
-  \url{https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/}
-\BIBentrySTDinterwordspacing
 
 \end{thebibliography}

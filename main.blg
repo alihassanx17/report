@@ -2,35 +2,17 @@ This is BibTeX, Version 0.99e
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 Reallocating 'name_of_file' (item size: 1) to 13 items.
-A level-1 auxiliary file: chapter1.aux
-Reallocating 'name_of_file' (item size: 1) to 13 items.
 A level-1 auxiliary file: chapter2.aux
-Reallocating 'name_of_file' (item size: 1) to 13 items.
-A level-1 auxiliary file: chapter3.aux
-Reallocating 'name_of_file' (item size: 1) to 13 items.
-A level-1 auxiliary file: chapter4.aux
-Reallocating 'name_of_file' (item size: 1) to 13 items.
-A level-1 auxiliary file: chapter5.aux
-Reallocating 'name_of_file' (item size: 1) to 13 items.
-A level-1 auxiliary file: chapter6.aux
-Reallocating 'name_of_file' (item size: 1) to 13 items.
-A level-1 auxiliary file: chapter7.aux
 Reallocating 'name_of_file' (item size: 1) to 9 items.
 The style file: IEEEtran.bst
 Reallocating 'name_of_file' (item size: 1) to 11 items.
-Reallocating 'name_of_file' (item size: 1) to 14 items.
-A level-1 auxiliary file: appendixA.aux
-Reallocating 'name_of_file' (item size: 1) to 14 items.
-A level-1 auxiliary file: appendixB.aux
-Reallocating 'name_of_file' (item size: 1) to 14 items.
-A level-1 auxiliary file: appendixC.aux
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'wiz_functions' (item size: 4) to 6000 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Database file #1: references.bib
-I was expecting a `,' or a `}'---line 969 of file references.bib
+I was expecting a `,' or a `}'---line 985 of file references.bib
  :   
  :   @article{wang2019smooth,
 (Error may have been on previous line)
@@ -41,45 +23,45 @@ Warning--I didn't find a database entry for "2"
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 
 Done.
-You've used 41 entries,
+You've used 27 entries,
             4087 wiz_defined-function locations,
-            1051 strings with 14079 characters,
-and the built_in function-call counts, 27934 in all, are:
-= -- 2396
-> -- 597
-< -- 197
-+ -- 330
-- -- 120
-* -- 1249
-:= -- 4400
-add.period$ -- 100
-call.type$ -- 41
-change.case$ -- 59
-chr.to.int$ -- 417
-cite$ -- 41
-duplicate$ -- 2042
-empty$ -- 2133
-format.name$ -- 134
-if$ -- 6438
+            986 strings with 12661 characters,
+and the built_in function-call counts, 23028 in all, are:
+= -- 1948
+> -- 560
+< -- 208
++ -- 314
+- -- 108
+* -- 1129
+:= -- 3377
+add.period$ -- 58
+call.type$ -- 27
+change.case$ -- 30
+chr.to.int$ -- 447
+cite$ -- 27
+duplicate$ -- 1658
+empty$ -- 1695
+format.name$ -- 123
+if$ -- 5389
 int.to.chr$ -- 0
-int.to.str$ -- 41
-missing$ -- 384
-newline$ -- 176
-num.names$ -- 41
-pop$ -- 892
+int.to.str$ -- 27
+missing$ -- 274
+newline$ -- 104
+num.names$ -- 27
+pop$ -- 590
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 2198
+skip$ -- 1795
 stack$ -- 0
-substring$ -- 1123
-swap$ -- 1669
-text.length$ -- 58
+substring$ -- 1164
+swap$ -- 1426
+text.length$ -- 59
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 41
+type$ -- 27
 warning$ -- 0
-while$ -- 111
-width$ -- 43
-write$ -- 455
+while$ -- 101
+width$ -- 29
+write$ -- 299
 (There was 1 error message)

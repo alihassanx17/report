@@ -304,7 +304,59 @@ The approach also presupposes grid-like workspace, which is easier to represent 
 
 The other weakness is that the methodology is only tested based on simulation experiments instead of real robotic implementation. There is no discussion of practical implementation issues like noise of sensors, dynamic movement of obstacles and uncertainty in localization.
 
-\subsection{Related Technology 4 -- Cellular Decomposition}
+
+\subsection{Related Technology 4 -- Motion Control Strategies for Trajectory Tracking}
+
+Trajectory-tracking controllers compute velocity commands required to follow a reference trajectory while minimizing tracking error and satisfying kinematic constraints. Approaches to trajectory tracking range from model-based predictive optimization to learning-based strategies.
+
+\subsubsection{Model Predictive Control (MPC)}
+
+MPC optimizes control inputs over a finite prediction horizon by solving a constrained optimization problem at each timestep~\cite{faulwasser2009mpc}. Using a point-mass dynamics abstraction based on double-integrator models derived from Newton's second law ($F = ma$), the discrete-time system can be represented as
+
+\begin{equation}
+	x_{k+1} = A x_k + B u_k
+\end{equation}
+
+where the state vector contains position and velocity, $x = [x, y, v_x, v_y]^T$, and the control input consists of accelerations, $u = [a_x, a_y]^T$. This point-mass abstraction simplifies the robot dynamics while preserving the essential relationship between path geometry and tracking performance, allowing the effect of curvature continuity on control stability to be analysed without requiring explicit differential-drive wheel kinematics. MPC minimizes the following cost function:
+
+\begin{equation}
+	J = \min_{U} \sum_{i=1}^{N_p} \left( e_i^T Q e_i + u_i^T R u_i \right)
+\end{equation}
+
+where $e_i = x_i - x_{\text{ref},i}$ is the tracking error, $Q$ penalizes state deviation, $R$ penalizes control effort, and $N_p$ is the prediction horizon. MPC naturally handles constraints such as velocity limits and acceleration bounds through convex optimization solvers, achieving superior tracking accuracy when supplied with smooth reference trajectories.
+
+Critically, MPC performance depends heavily on the smoothness of the reference path. Non-smooth paths containing curvature discontinuities cause inaccuracies in the prediction model, resulting in large tracking errors and control oscillations. Research demonstrates that smoothed paths can reduce tracking error by orders of magnitude compared with piecewise-linear references~\cite{cao2024pure}.
+
+\subsubsection{Pure Pursuit Control}
+
+Pure Pursuit~\cite{cao2024pure} computes angular velocity commands by fitting circular arcs between the robot's current position and a lookahead point on the reference path. The method offers simple implementation and robust performance; however, it assumes constant velocity, which can degrade tracking performance on curved paths with varying curvature.
+
+\subsubsection{Deep Reinforcement Learning (DRL) for Path Following}
+
+Recent research~\cite{cao2024pure} explores a hybrid control scheme combining Pure Pursuit steering with Soft Actor-Critic (SAC) velocity control for nonholonomic mobile robots, achieving adaptive velocity adjustment based on path curvature. While DRL-based approaches can learn adaptive behaviours, they require extensive offline training in simulation environments, lack interpretability, and may not generalize to unseen scenarios without retraining. In contrast, MPC provides explicit constraint handling and predictable behaviour but requires smooth reference trajectories for stable operation.
+
+\begin{table}[htbp]
+	\centering
+	\caption{Motion Control Technologies Relevant to This Project}
+	\label{tab:motion_control_tech}
+	\begin{tabular}{|p{3.2cm}|p{3.2cm}|p{6.6cm}|}
+		\hline
+		\textbf{Component} & \textbf{Tool/Method} & \textbf{Description} \\
+		\hline
+		Offline Control Analysis & Model Predictive Control (MPC) & Quadratic programming, point-mass dynamics, demonstrates curvature-tracking relationship \\
+		\hline
+		Constraint Handling & CVXPY (Quadratic Solver) & Velocity limits and acceleration bounds enforcement \\
+		\hline
+		Localization & AMCL (Particle Filter) & Monte Carlo localization, laser scan matching \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsubsection{Relevance to Our Project}
+
+Model Predictive Control is directly applicable to the proposed system, as it links the smoothness of the cubic-spline-generated reference trajectory to tracking stability and control performance. The point-mass analysis discussed above justifies why spline-smoothed paths -- rather than raw IA* waypoints -- are supplied to the controller, ensuring accurate and stable trajectory execution during autonomous parcel delivery.
+
+\subsection{Related Technology 5 -- Cellular Decomposition}
 
 Cellular decomposition is a common place-planning approach and representation of the environment of classical environment representation in autonomous robot navigation~\cite{galceran2013survey}. The way splits the robot area into smaller areas with no overlaps, known as cells, which makes navigation much simpler as the continuous environment is represented in a structured format. It is a technique that enhances efficiency in computation and reduces collisions in addition to the systematic generation of paths.
 
@@ -358,7 +410,7 @@ The cellular decomposition is directly related to the suggested autonomous navig
 \item \textbf{Scalability Issues:} Performance decreases when applied to very large or highly cluttered environments.
 \end{itemize}
 
-\subsection{Related Technology 5 -- ROS2-Based Autonomous Robot Architectures}
+\subsection{Related Technology 6 -- ROS2-Based Autonomous Robot Architectures}
 
 ROS has since become the common middleware of robotic application development, but suffered significant scalability and real-time performance problems and hence ROS2 was created, which is meant to address the requirements of modern autonomous robot development. Surveys of the recent readings in robotics revealed that most of the ROS2-based robotic systems are designed to enhance autonomy; they are the state-of-the-art that we are expected to learn about during this semester. The latest surveys overview various ROS2-based robotic systems that are specifically created to enhance autonomy~\cite{bonci2023ros2}. The papers emphasize modular designs which isolate perception, planning, and control so that a system can remain scalable and flexible without being caught by an inflexible design. In other works, the topic of practical designing and executing autonomous mobile robots in unstructured indoor settings is examined~\cite{gargouri2024cost}. These systems include hardware such as motors, sensors and controllers in addition to software modules in navigation and obstacle avoidance. Architectural and hardware-centric methods are both shown to be able to use ROS2 to support autonomous navigation. The comparison shows the usefulness of mixing ROS2 modular software stacks with practical hardware integration; this has been our first-hand experience, which we are applying to the design of our proposed autonomous parcel delivery system.
 
@@ -384,15 +436,15 @@ However, limitations include:
 
 Both architectural and implementation studies acknowledge these trade-offs and emphasize careful system design to balance performance and complexity.
 
-\subsection{Related Technology 6 -- ROS2 Navigation Stack (NAV2 Framework)}
+\subsection{Related Technology 7 -- ROS2 Navigation Stack (NAV2 Framework)}
 
 The ROS2 Navigation Stack (NAV2)~\cite{macenski2020marathon,macenski2022nav2} provides a complete solution for autonomous robot navigation. NAV2 includes modules for localization, mapping, path planning, and motion control. Localization is commonly achieved using Adaptive Monte Carlo Localization (AMCL), which estimates robot pose using LiDAR data and a known map. Mapping is performed using SLAM algorithms to generate occupancy grid maps. Path planning in NAV2 consists of global planners for long-term routes and local planners for obstacle avoidance. Motion control modules generate velocity commands for safe navigation. Both academic and industrial implementations emphasize the importance of sensor integration, particularly LiDAR and IMU data, for reliable navigation pipelines.
 
-\subsection{Related Technology 7 -- Visual SLAM vs LiDAR-Based SLAM}
+\subsection{Related Technology 8 -- Visual SLAM vs LiDAR-Based SLAM}
 
 SLAM systems are commonly categorized based on the primary sensor used for perception: visual sensors (cameras) or LiDAR sensors. Visual SLAM systems rely on monocular, stereo or RGB-D cameras to derive features and obtain depth data~\cite{campos2021orb}. They offer high appearance at low cost and are ideal in indoor environment conditions in which there are texture and lighting cues. However, they are sensitive to light effects and change of scene. In contrast, LiDAR-based SLAM is a process which employs laser scanners to create 3D point clouds, which do not depend on lighting conditions~\cite{li2021indoor}. LiDAR does not have, even though it is able to offer very accurate geometrical measurements. Recent deep learning-based visual SLAM prove that systems based on cameras can be accurate in the same way as LiDAR at the same time as they are cost-effective in hardware, which makes them ideal in indoor autonomous delivery robots.
 
-\subsection{Related Technology 8 -- DROID-SLAM Framework and Dense Bundle Adjustment}
+\subsection{Related Technology 9 -- DROID-SLAM Framework and Dense Bundle Adjustment}
 
 DROID-SLAM~\cite{teed2021droid} presents a deep learning-driven visual SLAM framework capable of operating with monocular, stereo, and RGB-D cameras. The system utilizes a recurrent neural architecture that does a sequential optimization of camera pose and dense depth maps. Another important innovation is the application of the Dense Bundle Adjustment (DBA) in a fully differentiable pipeline. In contrast to classical SLAM which executes sparse bundle adjustment, DROID-SLAM has a joint optimization of pixel-wise depth and camera poses across multiple frames. This repetition optimization does help a great deal to diminish drift and improves tracking strength which is particularly good in low-texture indoor places like walls and floors. Also, the framework makes generalizations across sensor modalities, without re-generalizing training. In the case of autonomous parcel delivery robots, the DROID-SLAM facilitates high levels of acculocalize rates with the help of a low-cost RGB or RGB-D camera alone.
 
@@ -403,7 +455,7 @@ DROID-SLAM~\cite{teed2021droid} presents a deep learning-driven visual SLAM fram
 \label{fig:droid_slam}
 \end{figure}
 
-\subsection{Related Technology 9 -- MAGiC-SLAM Multi-Agent Gaussian Mapping}
+\subsection{Related Technology 10 -- MAGiC-SLAM Multi-Agent Gaussian Mapping}
 
 MAGiC-SLAM~\cite{yugay2024magic} introduces a multi-agent SLAM framework based on a 3D Gaussian scene representation. Rather than describing the environment as the point clouds or voxels, the model is represented by Gaussian primitives that enable the representation of the scene in an efficient manner, and map merging. The most important contribution of MAGiC-SLAM is that it is capable of fusing maps formed by several robots into a map on a global scale by the means of trajectory alignment and loop closure. This method enhances large indoor en-scalability, vironments and minimizes drift. In a place where numerous delivery robots are used at the same time, e.g. warehouses or hospitals, MAGiC-SLAM provides a viable tool of collaborative mapping and common space understanding.
 
@@ -414,7 +466,7 @@ MAGiC-SLAM~\cite{yugay2024magic} introduces a multi-agent SLAM framework based o
 \label{fig:magic_slam}
 \end{figure}
 
-\subsection{Related Technology 10 -- WildGS-SLAM for Dynamic Environment Mapping}
+\subsection{Related Technology 11 -- WildGS-SLAM for Dynamic Environment Mapping}
 
 WildGS-SLAM~\cite{zheng2025wildgs} addresses the challenge of SLAM in dynamic environments using a monocular camera and Gaussian splatting representation. Indoor delivery environments often include moving humans, doors which open and close and moving objects that are capable of corrupting the SLAM map. WildGS-SLAM proposes an uncertain tracking and mapping filter which identifies and eliminates dynamical features in the scene without the use of semantic segmentation or depth sensors. Through uncertainty prediction per-pixel, integrating it with dense bundle adjustment and Gaussian maps optimization, WildGS-SLAM performs a good tracking and high-fidelity mapping in dense indoor environments. This feature is very applicable in the parcel delivery robots which act in real-life enhighly moving and occluding environments.
 
