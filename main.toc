@@ -3,199 +3,50 @@
 \contentsline {chapter}{CERTIFICATE OF APPROVAL}{v}{chapter*.3}%
 \contentsline {chapter}{ACKNOWLEDGMENT}{vi}{chapter*.4}%
 \contentsline {chapter}{ABSTRACT}{vii}{chapter*.5}%
-\contentsline {chapter}{TABLE OF CONTENTS}{xii}{chapter*.6}%
-\contentsline {chapter}{LIST OF FIGURES}{xv}{chapter*.7}%
-\contentsline {chapter}{LIST OF TABLES}{xvi}{chapter*.8}%
-\contentsline {chapter}{LIST OF ACRONYMS/ABBREVIATIONS}{xvii}{chapter*.9}%
-\contentsline {chapter}{\numberline {1}INTRODUCTION}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Overview}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Project idea}{1}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Purpose of the project}{2}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Motivation and Need of the Project}{2}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}Project Specifications}{2}{subsection.1.4.1}%
-\contentsline {section}{\numberline {1.5}Project Objectives}{4}{section.1.5}%
-\contentsline {subsection}{\numberline {1.5.1}General Objectives}{4}{subsection.1.5.1}%
-\contentsline {subsection}{\numberline {1.5.2}Specific Objectives}{4}{subsection.1.5.2}%
-\contentsline {section}{\numberline {1.6}Scope of the Project}{4}{section.1.6}%
-\contentsline {section}{\numberline {1.7}Significance of the Project}{4}{section.1.7}%
-\contentsline {section}{\numberline {1.8}Applications of the Proposed System}{5}{section.1.8}%
-\contentsline {subsection}{\numberline {1.8.1}Hospitals}{5}{subsection.1.8.1}%
-\contentsline {subsection}{\numberline {1.8.2}University Campuses}{5}{subsection.1.8.2}%
-\contentsline {subsection}{\numberline {1.8.3}Office Buildings}{5}{subsection.1.8.3}%
-\contentsline {subsection}{\numberline {1.8.4}Industrial Units}{6}{subsection.1.8.4}%
-\contentsline {subsection}{\numberline {1.8.5}Hotels}{6}{subsection.1.8.5}%
-\contentsline {subsection}{\numberline {1.8.6}Emergency and Disaster Zones}{6}{subsection.1.8.6}%
-\contentsline {section}{\numberline {1.9}Limitations of the System}{6}{section.1.9}%
-\contentsline {section}{\numberline {1.10}Project Plan}{6}{section.1.10}%
-\contentsline {section}{\numberline {1.11}Project Timeline}{7}{section.1.11}%
-\contentsline {subsection}{\numberline {1.11.1}Targeted Sustainable Development Goals}{8}{subsection.1.11.1}%
-\contentsline {section}{\numberline {1.12}Report Organization}{8}{section.1.12}%
-\contentsline {section}{\numberline {1.13}Chapter Summary}{9}{section.1.13}%
-\contentsline {chapter}{\numberline {2}LITERATURE REVIEW}{10}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Background}{10}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Autonomous Mobile Robot Navigation Fundamentals}{11}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Trajectory Smoothing and Interpolation}{11}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Localization and Mapping Principles}{14}{subsection.2.1.3}%
-\contentsline {subsection}{\numberline {2.1.4}Path Planning and Obstacle Avoidance Fundamentals}{14}{subsection.2.1.4}%
-\contentsline {subsection}{\numberline {2.1.5}Motion Control and Trajectory Tracking}{15}{subsection.2.1.5}%
-\contentsline {subsection}{\numberline {2.1.6}Robotics Middleware and System Integration}{15}{subsection.2.1.6}%
-\contentsline {section}{\numberline {2.2}Related Technologies}{15}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Related Technology 1 -- Path Planning Algorithms}{15}{subsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.1.1}A* Algorithm}{16}{subsubsection.2.2.1.1}%
-\contentsline {subsubsection}{\numberline {2.2.1.2}Improved A* (IA*) Algorithm}{16}{subsubsection.2.2.1.2}%
-\contentsline {subsubsection}{\numberline {2.2.1.3}Comparison with Other Path Planning Algorithms}{16}{subsubsection.2.2.1.3}%
-\contentsline {subsubsection}{\numberline {2.2.1.4}Justification for Selecting Improved A*}{17}{subsubsection.2.2.1.4}%
-\contentsline {subsection}{\numberline {2.2.2}Related Technology 2 -- Path Smoothing and Optimization Techniques}{18}{subsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.2.1}Overview}{18}{subsubsection.2.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2.2}Classical Interpolation Approaches}{18}{subsubsection.2.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.2.3}Optimization-Based Smoothing: PSO with Bezier Curves}{18}{subsubsection.2.2.2.3}%
-\contentsline {subsubsection}{\numberline {2.2.2.4}Hybrid Approaches: Local PSO Optimization with Spline Smoothing}{19}{subsubsection.2.2.2.4}%
-\contentsline {subsubsection}{\numberline {2.2.2.5}Justification for Cubic Spline Selection}{20}{subsubsection.2.2.2.5}%
-\contentsline {subsection}{\numberline {2.2.3}Related Technology 3 -- Particle Swarm Optimization (PSO) Based Path Planning}{20}{subsection.2.2.3}%
-\contentsline {subsubsection}{\numberline {2.2.3.1}Relevance to Our Project}{21}{subsubsection.2.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.2.3.2}Limitations Identified}{22}{subsubsection.2.2.3.2}%
-\contentsline {subsection}{\numberline {2.2.4}Related Technology 4 -- Motion Control Strategies for Trajectory Tracking}{22}{subsection.2.2.4}%
-\contentsline {subsubsection}{\numberline {2.2.4.1}Model Predictive Control (MPC)}{22}{subsubsection.2.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.2.4.2}Pure Pursuit Control}{23}{subsubsection.2.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.2.4.3}Deep Reinforcement Learning (DRL) for Path Following}{23}{subsubsection.2.2.4.3}%
-\contentsline {subsubsection}{\numberline {2.2.4.4}Relevance to Our Project}{23}{subsubsection.2.2.4.4}%
-\contentsline {subsection}{\numberline {2.2.5}Related Technology 5 -- Cellular Decomposition}{24}{subsection.2.2.5}%
-\contentsline {subsubsection}{\numberline {2.2.5.1}Relevance with Our Project}{25}{subsubsection.2.2.5.1}%
-\contentsline {subsubsection}{\numberline {2.2.5.2}Limitations of Cellular Decomposition}{26}{subsubsection.2.2.5.2}%
-\contentsline {subsection}{\numberline {2.2.6}Related Technology 6 -- ROS2-Based Autonomous Robot Architectures}{26}{subsection.2.2.6}%
-\contentsline {subsubsection}{\numberline {2.2.6.1}Advantages and Limitations of ROS2-Based Systems}{27}{subsubsection.2.2.6.1}%
-\contentsline {subsection}{\numberline {2.2.7}Related Technology 7 -- ROS2 Navigation Stack (NAV2 Framework)}{27}{subsection.2.2.7}%
-\contentsline {subsection}{\numberline {2.2.8}Related Technology 8 -- Visual SLAM vs LiDAR-Based SLAM}{28}{subsection.2.2.8}%
-\contentsline {subsection}{\numberline {2.2.9}Related Technology 9 -- DROID-SLAM Framework and Dense Bundle Adjustment}{28}{subsection.2.2.9}%
-\contentsline {subsection}{\numberline {2.2.10}Related Technology 10 -- MAGiC-SLAM Multi-Agent Gaussian Mapping}{29}{subsection.2.2.10}%
-\contentsline {subsection}{\numberline {2.2.11}Related Technology 11 -- WildGS-SLAM for Dynamic Environment Mapping}{29}{subsection.2.2.11}%
-\contentsline {section}{\numberline {2.3}Related Projects}{30}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Related Studies / Research}{31}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Limitations and Bottlenecks of the Existing Work}{32}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Problem Statement}{33}{section.2.6}%
-\contentsline {section}{\numberline {2.7}Summary}{34}{section.2.7}%
-\contentsline {chapter}{\numberline {3}PROJECT DESIGN AND IMPLEMENTATION}{35}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Proposed Design Methodology}{35}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Overall System Architecture}{37}{subsection.3.1.1}%
-\contentsline {section}{\numberline {3.2}Analysis Procedure}{38}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Path Planning Performance Metrics}{39}{subsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.1.1}Path Length}{39}{subsubsection.3.2.1.1}%
-\contentsline {subsubsection}{\numberline {3.2.1.2}Collision-Free Validation}{39}{subsubsection.3.2.1.2}%
-\contentsline {subsubsection}{\numberline {3.2.1.3}Waypoint Density}{39}{subsubsection.3.2.1.3}%
-\contentsline {subsection}{\numberline {3.2.2}Path Optimization and Smoothness Evaluation}{39}{subsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.2.1}Curvature Continuity}{40}{subsubsection.3.2.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2.2}Turning Angle Analysis}{40}{subsubsection.3.2.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.2.3}Waypoint Reduction Ratio}{40}{subsubsection.3.2.2.3}%
-\contentsline {subsection}{\numberline {3.2.3}Trajectory Tracking Performance Metrics}{40}{subsection.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.3.1}Tracking Error}{40}{subsubsection.3.2.3.1}%
-\contentsline {subsubsection}{\numberline {3.2.3.2}Orientation Error}{40}{subsubsection.3.2.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.3.3}Velocity Tracking Accuracy}{41}{subsubsection.3.2.3.3}%
-\contentsline {subsection}{\numberline {3.2.4}Computational Efficiency Analysis}{41}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}Navigation Reliability Assessment in Dynamic Environments}{41}{subsection.3.2.5}%
-\contentsline {section}{\numberline {3.3}Design of the Project Hardware}{42}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Design of the Project Software/Algorithm}{42}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Software Architecture and Integration}{43}{subsection.3.4.1}%
-\contentsline {section}{\numberline {3.5}Implementation Procedure}{44}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Phase 1: Path Planning Algorithm Implementation}{45}{subsection.3.5.1}%
-\contentsline {subsubsection}{\numberline {3.5.1.1}A* Algorithm Implementation}{45}{subsubsection.3.5.1.1}%
-\contentsline {subsubsection}{\numberline {3.5.1.2}Path Pruning Implementation}{45}{subsubsection.3.5.1.2}%
-\contentsline {subsubsection}{\numberline {3.5.1.3}PSO-Based Path Smoothing Implementation}{45}{subsubsection.3.5.1.3}%
-\contentsline {subsection}{\numberline {3.5.2}Phase 2: Web Interface Implementation}{45}{subsection.3.5.2}%
-\contentsline {subsubsection}{\numberline {3.5.2.1}Frontend and Backend Technology Stack}{46}{subsubsection.3.5.2.1}%
-\contentsline {subsubsection}{\numberline {3.5.2.2}Frontend Development}{46}{subsubsection.3.5.2.2}%
-\contentsline {subsubsection}{\numberline {3.5.2.3}Backend Server Development}{47}{subsubsection.3.5.2.3}%
-\contentsline {subsection}{\numberline {3.5.3}Phase 3: Web Platform Integration}{47}{subsection.3.5.3}%
-\contentsline {subsubsection}{\numberline {3.5.3.1}Workspace Configuration}{48}{subsubsection.3.5.3.1}%
-\contentsline {subsubsection}{\numberline {3.5.3.2}Obstacle Placement}{48}{subsubsection.3.5.3.2}%
-\contentsline {subsubsection}{\numberline {3.5.3.3}Start and Goal Position Selection}{49}{subsubsection.3.5.3.3}%
-\contentsline {subsubsection}{\numberline {3.5.3.4}Algorithm Selection and Execution}{49}{subsubsection.3.5.3.4}%
-\contentsline {subsubsection}{\numberline {3.5.3.5}Path Visualization and Output}{49}{subsubsection.3.5.3.5}%
-\contentsline {subsection}{\numberline {3.5.4}Phase 4: MPC Controller Implementation}{50}{subsection.3.5.4}%
-\contentsline {subsubsection}{\numberline {3.5.4.1}Controller Development}{50}{subsubsection.3.5.4.1}%
-\contentsline {subsection}{\numberline {3.5.5}Phase 5: Dynamic Programming Integration}{50}{subsection.3.5.5}%
-\contentsline {subsubsection}{\numberline {3.5.5.1}Cell Decomposition Implementation}{50}{subsubsection.3.5.5.1}%
-\contentsline {subsubsection}{\numberline {3.5.5.2}Web Integration}{50}{subsubsection.3.5.5.2}%
-\contentsline {subsection}{\numberline {3.5.6}Phase 6: ROS2 and Gazebo Setup}{51}{subsection.3.5.6}%
-\contentsline {subsubsection}{\numberline {3.5.6.1}Virtual Environment Configuration}{51}{subsubsection.3.5.6.1}%
-\contentsline {subsubsection}{\numberline {3.5.6.2}ROS2 Jazzy Installation}{51}{subsubsection.3.5.6.2}%
-\contentsline {subsubsection}{\numberline {3.5.6.3}Gazebo Simulation Setup}{51}{subsubsection.3.5.6.3}%
-\contentsline {subsubsection}{\numberline {3.5.6.4}ROS2 Node Development}{51}{subsubsection.3.5.6.4}%
-\contentsline {subsection}{\numberline {3.5.7}System Integration and Testing}{51}{subsection.3.5.7}%
-\contentsline {section}{\numberline {3.6}Details of Simulations / Mathematical Modeling}{52}{section.3.6}%
-\contentsline {subsection}{\numberline {3.6.1}Robot Kinematic Modeling}{52}{subsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.6.2}Mathematical Modeling of Path Planning}{52}{subsection.3.6.2}%
-\contentsline {subsection}{\numberline {3.6.3}Optimization Formulation of PSO Smoothing}{53}{subsection.3.6.3}%
-\contentsline {subsection}{\numberline {3.6.4}Mathematical Formulation of MPC Controller}{54}{subsection.3.6.4}%
-\contentsline {subsection}{\numberline {3.6.5}Algorithm Parameters and Configuration}{54}{subsection.3.6.5}%
-\contentsline {subsection}{\numberline {3.6.6}Algorithm Selection and Justification}{57}{subsection.3.6.6}%
-\contentsline {section}{\numberline {3.7}Details of Final Working Prototype}{58}{section.3.7}%
-\contentsline {subsection}{\numberline {3.7.1}Gazebo Simulation Environment Status}{58}{subsection.3.7.1}%
-\contentsline {subsection}{\numberline {3.7.2}Web-Based Planning Interface Status}{58}{subsection.3.7.2}%
-\contentsline {subsection}{\numberline {3.7.3}Current Development Progress}{59}{subsection.3.7.3}%
-\contentsline {section}{\numberline {3.8}Chapter Summary}{59}{section.3.8}%
-\contentsline {chapter}{\numberline {4}TOOLS AND TECHNIQUES}{60}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Overview}{60}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Hardware Tools Used}{60}{section.4.2}%
-\contentsline {section}{\numberline {4.3} Software and Simulation Tools}{60}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Oracle VirtualBox}{60}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Ubuntu Linux}{61}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Visual Studio Code}{61}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}ROS 2 and Gazebo Simulation Environment}{62}{subsection.4.3.4}%
-\contentsline {subsection}{\numberline {4.3.5}Google Colaboratory}{62}{subsection.4.3.5}%
-\contentsline {subsection}{\numberline {4.3.6}GitHub}{63}{subsection.4.3.6}%
-\contentsline {subsection}{\numberline {4.3.7}Flutter}{63}{subsection.4.3.7}%
-\contentsline {subsection}{\numberline {4.3.8}Flask}{63}{subsection.4.3.8}%
-\contentsline {subsection}{\numberline {4.3.9}Overleaf}{64}{subsection.4.3.9}%
-\contentsline {section}{\numberline {4.4}Summary}{64}{section.4.4}%
-\contentsline {chapter}{\numberline {5}PROJECT RESULTS AND EVALUATION}{65}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Phase 1: Path Planning in VS Code}{65}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Step 1: Exploring the Map with A*}{65}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Step 2: Generating the Raw Path}{66}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}Step 3: Cleaning Up the Path (Pruning)}{67}{subsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.1.4}Step 4: Smoothing the Path}{68}{subsection.5.1.4}%
-\contentsline {section}{\numberline {5.2}Phase 2: Motion Control with MPC}{69}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Basic Tracking Test}{69}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Testing in Two Different Environments at Once}{70}{subsection.5.2.2}%
-\contentsline {subsubsection}{\numberline {5.2.2.1}Start of the Mission}{71}{subsubsection.5.2.2.1}%
-\contentsline {subsubsection}{\numberline {5.2.2.2}End of the Mission}{71}{subsubsection.5.2.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Keeping the Robot Safe: Obstacle Inflation}{72}{subsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.2.4}Measuring the Tracking Error}{73}{subsection.5.2.4}%
-\contentsline {subsubsection}{\numberline {5.2.4.1}Scenario 1: Standard Maze}{73}{subsubsection.5.2.4.1}%
-\contentsline {subsubsection}{\numberline {5.2.4.2}Scenario 2: Large Open Workspace}{74}{subsubsection.5.2.4.2}%
-\contentsline {subsection}{\numberline {5.2.5}Stress Test: Circles and Triangles}{75}{subsection.5.2.5}%
-\contentsline {section}{\numberline {5.3}Phase 3: Web Interface}{76}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}The Control Dashboard}{76}{subsection.5.3.1}%
-\contentsline {section}{\numberline {5.4}2D Global Planner Results}{77}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Cellular Decomposition Output (2D Workspace Partitioning)}{78}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Scenario A: Path Planning with Obstacle Avoidance}{78}{subsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.4.3}Scenario B: Navigating Around Multiple Obstacles}{79}{subsection.5.4.3}%
-\contentsline {subsection}{\numberline {5.4.4}Scenario C: Non-Convex Obstacle Negotiation}{80}{subsection.5.4.4}%
-\contentsline {subsection}{\numberline {5.4.5}Overall Observation}{81}{subsection.5.4.5}%
-\contentsline {section}{\numberline {5.5}Phase 4: Flutter Web Application for Delivery Management}{81}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}Landing Screen and Authentication}{82}{subsection.5.5.1}%
-\contentsline {subsection}{\numberline {5.5.2}User Portal and Delivery Requests}{83}{subsection.5.5.2}%
-\contentsline {subsection}{\numberline {5.5.3}Administrator Operations Hub}{85}{subsection.5.5.3}%
-\contentsline {subsection}{\numberline {5.5.4}2D Floor Plan Editor}{85}{subsection.5.5.4}%
-\contentsline {subsection}{\numberline {5.5.5}Live Robot Camera Monitoring}{87}{subsection.5.5.5}%
-\contentsline {section}{\numberline {5.6}Phase 5: ROS 2 and Gazebo Simulation Results}{88}{section.5.6}%
-\contentsline {subsection}{\numberline {5.6.1}Custom Multi-Room Delivery Environment}{88}{subsection.5.6.1}%
-\contentsline {subsection}{\numberline {5.6.2}Reference Floor Plan}{89}{subsection.5.6.2}%
-\contentsline {subsection}{\numberline {5.6.3}SLAM-Based Occupancy Mapping}{90}{subsection.5.6.3}%
-\contentsline {subsection}{\numberline {5.6.4}Path Planning and Smoothing in RViz}{91}{subsection.5.6.4}%
-\contentsline {subsection}{\numberline {5.6.5}Dynamic Obstacle Avoidance}{91}{subsection.5.6.5}%
-\contentsline {subsection}{\numberline {5.6.6}Arrival at the Delivery Point}{92}{subsection.5.6.6}%
-\contentsline {subsection}{\numberline {5.6.7}Complete Delivery Mission}{92}{subsection.5.6.7}%
-\contentsline {section}{\numberline {5.7}Challenges Faced}{93}{section.5.7}%
-\contentsline {section}{\numberline {5.8}Summary}{95}{section.5.8}%
-\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{96}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Conclusion}{96}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Future Work}{97}{section.6.2}%
-\contentsline {chapter}{\numberline {7}SUSTAINABLE DEVELOPMENT GOALS (SDGs)}{99}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Overview of SDGs}{99}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Alignment of Project with SDGs}{100}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}SDG 3: Good Health and Well-Being}{100}{subsection.7.2.1}%
-\contentsline {subsection}{\numberline {7.2.2}SDG 4: Quality Education}{100}{subsection.7.2.2}%
-\contentsline {subsection}{\numberline {7.2.3}SDG 9: Industry, Innovation, and Infrastructure}{101}{subsection.7.2.3}%
-\contentsline {subsection}{\numberline {7.2.4}SDG 11: Sustainable Cities and Communities}{102}{subsection.7.2.4}%
-\contentsline {section}{\numberline {7.3}Implementation Summary Table}{102}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Chapter Summary}{103}{section.7.4}%
+\contentsline {chapter}{TABLE OF CONTENTS}{ix}{chapter*.6}%
+\contentsline {chapter}{LIST OF FIGURES}{xi}{chapter*.7}%
+\contentsline {chapter}{LIST OF TABLES}{xii}{chapter*.8}%
+\contentsline {chapter}{LIST OF ACRONYMS/ABBREVIATIONS}{xiii}{chapter*.9}%
+\contentsline {chapter}{\numberline {1}PROJECT RESULTS AND EVALUATION}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Phase 1: Path Planning in VS Code}{1}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Step 1: Exploring the Map with A*}{1}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Step 2: Generating the Raw Path}{2}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Step 3: Cleaning Up the Path (Pruning)}{3}{subsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.1.4}Step 4: Smoothing the Path}{4}{subsection.1.1.4}%
+\contentsline {section}{\numberline {1.2}Phase 2: Motion Control with MPC}{5}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Basic Tracking Test}{6}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Testing in Two Different Environments at Once}{6}{subsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.2.1}Start of the Mission}{7}{subsubsection.1.2.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2.2}End of the Mission}{7}{subsubsection.1.2.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Measuring the Tracking Error}{8}{subsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.3.1}Scenario 1: Standard Maze}{8}{subsubsection.1.2.3.1}%
+\contentsline {subsubsection}{\numberline {1.2.3.2}Scenario 2: Large Open Workspace}{9}{subsubsection.1.2.3.2}%
+\contentsline {subsection}{\numberline {1.2.4}Stress Test: Circles and Triangles}{10}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}TurtleBot3 Model Tracking of PSO-Smoothed Path}{11}{subsection.1.2.5}%
+\contentsline {subsubsection}{\numberline {1.2.5.1}Start of the Tracking Run}{11}{subsubsection.1.2.5.1}%
+\contentsline {subsubsection}{\numberline {1.2.5.2}End of the Tracking Run}{12}{subsubsection.1.2.5.2}%
+\contentsline {subsection}{\numberline {1.2.6}Keeping the Robot Safe: Obstacle Inflation}{13}{subsection.1.2.6}%
+\contentsline {section}{\numberline {1.3}Phase 3: Web Interface}{14}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}The Control Dashboard}{14}{subsection.1.3.1}%
+\contentsline {section}{\numberline {1.4}2D Global Planner Results}{15}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Cellular Decomposition Output (2D Workspace Partitioning)}{15}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Scenario A: Path Planning with Obstacle Avoidance}{16}{subsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.4.3}Scenario B: Navigating Around Multiple Obstacles}{17}{subsection.1.4.3}%
+\contentsline {subsection}{\numberline {1.4.4}Scenario C: Non-Convex Obstacle Negotiation}{18}{subsection.1.4.4}%
+\contentsline {subsection}{\numberline {1.4.5}Overall Observation}{19}{subsection.1.4.5}%
+\contentsline {section}{\numberline {1.5}Phase 4: Flutter Web Application for Delivery Management}{19}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Landing Screen and Authentication}{20}{subsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5.2}User Portal and Delivery Requests}{21}{subsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.5.3}Administrator Operations Hub}{23}{subsection.1.5.3}%
+\contentsline {subsection}{\numberline {1.5.4}2D Floor Plan Editor}{23}{subsection.1.5.4}%
+\contentsline {subsection}{\numberline {1.5.5}Live Robot Camera Monitoring}{25}{subsection.1.5.5}%
+\contentsline {section}{\numberline {1.6}Phase 5: ROS 2 and Gazebo Simulation Results}{26}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Custom Multi-Room Delivery Environment}{26}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.2}Reference Floor Plan}{27}{subsection.1.6.2}%
+\contentsline {subsection}{\numberline {1.6.3}SLAM-Based Occupancy Mapping}{28}{subsection.1.6.3}%
+\contentsline {subsection}{\numberline {1.6.4}Path Planning and Smoothing in RViz}{29}{subsection.1.6.4}%
+\contentsline {subsection}{\numberline {1.6.5}Dynamic Obstacle Avoidance}{30}{subsection.1.6.5}%
+\contentsline {subsection}{\numberline {1.6.6}Arrival at the Delivery Point}{31}{subsection.1.6.6}%
+\contentsline {subsection}{\numberline {1.6.7}Complete Delivery Mission}{32}{subsection.1.6.7}%
+\contentsline {section}{\numberline {1.7}Challenges Faced}{33}{section.1.7}%
+\contentsline {section}{\numberline {1.8}Summary}{35}{section.1.8}%
