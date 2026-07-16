@@ -1,6 +1,8 @@
 This is BibTeX, Version 0.99e
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: IEEEtran.bst
 Reallocating 'name_of_file' (item size: 1) to 13 items.
 A level-1 auxiliary file: chapter1.aux
 Reallocating 'name_of_file' (item size: 1) to 13 items.
@@ -15,8 +17,10 @@ Reallocating 'name_of_file' (item size: 1) to 13 items.
 A level-1 auxiliary file: chapter6.aux
 Reallocating 'name_of_file' (item size: 1) to 13 items.
 A level-1 auxiliary file: chapter7.aux
-Reallocating 'name_of_file' (item size: 1) to 9 items.
-The style file: IEEEtran.bst
+Illegal, another \bibstyle command---line 41 of file main.aux
+ : \bibstyle
+ :          {IEEEtran}
+I'm skipping whatever remains of this command
 Reallocating 'name_of_file' (item size: 1) to 11 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
@@ -71,4 +75,4 @@ warning$ -- 0
 while$ -- 116
 width$ -- 44
 write$ -- 464
-(There was 1 warning)
+(There was 1 error message)

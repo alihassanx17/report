@@ -9,6 +9,9 @@
 \usepackage{cite}
 \usepackage{times}
 
+\usepackage{cite}
+\usepackage{longtable}
+\bibliographystyle{IEEEtran}
 \usepackage{geometry}
 \usepackage{setspace}
 \usepackage{graphicx}
@@ -151,12 +154,12 @@
 \newcommand{\studentthreename}{Gulfam Haider}
 \newcommand{\studentthreereg}{BEE223020}
 \newcommand{\supervisorname}{Engr. Suleman Khan}
-\newcommand{\supervisortitle}{lecturer}
+\newcommand{\supervisortitle}{Lecturer}
 \newcommand{\cosupervisorname}{Dr. Muhammad Atif}
 \newcommand{\cosupervisortitle}{Managing AI Director}
 \newcommand{\hodname}{Dr. Noor Mohammad Khan}
 \newcommand{\hodtitle}{Professor}
-\newcommand{\submissionmonth}{February}
+\newcommand{\submissionmonth}{July}
 \newcommand{\submissionyear}{2026}
 
 \begin{document}
@@ -324,9 +327,10 @@
 	\chapter*{ABSTRACT}
 	\addcontentsline{toc}{chapter}{ABSTRACT}
 	\thispagestyle{plain}
-	
-	The increasing demand for automation in logistics and indoor service environments has accelerated research in autonomous mobile robot navigation systems. This project presents the design and implementation of a simulation-based autonomous indoor parcel delivery system developed using Robot Operating System 2 (ROS 2) and the Gazebo simulation platform. The entire system is modeled, implemented, and evaluated in a virtual environment without the use of physical hardware. The primary objective of the project is to develop a reliable navigation framework that enables a differential-drive mobile robot to autonomously plan and execute parcel delivery tasks within structured indoor environments such as university buildings, offices, and hospitals. An Improved A* (IA*) algorithm is employed for global path planning to generate collision-free routes on occupancy grid maps. To address the discontinuities and sharp turns produced by grid-based planners, spline-based path smoothing techniques are implemented to generate continuous and kinematically feasible trajectories. A Model Predictive Control (MPC) strategy is designed to ensure accurate trajectory tracking while respecting motion constraints and maintaining system stability. The system is fully integrated within the ROS 2 architecture, utilizing standard communication mechanisms for localization, mapping, navigation, and control. A web-based interface is developed to allow users to assign delivery goals and monitor robot behavior in real time during simulation. Performance evaluation in multiple simulated indoor scenarios demonstrates reliable navigation, effective obstacle avoidance, and smooth trajectory execution. This work provides a scalable software foundation for autonomous indoor delivery systems and establishes a framework for future hardware deployment and real-world implementation.
-	\clearpage
+
+	The increasing demand for automation in hospitals, universities, offices, and other indoor environments has created a need for intelligent autonomous delivery systems capable of transporting parcels safely and efficiently with minimal human intervention. This project presents the design and implementation of a simulation-based autonomous indoor parcel delivery system using ROS 2 and the Gazebo simulation environment. The proposed system provides a complete software framework for autonomous navigation, parcel delivery management, and real-time user interaction without requiring physical robot hardware.
+	A custom navigation framework was developed by integrating an Improved A* (IA*) algorithm for global path planning, path pruning to eliminate redundant waypoints, and Particle Swarm Optimization (PSO) to optimize the generated path. A Model Predictive Controller (MPC) was designed to accurately track the optimized trajectory while satisfying the kinematic constraints of a differential-drive mobile robot. To enable safe navigation in dynamic indoor environments, a Model Predictive Path Integral (MPPI) controller was incorporated as the local planner for real-time obstacle avoidance and local trajectory adaptation. The complete navigation framework was integrated with ROS 2, SLAM-based localization, occupancy grid mapping, RViz visualization, and Gazebo simulation. A Flutter-based web application with a Flask backend was also developed to allow users to submit delivery requests, monitor robot status in real time, manage indoor maps, and communicate with the ROS 2 navigation system through a web–ROS bridge. The proposed system was evaluated in multiple simulated indoor environments containing corridors, rooms, static obstacles, and moving pedestrians. Experimental results demonstrate that the integrated navigation framework successfully generates collision-free and optimized paths, accurately tracks the planned trajectory, and safely avoids dynamic obstacles while maintaining stable navigation performance. The developed web application provides an intuitive interface for delivery management and real-time robot monitoring, making the overall system modular, scalable, and suitable for future deployment on physical robotic platforms.The proposed system establishes a robust foundation for autonomous indoor logistics and can be extended to support real-world deployment, multi-robot coordination, and intelligent delivery applications in hospitals, warehouses, and academic institutions.
+		\clearpage
 	
 	% ==================== TABLES OF CONTENTS ====================
 	\tableofcontents
@@ -347,31 +351,39 @@
 	\chapter*{LIST OF ACRONYMS/ABBREVIATIONS}
 	\addcontentsline{toc}{chapter}{LIST OF ACRONYMS/ABBREVIATIONS}
 	\thispagestyle{plain}
-	
-	\begin{longtable}{p{3cm} p{10cm}}
-		AI      & Artificial Intelligence \\
-		A*      & A-Star Path Planning Algorithm \\
-		AMCL    & Adaptive Monte Carlo Localization \\
-		API     & Application Programming Interface \\
-		CPU     & Central Processing Unit \\
-		DC      & Direct Current \\
-		GPS     & Global Positioning System \\
-		GUI     & Graphical User Interface \\
-		IA*     & Improved A-Star Algorithm \\
-		IMU     & Inertial Measurement Unit \\
-		IoT     & Internet of Things \\
-		LiDAR   & Light Detection and Ranging \\
-		MPC     & Model Predictive Control \\
-		Nav2    & Navigation 2 Framework \\
-		PID     & Proportional--Integral--Derivative \\
-		PSO     & Particle Swarm Optimization \\
-		ROS     & Robot Operating System \\
-		RRT     & Rapidly-Exploring Random Tree \\
-		SLAM    & Simultaneous Localization and Mapping \\
-		UART    & Universal Asynchronous Receiver Transmitter \\
-		Wi-Fi   & Wireless Fidelity \\
-	\end{longtable}
-	
+\begin{longtable}{p{3.5cm} p{10cm}}
+	AI      & Artificial Intelligence \\
+	AMCL    & Adaptive Monte Carlo Localization \\
+	API     & Application Programming Interface \\
+	A*      & A-Star Path Planning Algorithm \\
+	CPU     & Central Processing Unit \\
+	DC      & Direct Current \\
+	FSM     & Finite State Machine \\
+	GPS     & Global Positioning System \\
+	GUI     & Graphical User Interface \\
+	IA*     & Improved A-Star Algorithm \\
+	IMU     & Inertial Measurement Unit \\
+	IoT     & Internet of Things \\
+	JSON    & JavaScript Object Notation \\
+	LiDAR   & Light Detection and Ranging \\
+	MPC     & Model Predictive Control \\
+	MPPI    & Model Predictive Path Integral \\
+	Nav2    & Navigation 2 Framework \\
+	NDA     & Non-Disclosure Agreement \\
+	PID     & Proportional--Integral--Derivative \\
+	PSO     & Particle Swarm Optimization \\
+	ROS     & Robot Operating System \\
+	ROS~2   & Robot Operating System 2 \\
+	RRT     & Rapidly-Exploring Random Tree \\
+	RViz    & Robot Visualization Tool \\
+	SLAM    & Simultaneous Localization and Mapping \\
+	SQL     & Structured Query Language \\
+	TB3     & TurtleBot3 \\
+	UI      & User Interface \\
+	URDF    & Unified Robot Description Format \\
+	VM      & Virtual Machine \\
+	YAML    & YAML Ain't Markup Language \\
+\end{longtable}
 	\clearpage
 	
 	% ==================== MAIN CONTENT ====================
@@ -382,13 +394,13 @@
 	\clearpage
 	\pagenumbering{arabic}   
 	
-	%\include{chapter1}
-	%\include{chapter2}
-	%\include{chapter3}
-	%\include{chapter4}
+	\include{chapter1}
+	\include{chapter2}
+	\include{chapter3}
+    \include{chapter4}
 	\include{chapter5}
-	%\include{chapter6}
-	%\include{chapter7}
+	\include{chapter6}
+	\include{chapter7}
 	\bibliographystyle{IEEEtran}
 	
 	\renewcommand{\bibname}{References}

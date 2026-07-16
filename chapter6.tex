@@ -1,47 +1,40 @@
 \chapter{Conclusion and Future Work}
-
 \section{Conclusion}
 
-This project presented the design and implementation of a User-Friendly Autonomous Parcel Delivery System with Adaptive Navigation aimed at addressing the growing demand for efficient and intelligent indoor logistics solutions. The system was developed entirely in a simulation environment using ROS~2 and Gazebo, focusing on reliable navigation, intelligent path planning, and smooth trajectory execution so that robot does not have to slow down during turns and effiently aviod any walking person.
+This project has made a presentation of the design and implementation of a User-Friendly. Aimed at: Autonomous Parcel Delivery System with Adaptive Navigation. Meeting the increasing demand for intelligent and efficient indoor logistics. Solving the problems which are increasingly faced due to the demand for efficient and intelligent indoor logistics solutions. The entire system has been developed in the simulation environment using ROS~2 and Gazebo, focusing on reliable navigation, intelligent path planning and smooth trajectory execution, so that the robot doesn't have to slow down when turning, and can effectively evade pedestrians.
 
-The primary objective of the project was to design a mobile robot capable of navigating structured indoor environments such as university buildings and office corridors while safely avoiding obstacles and delivering parcels to specified goal locations.It can also be placed in special enivornemnts like isolation wards or hospital to avoid virus transmission. This objective was successfully achieved through the integration of an Improved A* (IA*) algorithm for global path planning, cubic spline interpolation for trajectory smoothing, and a Model Predictive Control (MPC) strategy for accurate motion tracking.
+The main aim of the project was to develop a mobile robot that can perform the following task. Using pre-learned indoor environments, like university buildings, without endangering themselves, without colliding with objects and dropping packages in office hallways. without getting in anyone's way, without crashing into things and dropping packages in office halls. specified goal locations. It can also be used in special locations. However, isolation wards or hospitals may be required to minimise virus spread via: human contact. This goal was met in the following ways: A modified A* (IA*) algorithm for global path planning, and the system consists of an MPC, path pruning and PSO for trajectory refinement. The controller is used for accurate motion tracking, while an MPPI controller is used for real-time dynamic obstacle avoidance.
 
-Different path planning algorithms were studies but he Improved A* algorithm proved effective in generating collision-free and near-optimal paths on grid maps. The addition of obstacle inflation and waypoint pruning enhanced both safety and computational efficiency. Since grid-based planners naturally produce piecewise-linear paths with sharp turns, spline-based smoothing was applied to generate continuous and kinematically feasible trajectories suitable for differential-drive robotsso so that does not have to slow down during curves and effiently aviod any walking person. The MPC controller ensured stable and accurate tracking of these trajectories across different simulated environments.
+A* path planner was selected for implementation. Various path planning algorithms were examined and the Improved A* was chosen to be implemented. The algorithm turned out to be effective in producing collision-free and near-optimal paths on grid maps. This is due to obstacle inflation and waypoint pruning. Increased safety and increased computational efficiency. Since grid-based planners performs piecewise-linear paths with sharp turns naturally (spline- and curve-spline), Continuous, kinematically correct profiles were obtained by applying smoothing using PSO. Of the feasible trajectories, find ones which are appropriate to the differential-drive robot. The MPC controller ensured stable and accurate tracking of these trajectories, while the MPPI controller allowed the robot to safely move around a moving pedestrians without the need for worldwide replanning.
 
-All the system was deployed in the context of the ROS 2 with the use of modular nodes and traditional communication patterns. A web-based control interface was also designed simultaneously to allow users to define delivery goals, simulate the spatial environment, and track the actions of the robot in real time. Extensive testing also revealed that the robot is able to navigate complicated indoor setups, avoid obstacles and get to the predefined target points with a good degree of consistency.
-
-On the whole, it can be concluded that the project has achieved its desired goals and supported the fact that simulation-based development is a powerful and safe approach to the development of autonomous delivery systems. The article provides a strong background of further research and practical implementation of smart indoor logistics robots.
+All components of the system were implemented as ROS~2 and Gazebo simulation. Developing an environment with modular nodes. A unique flutter web application was created. Created to enable users to register, request delivery and track the robots. status, a separate administrator interface provided floor-plan setting up and viewing cameras live. The robot was able to construct a planned and optimized map for a multi-room environment using SLAM. The robot successfully managed to find collision-free paths and avoid dynamic obstacles while making it to the end-to-end points. Regular and consistent delivery missions from pick up to drop off. Overall, it can be concluded that the project met its objectives. and is a strong supporter of the idea that simulation-based development is a powerful and safe approach to developing autonomous delivery systems. This work will be used for: Good basis for further research and implementation of the concept of smart indoor logistics robots.
 
 \section{Future Work}
- As much as the proposed system has demonstrated good performance in the simulated indoor settings, there are yet to be explored promising research directions. Those extensions might increase the intelligence, scalability and usefulness of the system in real world significantly.
+
+The proposed system has shown promising performance in simulated indoor environment, but there are yet to be explored promising research directions. Such extensions could enhance the intelligence, scalability and usefulness of the system in real world significantly.
 
 \begin{itemize}
-    \item \textbf{Real-World Deployment and Sensor Fusion:}  
- One of the major follow-up tasks is to transfer the system to a real robot. It implies connecting real sensors LiDAR, RGB -D cameras, IMUs, wheel encoders, etc. With this advanced sensor fusion, e.g. Extended Kalman Filters or factor-graph SLAM, the robot should be able to more accurately localise itself in the presence of all the real-world noises and uncertainty.
- 
-    \item \textbf{Learning-Based Navigation and Decision Making:}  
-  As much as the proposed system has demonstrated good performance in the simulated indoor settings, there are yet to be explored promising research directions. Those extensions might increase the intelligence, scalability and usefulness of the system in real world significantly.
-  
-  The next generation implementation may incorporate reinforcement learning or imitation learning to enable the robot to gain navigation policies by experience. That would allow it to be more adaptive to complex and crowded environments.
-    \item \textbf{Multi-Robot Coordination:}  
-   We can totally scale it, Hey, we could run a number of delivery robots, at a time. It would then be necessary to determine how to divide work among them, establish a manner of them communicating with each other, and coordinate their pathways. It would make the entire process much more efficient in large institutions such as hospitals or college campuses.
-   
-  
-    \item \textbf{Semantic Mapping and Context-Aware Navigation:}  
-  
-  The inclusion of semantic SLAM would enable the robot to actually see things such as doors, elevators, people, furniture so it can tag them. Knowing that, the robot may make more intelligent and higher level decisions and maintain itself around people safer.
-  
-    \item \textbf{Dynamic Global Replanning and Prediction:}  
- 
- We can also predictively global replan in future, so the robot will actually guess where people are heading and dynamically adjust its route on the fly according to the changing environment.
- 
-
-    \item \textbf{Human--Robot Interaction (HRI):}  
-   Lastly, in case we add voice commands, phone-to-phone push notifications, and certain visual feedback, the system would be much more friendly and more acceptable in daily environments.
-   
-    \item \textbf{Energy-Aware and Sustainable Navigation:}  
-     Autonomous charging plans can be combined with energy-efficient path planning to allow the robotic systems to operate sustainably and over a long period.
-    
-    \item \textbf{Cloud and IoT Integration:}  
-   The integration of the system with cloud services as well as the IoT infrastructure would allow tracking the fleet, analyzing the data in real-time, and improving it on the basis of the actual data related to the real operation.
+	\item \textbf{Real-World Deployment and Sensor Fusion:}  
+	One of the major follow-up tasks is to transfer the system to a real robot. With this sophisticated sensor fusion (e.g. extended Kalman Filters or factor-graph SLAM), the robot should be able to localise itself in the presence of all the real-world noises and uncertainty more accurately.
+	
+	\item \textbf{Learning Based Navigation and Decision Making:}  
+	While the system proposed has proven to work well in the simulated indoor environments, there are promising research prospects yet to be explored. These extensions could enhance the intelligence, scalability and usefulness of this system in the real world greatly. The next generation implementation can be based on reinforcement learning or imitation learning so the robot can learn navigation policies from experience. This would enable it to be more tolerant of complex and cluttered surroundings.
+	
+	\item \textbf{Multi-Robot Coordination:}  
+	We can totally scale it, Hey, we could run a number of delivery robots, at a time. It would then have to be decided how they will share work, they would have to agree on how they communicate with one another, and the routes by which they go and so on. This would reduce significantly the time required at large institutions like hospitals or college campuses.
+	
+	\item \textbf{Semantic Mapping and Context-Aware Navigation:}  
+	The inclusion of semantic SLAM would enable the robot to actually see things such as doors, elevators, people, furniture so it can tag them. Knowing that, the robot may make more intelligent and higher level decisions and maintain itself around people safer.
+	
+	\item \textbf{Dynamic Global Replanning and Prediction:}  
+	We can also predictively global replan in the future and the robot will actually guess the direction of a person and dynamically adjust its path in real time with the changing environment.
+	
+	\item \textbf{Human--Robot Interaction (HRI):}  
+	Finally, if we add voice control, phone-to-phone push notifications and some visual feedback, the system would be really friendly and more acceptable in everyday environments.
+	
+	\item \textbf{Energy-Aware and Sustainable Navigation:}  
+	Autonomous charging plans can be implemented together with energy efficient path planning to enable the robotic systems to function in an energy sustainable manner over longer periods of time.
+	
+	\item \textbf{IoT and Cloud Integration:}  
+	The integration of the system into the cloud and into the IoT infrastructure would enable to track the fleet, analyse the data in real time and enhance it based on the actual data related to the real operation.
 \end{itemize}

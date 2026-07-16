@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.19)  16 JUL 2026 04:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.5.19)  16 JUL 2026 22:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -37,12 +37,31 @@ Package: cite 2015/02/27  v 5.5
 (C:\Users\aitza\AppData\Roaming\MiKTeX\tex/latex/psnfss\times.sty
 Package: times 2020/03/25 PSNFSS-v9.3 (SPQR) 
 )
+(C:\Program Files\MiKTeX\tex/latex/tools\longtable.sty
+Package: longtable 2025-10-13 v4.24 Multi-page Table package (DPC)
+\LTleft=\skip51
+\LTright=\skip52
+\LTpre=\skip53
+\LTpost=\skip54
+\LTchunksize=\count284
+\LTcapwidth=\dimen149
+\LT@head=\box53
+\LT@firsthead=\box54
+\LT@foot=\box55
+\LT@lastfoot=\box56
+\LT@gbox=\box57
+\LT@cols=\count285
+\LT@rows=\count286
+\c@LT@tables=\count287
+\c@LT@chunks=\count288
+\LT@p@ftn=\toks19
+)
 (C:\Users\aitza\AppData\Roaming\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2026/03/07 v6.0 Page Geometry
 
 (C:\Program Files\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
-\KV@toks@=\toks19
+\KV@toks@=\toks20
 )
 (C:\Program Files\MiKTeX\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
@@ -50,18 +69,18 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 (C:\Program Files\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 ))
-\Gm@cnth=\count284
-\Gm@cntv=\count285
-\c@Gm@tempcnt=\count286
-\Gm@bindingoffset=\dimen149
-\Gm@wd@mp=\dimen150
-\Gm@odd@mp=\dimen151
-\Gm@even@mp=\dimen152
-\Gm@layoutwidth=\dimen153
-\Gm@layoutheight=\dimen154
-\Gm@layouthoffset=\dimen155
-\Gm@layoutvoffset=\dimen156
-\Gm@dimlist=\toks20
+\Gm@cnth=\count289
+\Gm@cntv=\count290
+\c@Gm@tempcnt=\count291
+\Gm@bindingoffset=\dimen150
+\Gm@wd@mp=\dimen151
+\Gm@odd@mp=\dimen152
+\Gm@even@mp=\dimen153
+\Gm@layoutwidth=\dimen154
+\Gm@layoutheight=\dimen155
+\Gm@layouthoffset=\dimen156
+\Gm@layoutvoffset=\dimen157
+\Gm@dimlist=\toks21
 
 (C:\Users\aitza\AppData\Roaming\MiKTeX\tex/latex/geometry\geometry.cfg))
 (C:\Users\aitza\AppData\Roaming\MiKTeX\tex/latex/setspace\setspace.sty
@@ -84,87 +103,87 @@ Package graphics Info: Driver file: pdftex.def on input line 106.
 (C:\Program Files\MiKTeX\tex/latex/graphics-def\pdftex.def
 File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen157
-\Gin@req@width=\dimen158
+\Gin@req@height=\dimen158
+\Gin@req@width=\dimen159
 )
 (C:\Users\aitza\AppData\Roaming\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count287
-\float@exts=\toks21
-\float@box=\box53
-\@float@everytoks=\toks22
-\@floatcapt=\box54
+\c@float@type=\count292
+\float@exts=\toks22
+\float@box=\box58
+\@float@everytoks=\toks23
+\@floatcapt=\box59
 )
 (C:\Users\aitza\AppData\Roaming\MiKTeX\tex/latex/titlesec\titlesec.sty
 Package: titlesec 2025/01/04 v2.17 Sectioning titles
-\ttl@box=\box55
-\beforetitleunit=\skip51
-\aftertitleunit=\skip52
-\ttl@plus=\dimen159
-\ttl@minus=\dimen160
-\ttl@toksa=\toks23
-\titlewidth=\dimen161
-\titlewidthlast=\dimen162
-\titlewidthfirst=\dimen163
+\ttl@box=\box60
+\beforetitleunit=\skip55
+\aftertitleunit=\skip56
+\ttl@plus=\dimen160
+\ttl@minus=\dimen161
+\ttl@toksa=\toks24
+\titlewidth=\dimen162
+\titlewidthlast=\dimen163
+\titlewidthfirst=\dimen164
 )
 (C:\Users\aitza\AppData\Roaming\MiKTeX\tex/latex/tocloft\tocloft.sty
 Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
 Package tocloft Info: The document has chapter divisions on input line 51.
-\cftparskip=\skip53
-\cftbeforetoctitleskip=\skip54
-\cftaftertoctitleskip=\skip55
-\cftbeforepartskip=\skip56
-\cftpartnumwidth=\skip57
-\cftpartindent=\skip58
-\cftbeforechapskip=\skip59
-\cftchapindent=\skip60
-\cftchapnumwidth=\skip61
-\cftbeforesecskip=\skip62
-\cftsecindent=\skip63
-\cftsecnumwidth=\skip64
-\cftbeforesubsecskip=\skip65
-\cftsubsecindent=\skip66
-\cftsubsecnumwidth=\skip67
-\cftbeforesubsubsecskip=\skip68
-\cftsubsubsecindent=\skip69
-\cftsubsubsecnumwidth=\skip70
-\cftbeforeparaskip=\skip71
-\cftparaindent=\skip72
-\cftparanumwidth=\skip73
-\cftbeforesubparaskip=\skip74
-\cftsubparaindent=\skip75
-\cftsubparanumwidth=\skip76
-\cftbeforeloftitleskip=\skip77
-\cftafterloftitleskip=\skip78
-\cftbeforefigskip=\skip79
-\cftfigindent=\skip80
-\cftfignumwidth=\skip81
-\c@lofdepth=\count288
-\c@lotdepth=\count289
-\cftbeforelottitleskip=\skip82
-\cftafterlottitleskip=\skip83
-\cftbeforetabskip=\skip84
-\cfttabindent=\skip85
-\cfttabnumwidth=\skip86
+\cftparskip=\skip57
+\cftbeforetoctitleskip=\skip58
+\cftaftertoctitleskip=\skip59
+\cftbeforepartskip=\skip60
+\cftpartnumwidth=\skip61
+\cftpartindent=\skip62
+\cftbeforechapskip=\skip63
+\cftchapindent=\skip64
+\cftchapnumwidth=\skip65
+\cftbeforesecskip=\skip66
+\cftsecindent=\skip67
+\cftsecnumwidth=\skip68
+\cftbeforesubsecskip=\skip69
+\cftsubsecindent=\skip70
+\cftsubsecnumwidth=\skip71
+\cftbeforesubsubsecskip=\skip72
+\cftsubsubsecindent=\skip73
+\cftsubsubsecnumwidth=\skip74
+\cftbeforeparaskip=\skip75
+\cftparaindent=\skip76
+\cftparanumwidth=\skip77
+\cftbeforesubparaskip=\skip78
+\cftsubparaindent=\skip79
+\cftsubparanumwidth=\skip80
+\cftbeforeloftitleskip=\skip81
+\cftafterloftitleskip=\skip82
+\cftbeforefigskip=\skip83
+\cftfigindent=\skip84
+\cftfignumwidth=\skip85
+\c@lofdepth=\count293
+\c@lotdepth=\count294
+\cftbeforelottitleskip=\skip86
+\cftafterlottitleskip=\skip87
+\cftbeforetabskip=\skip88
+\cfttabindent=\skip89
+\cfttabnumwidth=\skip90
 )
 (C:\Users\aitza\AppData\Roaming\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
 Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 
-\f@nch@headwidth=\skip87
-\f@nch@offset@elh=\skip88
-\f@nch@offset@erh=\skip89
-\f@nch@offset@olh=\skip90
-\f@nch@offset@orh=\skip91
-\f@nch@offset@elf=\skip92
-\f@nch@offset@erf=\skip93
-\f@nch@offset@olf=\skip94
-\f@nch@offset@orf=\skip95
-\f@nch@height=\skip96
-\f@nch@footalignment=\skip97
-\f@nch@widthL=\skip98
-\f@nch@widthC=\skip99
-\f@nch@widthR=\skip100
-\@temptokenb=\toks24
+\f@nch@headwidth=\skip91
+\f@nch@offset@elh=\skip92
+\f@nch@offset@erh=\skip93
+\f@nch@offset@olh=\skip94
+\f@nch@offset@orh=\skip95
+\f@nch@offset@elf=\skip96
+\f@nch@offset@erf=\skip97
+\f@nch@offset@olf=\skip98
+\f@nch@offset@orf=\skip99
+\f@nch@height=\skip100
+\f@nch@footalignment=\skip101
+\f@nch@widthL=\skip102
+\f@nch@widthC=\skip103
+\f@nch@widthR=\skip104
+\@temptokenb=\toks25
 )
 (C:\Program Files\MiKTeX\tex/latex/hyperref\hyperref.sty
 Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
@@ -207,18 +226,18 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
  (C:\Users\aitza\AppData\Roaming\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count290
+\c@section@level=\count295
 ) (C:\Program Files\MiKTeX\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count291
+\etb@tempcnta=\count296
 )
 (C:\Users\aitza\AppData\Roaming\MiKTeX\tex/generic/stringenc\stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\@linkdim=\dimen164
-\Hy@linkcounter=\count292
-\Hy@pagecounter=\count293
+\@linkdim=\dimen165
+\Hy@linkcounter=\count297
+\Hy@pagecounter=\count298
 
 (C:\Program Files\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
@@ -228,7 +247,7 @@ Now handling font encoding PD1 ...
 (C:\Users\aitza\AppData\Roaming\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count294
+\Hy@SavedSpaceFactor=\count299
 
 (C:\Program Files\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
@@ -242,14 +261,14 @@ Package hyperref Info: Plain pages OFF on input line 4210.
 Package hyperref Info: Backreferencing OFF on input line 4215.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4462.
-\c@Hy@tempcnt=\count295
+\c@Hy@tempcnt=\count300
 
 (C:\Program Files\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4801.
-\XeTeXLinkMargin=\dimen165
+\XeTeXLinkMargin=\dimen166
 
 (C:\Users\aitza\AppData\Roaming\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -258,9 +277,9 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count296
-\Field@Width=\dimen166
-\Fld@charsize=\dimen167
+\Fld@menulength=\count301
+\Field@Width=\dimen167
+\Fld@charsize=\dimen168
 Package hyperref Info: Hyper figures OFF on input line 6078.
 Package hyperref Info: Link nesting OFF on input line 6083.
 Package hyperref Info: Hyper index ON on input line 6086.
@@ -268,15 +287,15 @@ Package hyperref Info: backreferencing OFF on input line 6093.
 Package hyperref Info: Link coloring OFF on input line 6098.
 Package hyperref Info: Link coloring with OCG OFF on input line 6103.
 Package hyperref Info: PDF/A mode OFF on input line 6108.
-\Hy@abspage=\count297
-\c@Item=\count298
-\c@Hfootnote=\count299
+\Hy@abspage=\count302
+\c@Item=\count303
+\c@Hfootnote=\count304
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 (C:\Program Files\MiKTeX\tex/latex/hyperref\hpdftex.def
 File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
-\Fld@listcount=\count300
-\c@bookmark@seq@number=\count301
+\Fld@listcount=\count305
+\c@bookmark@seq@number=\count306
 
 (C:\Users\aitza\AppData\Roaming\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.
 sty
@@ -289,10 +308,10 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 84.
 )
-\Hy@SectionHShift=\skip101
+\Hy@SectionHShift=\skip105
 ) (C:\Program Files\MiKTeX\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2025/07/09 v2.17z AMS math features
-\@mathmargin=\skip102
+\@mathmargin=\skip106
 
 For additional information on amsmath, use the `?' option.
 (C:\Program Files\MiKTeX\tex/latex/amsmath\amstext.sty
@@ -300,61 +319,61 @@ Package: amstext 2024/11/17 v2.01 AMS text
 
 (C:\Program Files\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks25
-\ex@=\dimen168
+\@emptytoks=\toks26
+\ex@=\dimen169
 ))
 (C:\Program Files\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen169
+\pmbraise@=\dimen170
 )
 (C:\Program Files\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count302
+\inf@bad=\count307
 LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count303
-\leftroot@=\count304
+\uproot@=\count308
+\leftroot@=\count309
 LaTeX Info: Redefining \overline on input line 398.
 LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count305
-\DOTSCASE@=\count306
+\classnum@=\count310
+\DOTSCASE@=\count311
 LaTeX Info: Redefining \ldots on input line 495.
 LaTeX Info: Redefining \dots on input line 498.
 LaTeX Info: Redefining \cdots on input line 619.
-\Mathstrutbox@=\box56
-\strutbox@=\box57
+\Mathstrutbox@=\box61
+\strutbox@=\box62
 LaTeX Info: Redefining \big on input line 721.
 LaTeX Info: Redefining \Big on input line 722.
 LaTeX Info: Redefining \bigg on input line 723.
 LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen170
+\big@size=\dimen171
 LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count307
+\macc@depth=\count312
 LaTeX Info: Redefining \bmod on input line 904.
 LaTeX Info: Redefining \pmod on input line 909.
 LaTeX Info: Redefining \smash on input line 939.
 LaTeX Info: Redefining \relbar on input line 969.
 LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count308
+\c@MaxMatrixCols=\count313
 \dotsspace@=\muskip18
-\c@parentequation=\count309
-\dspbrk@lvl=\count310
-\tag@help=\toks26
-\row@=\count311
-\column@=\count312
-\maxfields@=\count313
-\andhelp@=\toks27
-\eqnshift@=\dimen171
-\alignsep@=\dimen172
-\tagshift@=\dimen173
-\tagwidth@=\dimen174
-\totwidth@=\dimen175
-\lineht@=\dimen176
-\@envbody=\toks28
-\multlinegap=\skip103
-\multlinetaggap=\skip104
-\mathdisplay@stack=\toks29
+\c@parentequation=\count314
+\dspbrk@lvl=\count315
+\tag@help=\toks27
+\row@=\count316
+\column@=\count317
+\maxfields@=\count318
+\andhelp@=\toks28
+\eqnshift@=\dimen172
+\alignsep@=\dimen173
+\tagshift@=\dimen174
+\tagwidth@=\dimen175
+\totwidth@=\dimen176
+\lineht@=\dimen177
+\@envbody=\toks29
+\multlinegap=\skip107
+\multlinetaggap=\skip108
+\mathdisplay@stack=\toks30
 LaTeX Info: Redefining \[ on input line 2950.
 LaTeX Info: Redefining \] on input line 2951.
 )
@@ -371,42 +390,23 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 ))
 (C:\Users\aitza\AppData\Roaming\MiKTeX\tex/latex/booktabs\booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen177
-\lightrulewidth=\dimen178
-\cmidrulewidth=\dimen179
-\belowrulesep=\dimen180
-\belowbottomsep=\dimen181
-\aboverulesep=\dimen182
-\abovetopsep=\dimen183
-\cmidrulesep=\dimen184
-\cmidrulekern=\dimen185
-\defaultaddspace=\dimen186
-\@cmidla=\count314
-\@cmidlb=\count315
-\@aboverulesep=\dimen187
-\@belowrulesep=\dimen188
-\@thisruleclass=\count316
-\@lastruleclass=\count317
-\@thisrulewidth=\dimen189
-)
-(C:\Program Files\MiKTeX\tex/latex/tools\longtable.sty
-Package: longtable 2025-10-13 v4.24 Multi-page Table package (DPC)
-\LTleft=\skip105
-\LTright=\skip106
-\LTpre=\skip107
-\LTpost=\skip108
-\LTchunksize=\count318
-\LTcapwidth=\dimen190
-\LT@head=\box58
-\LT@firsthead=\box59
-\LT@foot=\box60
-\LT@lastfoot=\box61
-\LT@gbox=\box62
-\LT@cols=\count319
-\LT@rows=\count320
-\c@LT@tables=\count321
-\c@LT@chunks=\count322
-\LT@p@ftn=\toks30
+\heavyrulewidth=\dimen178
+\lightrulewidth=\dimen179
+\cmidrulewidth=\dimen180
+\belowrulesep=\dimen181
+\belowbottomsep=\dimen182
+\aboverulesep=\dimen183
+\abovetopsep=\dimen184
+\cmidrulesep=\dimen185
+\cmidrulekern=\dimen186
+\defaultaddspace=\dimen187
+\@cmidla=\count319
+\@cmidlb=\count320
+\@aboverulesep=\dimen188
+\@belowrulesep=\dimen189
+\@thisruleclass=\count321
+\@lastruleclass=\count322
+\@thisrulewidth=\dimen190
 )
 (C:\Users\aitza\AppData\Roaming\MiKTeX\tex/latex/caption\caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
@@ -513,9 +513,9 @@ Package: enumitem 2025/02/06 v3.11 Customized lists
 Package: ulem 2019/11/18
 \ULdepth=\dimen262
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 81.
+Package hyperref Info: Option `colorlinks' set `true' on input line 84.
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 1
-62.
+65.
 
 (C:\Users\aitza\AppData\Roaming\MiKTeX\tex/latex/psnfss\ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
@@ -524,27 +524,28 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count338
 ) (main.aux
-(chapter5.aux))
+(chapter1.aux) (chapter2.aux) (chapter3.aux) (chapter4.aux) (chapter5.aux)
+(chapter6.aux) (chapter7.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -609,7 +610,7 @@ G,.JBIG2,.JB2,.eps]
 (C:\Program Files\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring ON on input line 162.
+Package hyperref Info: Link coloring ON on input line 165.
  (main.out)
 (main.out)
 \@outlinefile=\write3
@@ -619,17 +620,17 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count345
-<logo.png, id=211, 225.84375pt x 225.84375pt>
+<logo.png, id=843, 225.84375pt x 225.84375pt>
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 169.
+Package pdftex.def Info: logo.png  used on input line 172.
 (pdftex.def)             Requested size: 122.85876pt x 122.86012pt.
  [1
 
 {C:/Users/aitza/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Program Fi
 les/MiKTeX/fonts/enc/dvips/base/8r.enc} <./logo.png>]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 2
-18.
+21.
 
 (C:\Users\aitza\AppData\Roaming\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
@@ -637,13 +638,13 @@ File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 
 
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 242
+LaTeX Font Info:    Trying to load font information for U+msa on input line 245
 .
 
 (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 242
+LaTeX Font Info:    Trying to load font information for U+msb on input line 245
 .
 
 (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd
@@ -663,329 +664,1264 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [8
 
 
-])
+]
+Overfull \hbox (1.04195pt too wide) in paragraph at lines 48--48
+ [][] [][][]\OT1/ptm/m/n/12 Related Tech-nol-ogy 2 -- Path Smooth-ing and Op-ti
+-miza-tion Tech- 
+ []
+
+
+Overfull \hbox (5.82314pt too wide) in paragraph at lines 51--51
+ [][] [][][]\OT1/ptm/m/n/12 Optimization-Based Smooth-ing: PSO with Bezier Curv
+es[][] []  
+ []
+
+[9] [10] [11])
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- [9] (main.lof
-Overfull \hbox (13.5478pt too wide) in paragraph at lines 19--19
+ [12] [13] (main.lof
+Overfull \hbox (2.45978pt too wide) in paragraph at lines 10--10
+ [][] [][][]\OT1/ptm/m/it/12 Overall Sys-tem Ar-chi-tec-ture of the Pro-posed A
+u-tonomous Par- 
+ []
+
+
+Overfull \hbox (5.30302pt too wide) in paragraph at lines 14--14
+ [][] [][][]\OT1/ptm/m/it/12 Gazebo Prop-erty panel dis-play-ing the world co-o
+r-di-nates $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x; y\OT1/cmr/m/n/12 )$ 
+ []
+
+[14
+
+
+]
+Overfull \hbox (13.5478pt too wide) in paragraph at lines 45--45
  [][] [][][]\OT1/ptm/m/it/12 Scenario C: Long-range global plan-ning across a m
 ulti-obstacle 
  []
 
-[10
-
-
-]
-Overfull \hbox (1.17665pt too wide) in paragraph at lines 34--34
- \OT1/ptm/m/it/12 and smooth-ing be-haviour pro-duced by our own path-planning 
-
- []
-
-)
+[15])
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [11] (main.lot)
+ [16] (main.lot
+Overfull \hbox (1.64917pt too wide) in paragraph at lines 14--14
+ [][] [][][]\OT1/ptm/m/it/12 A* Path Plan-ning Re-sults -- Sce-nario 2 (Mo-bile
+ Robot Workspace)[][] []  
+ []
+
+
+Overfull \hbox (0.14906pt too wide) in paragraph at lines 20--20
+ [][] [][][]\OT1/ptm/m/it/12 Separation of Vi-sual Lay-out and Nav-i-ga-tion Fi
+elds in the Room 
+ []
+
+)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- [12
+ [17
 
 
-] [13
+] [18
 
 
 ]
-\openout2 = `chapter5.aux'.
+\openout2 = `chapter1.aux'.
 
- (chapter5.tex
+ (chapter1.tex
 Chapter 1.
-<A(star).png, id=422, 544.28343pt x 438.8897pt>
-File: A(star).png Graphic file (type png)
-<use A(star).png>
-Package pdftex.def Info: A(star).png  used on input line 19.
-(pdftex.def)             Requested size: 250.10226pt x 201.67072pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.23 
+l.15 
       [1
 
 
 
 
 ]
-<Raw path.png, id=427, 547.2947pt x 533.74406pt>
-File: Raw path.png Graphic file (type png)
-<use Raw path.png>
-Package pdftex.def Info: Raw path.png  used on input line 38.
-(pdftex.def)             Requested size: 291.78174pt x 284.56071pt.
- [2 <./A(star).png>]
-<pruned.png, id=433, 551.05875pt x 523.20468pt>
-File: pruned.png Graphic file (type png)
-<use pruned.png>
-Package pdftex.def Info: pruned.png  used on input line 54.
-(pdftex.def)             Requested size: 291.78174pt x 277.04169pt.
- [3 <./Raw path.png>]
-<smooth.png, id=439, 561.59813pt x 535.2497pt>
-File: smooth.png Graphic file (type png)
-<use smooth.png>
-Package pdftex.def Info: smooth.png  used on input line 70.
-(pdftex.def)             Requested size: 291.78174pt x 278.08643pt.
- [4 <./pruned.png>] [5 <./smooth.png>]
-<MPC 1.png, id=450, 967.36406pt x 700.86844pt>
-File: MPC 1.png Graphic file (type png)
-<use MPC 1.png>
-Package pdftex.def Info: MPC 1.png  used on input line 104.
-(pdftex.def)             Requested size: 354.31049pt x 256.69714pt.
- [6 <./MPC 1.png>]
-<MPC(start).png, id=457, 1431.09656pt x 748.29562pt>
-File: MPC(start).png Graphic file (type png)
-<use MPC(start).png>
-Package pdftex.def Info: MPC(start).png  used on input line 122.
-(pdftex.def)             Requested size: 375.14705pt x 196.1508pt.
-<MPC(end).png, id=458, 1443.14156pt x 745.28438pt>
-File: MPC(end).png Graphic file (type png)
-<use MPC(end).png>
-Package pdftex.def Info: MPC(end).png  used on input line 135.
-(pdftex.def)             Requested size: 375.14705pt x 193.73524pt.
- [7 <./MPC(start).png>]
-<Tracking Error Analysis S1.png, id=465, 750.55406pt x 713.66624pt>
-File: Tracking Error Analysis S1.png Graphic file (type png)
-<use Tracking Error Analysis S1.png>
-Package pdftex.def Info: Tracking Error Analysis S1.png  used on input line 153
-.
-(pdftex.def)             Requested size: 354.31049pt x 336.90416pt.
- [8 <./MPC(end).png>]
-<Tracking Error Analysis S2.png, id=471, 753.5653pt x 724.20563pt>
-File: Tracking Error Analysis S2.png Graphic file (type png)
-<use Tracking Error Analysis S2.png>
-Package pdftex.def Info: Tracking Error Analysis S2.png  used on input line 166
-.
-(pdftex.def)             Requested size: 354.31049pt x 340.49825pt.
-
-[9 <./Tracking Error Analysis S1.png>]
-<MPC(Circle+triangle).png, id=477, 1444.64719pt x 771.63281pt>
-File: MPC(Circle+triangle).png Graphic file (type png)
-<use MPC(Circle+triangle).png>
-Package pdftex.def Info: MPC(Circle+triangle).png  used on input line 182.
-(pdftex.def)             Requested size: 354.31049pt x 189.24596pt.
- [10 <./Tracking Error Analysis S2.png>]
-<pso_mpc_tracking_start.png.png, id=485, 699.11188pt x 363.3575pt>
-File: pso_mpc_tracking_start.png.png Graphic file (type png)
-<use pso_mpc_tracking_start.png.png>
-Package pdftex.def Info: pso_mpc_tracking_start.png.png  used on input line 211
-.
-(pdftex.def)             Requested size: 416.83289pt x 216.64671pt.
-
-[11 <./MPC(Circle+triangle).png>]
-<pso_mpc_tracking_end.png.png, id=492, 684.05562pt x 355.3275pt>
-File: pso_mpc_tracking_end.png.png Graphic file (type png)
-<use pso_mpc_tracking_end.png.png>
-Package pdftex.def Info: pso_mpc_tracking_end.png.png  used on input line 227.
-(pdftex.def)             Requested size: 416.83289pt x 216.52715pt.
- [12 <./pso_mpc_tracking_start.png.png> <./pso_mpc_tracking_end.png.png>]
-<inflation.png, id=501, 751.00575pt x 524.55975pt>
-File: inflation.png Graphic file (type png)
-<use inflation.png>
-Package pdftex.def Info: inflation.png  used on input line 255.
-(pdftex.def)             Requested size: 333.46758pt x 232.92009pt.
- [13 <./inflation.png>]
-<webapp.png, id=507, 1198.4775pt x 670.75594pt>
-File: webapp.png Graphic file (type png)
-<use webapp.png>
-Package pdftex.def Info: webapp.png  used on input line 280.
-(pdftex.def)             Requested size: 395.98996pt x 221.61624pt.
- [14] [15 <./webapp.png>]
-<grid.png, id=521, 744.381pt x 441.44925pt>
-File: grid.png Graphic file (type png)
-<use grid.png>
-Package pdftex.def Info: grid.png  used on input line 303.
-(pdftex.def)             Requested size: 395.98996pt x 234.8359pt.
-
-[16 <./grid.png>]
-<test2.png, id=528, 752.8125pt x 503.63156pt>
-File: test2.png Graphic file (type png)
-<use test2.png>
-Package pdftex.def Info: test2.png  used on input line 320.
-(pdftex.def)             Requested size: 291.78174pt x 195.209pt.
-<test3.png, id=530, 861.2175pt x 475.02469pt>
-File: test3.png Graphic file (type png)
-<use test3.png>
-Package pdftex.def Info: test3.png  used on input line 339.
-(pdftex.def)             Requested size: 291.78174pt x 160.94089pt.
- [17 <./test2.png>]
-<test4.png, id=537, 931.98187pt x 567.62062pt>
-File: test4.png Graphic file (type png)
-<use test4.png>
-Package pdftex.def Info: test4.png  used on input line 353.
-(pdftex.def)             Requested size: 291.78174pt x 177.71013pt.
- [18 <./test3.png>]
-<starting_screen.jpeg, id=544, 895.84688pt x 894.34125pt>
-File: starting_screen.jpeg Graphic file (type jpg)
-<use starting_screen.jpeg>
-Package pdftex.def Info: starting_screen.jpeg  used on input line 373.
-(pdftex.def)             Requested size: 208.41644pt x 208.05501pt.
- [19 <./test4.png>]
-<Sign_up_page.jpeg, id=553, 525.46312pt x 536.0025pt>
-File: Sign_up_page.jpeg Graphic file (type jpg)
-<use Sign_up_page.jpeg>
-Package pdftex.def Info: Sign_up_page.jpeg  used on input line 384.
-(pdftex.def)             Requested size: 208.41644pt x 212.59787pt.
-
-[20 <./starting_screen.jpeg>]
-<Login_page.jpeg, id=558, 1094.0875pt x 957.5775pt>
-File: Login_page.jpeg Graphic file (type jpg)
-<use Login_page.jpeg>
-Package pdftex.def Info: Login_page.jpeg  used on input line 391.
-(pdftex.def)             Requested size: 208.41644pt x 182.40918pt.
-<user_interface.jpeg, id=560, 1197.72469pt x 472.01344pt>
-File: user_interface.jpeg Graphic file (type jpg)
-<use user_interface.jpeg>
-Package pdftex.def Info: user_interface.jpeg  used on input line 404.
-(pdftex.def)             Requested size: 375.14705pt x 147.84235pt.
- [21 <./Sign_up_page.jpeg> <./Login_page.jpeg>]
-Overfull \hbox (2.12813pt too wide) in paragraph at lines 411--412
-[]\OT1/ptm/m/n/12 Selecting "Re-quest New De-liv-ery" opens the in-ter-ac-tive 
-de-liv-ery re-quest form shown
+Overfull \hbox (5.50569pt too wide) in paragraph at lines 30--61
+ [][] 
  []
 
-<Dispatching_detail_form.jpeg, id=566, 1176.64594pt x 586.44093pt>
-File: Dispatching_detail_form.jpeg Graphic file (type jpg)
-<use Dispatching_detail_form.jpeg>
-Package pdftex.def Info: Dispatching_detail_form.jpeg  used on input line 415.
-(pdftex.def)             Requested size: 395.98996pt x 197.35599pt.
-[22 <./user_interface.jpeg> <./Dispatching_detail_form.jpeg>]
-<admin_interface.jpeg, id=573, 1196.21906pt x 493.845pt>
-File: admin_interface.jpeg Graphic file (type jpg)
-<use admin_interface.jpeg>
-Package pdftex.def Info: admin_interface.jpeg  used on input line 428.
-(pdftex.def)             Requested size: 395.98996pt x 163.48175pt.
-<2d_plan_editor_opt_from_admin_interface.jpeg, id=575, 1606.0pt x 862.22125pt>
-File: 2d_plan_editor_opt_from_admin_interface.jpeg Graphic file (type jpg)
-<use 2d_plan_editor_opt_from_admin_interface.jpeg>
-Package pdftex.def Info: 2d_plan_editor_opt_from_admin_interface.jpeg  used on 
-input line 441.
-(pdftex.def)             Requested size: 395.98996pt x 212.59459pt.
- [23 <./admin_interface.jpeg>]
-<2d_plan_editor_options_for_changing_sch_as_coordinates.jpeg, id=581, 1054.6903
-pt x 603.75563pt>
-File: 2d_plan_editor_options_for_changing_sch_as_coordinates.jpeg Graphic file 
-(type jpg)
-<use 2d_plan_editor_options_for_changing_sch_as_coordinates.jpeg>
-Package pdftex.def Info: 2d_plan_editor_options_for_changing_sch_as_coordinates
-.jpeg  used on input line 450.
-(pdftex.def)             Requested size: 395.98996pt x 226.67496pt.
- [24 <./2d_plan_editor_opt_from_admin_interface.jpeg> <./2d_plan_editor_options
-_for_changing_sch_as_coordinates.jpeg>]
-<live_robot_camera.png.png, id=588, 404.00937pt x 252.44313pt>
-File: live_robot_camera.png.png Graphic file (type png)
-<use live_robot_camera.png.png>
-Package pdftex.def Info: live_robot_camera.png.png  used on input line 467.
-(pdftex.def)             Requested size: 250.10226pt x 156.27814pt.
- [25 <./live_robot_camera.png.png>]
-<gazebo_world.png, id=595, 773.38937pt x 355.3275pt>
-File: gazebo_world.png Graphic file (type png)
-<use gazebo_world.png>
-Package pdftex.def Info: gazebo_world.png  used on input line 484.
-(pdftex.def)             Requested size: 375.14705pt x 172.36073pt.
- [26 <./gazebo_world.png>]
-<In_middle_of_delivery.png, id=603, 808.52063pt x 469.755pt>
-File: In_middle_of_delivery.png Graphic file (type png)
-<use In_middle_of_delivery.png>
-Package pdftex.def Info: In_middle_of_delivery.png  used on input line 495.
-(pdftex.def)             Requested size: 375.14705pt x 217.96074pt.
-<2d_map_of_world.png, id=605, 651.43375pt x 322.20375pt>
-File: 2d_map_of_world.png Graphic file (type png)
-<use 2d_map_of_world.png>
-Package pdftex.def Info: 2d_map_of_world.png  used on input line 506.
-(pdftex.def)             Requested size: 375.14705pt x 185.55579pt.
- [27 <./In_middle_of_delivery.png>]
-Overfull \hbox (1.0883pt too wide) in paragraph at lines 513--514
-\OT1/ptm/m/n/12 With the world con-structed, the robot was driven through the e
-n-vi-ron-ment us-ing ROS 2's
+[2] [3] [4]
+<delivery.png, id=1400, 573.94424pt x 386.6445pt>
+File: delivery.png Graphic file (type png)
+<use delivery.png>
+Package pdftex.def Info: delivery.png  used on input line 107.
+(pdftex.def)             Requested size: 229.25935pt x 154.44266pt.
+ [5] [6 <./delivery.png>]
+Underfull \hbox (badness 3449) in paragraph at lines 142--142
+[]\OT1/ptm/m/n/12 Path Smooth-ing (PSO + Cu-bic
  []
 
-<Slam_output_of_world_with_objects.png, id=613, 331.2375pt x 148.05313pt>
-File: Slam_output_of_world_with_objects.png Graphic file (type png)
-<use Slam_output_of_world_with_objects.png>
-Package pdftex.def Info: Slam_output_of_world_with_objects.png  used on input l
-ine 517.
-(pdftex.def)             Requested size: 354.31049pt x 158.3746pt.
 
-Overfull \hbox (4.30086pt too wide) in paragraph at lines 522--523
-[]\OT1/ptm/m/n/12 This SLAM-generated map was saved and sup-plied di-rectly to 
-our own path-planning
+Underfull \hbox (badness 1147) in paragraph at lines 144--144
+[]\OT1/ptm/m/n/12 Model Pre-dic-tive Con-trol (MPC)
  []
 
-[28 <./2d_map_of_world.png> <./Slam_output_of_world_with_objects.png>]
-<di.png, id=621, 255.45438pt x 323.70938pt>
-File: di.png Graphic file (type png)
-<use di.png>
-Package pdftex.def Info: di.png  used on input line 533.
-(pdftex.def)             Requested size: 333.46758pt x 422.59045pt.
- [29 <./di.png>]
-<rviz_p.png, id=628, 352.81813pt x 202.25563pt>
-File: rviz_p.png Graphic file (type png)
-<use rviz_p.png>
-Package pdftex.def Info: rviz_p.png  used on input line 543.
-(pdftex.def)             Requested size: 354.31049pt x 203.11307pt.
- [30 <./rviz_p.png>]
-<person_avoidance_during_delivery.png, id=636, 882.8985pt x 410.7345pt>
-File: person_avoidance_during_delivery.png Graphic file (type png)
-<use person_avoidance_during_delivery.png>
-Package pdftex.def Info: person_avoidance_during_delivery.png  used on input li
-ne 560.
-(pdftex.def)             Requested size: 375.14705pt x 174.52538pt.
-<gazebo_marking_robot_at_delivery_point.png, id=638, 967.615pt x 433.62pt>
-File: gazebo_marking_robot_at_delivery_point.png Graphic file (type png)
-<use gazebo_marking_robot_at_delivery_point.png>
-Package pdftex.def Info: gazebo_marking_robot_at_delivery_point.png  used on in
-put line 568.
-(pdftex.def)             Requested size: 375.14705pt x 168.11864pt.
- [31 <./person_avoidance_during_delivery.png>]
-<rviz_showing_complete_delivery.png, id=645, 387.4475pt x 183.68625pt>
-File: rviz_showing_complete_delivery.png Graphic file (type png)
-<use rviz_showing_complete_delivery.png>
-Package pdftex.def Info: rviz_showing_complete_delivery.png  used on input line
- 578.
-(pdftex.def)             Requested size: 354.31049pt x 167.97874pt.
 
-[32 <./gazebo_marking_robot_at_delivery_point.png> <./rviz_showing_complete_del
-ivery.png>] [33] [34]) [35] (main.bbl
-Underfull \hbox (badness 1226) in paragraph at lines 26--30
-\OT1/ptm/m/n/12 bor-hood de-liv-ery robot. Ac-cessed: 2025. [On-line]. Avail-
+Underfull \hbox (badness 10000) in paragraph at lines 144--145
+[]\OT1/ptm/m/n/12 Aitzaz Ar-shad, Gul-fam
  []
 
+
+Underfull \hbox (badness 6493) in paragraph at lines 146--146
+[]\OT1/ptm/m/n/12 Cellular De-com-po-si-tion & Dy-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 154--154
+\OT1/ptm/m/n/12 (Multi-Room De-liv-ery En-vi-ron-
+ []
+
+
+Underfull \hbox (badness 1642) in paragraph at lines 156--156
+[]\OT1/ptm/m/n/12 SLAM Im-ple-men-ta-tion & Oc-cu-
+ []
+
+
+Underfull \hbox (badness 3009) in paragraph at lines 158--158
+[]\OT1/ptm/m/n/12 Porting Path Plan-ning, Smooth-
+ []
+
+
+Underfull \hbox (badness 5519) in paragraph at lines 162--162
+[]\OT1/ptm/m/n/12 System Test-ing & Per-for-mance
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
+[]\OT1/ptm/m/n/12 Aitzaz Ar-shad, Gul-fam
+ []
+
+
+Underfull \hbox (badness 5908) in paragraph at lines 164--164
+[]\OT1/ptm/m/n/12 Documentation & Fi-nal Re-port
+ []
+
+
+Overfull \hbox (3.5111pt too wide) in paragraph at lines 134--167
+ [][] 
+ []
+
+[7]
+<chart.png, id=1418, 992.9898pt x 508.41945pt>
+File: chart.png Graphic file (type png)
+<use chart.png>
+Package pdftex.def Info: chart.png  used on input line 173.
+(pdftex.def)             Requested size: 416.83289pt x 213.41835pt.
+ [8]
+Underfull \hbox (badness 10000) in paragraph at lines 191--191
+[]\OT1/ptm/m/n/12 Good Health and
+ []
+
+
+Underfull \hbox (badness 2111) in paragraph at lines 192--192
+\OT1/ptm/m/n/12 ing hu-man con-tact to lower cross-
+ []
+
+
+Underfull \hbox (badness 2384) in paragraph at lines 194--194
+\OT1/ptm/m/n/12 ver-sity cam-puses by ef-fi-ciently de-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 197--197
+[]\OT1/ptm/m/n/12 Sustainable Cities
+ []
+
+
+Underfull \hbox (badness 1484) in paragraph at lines 198--198
+\OT1/ptm/m/n/12 uni-ver-si-ties and of-fices by re-duc-ing
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9 <./chart.png>]) [10]
+\openout2 = `chapter2.aux'.
+
+ (chapter2.tex
+Chapter 2.
+[11
+
+
+
+
+] [12] [13] [14] [15] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 169--169
+[]\OT1/ptm/m/n/10.95 Improved
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
+[]\OT1/ptm/m/n/10.95 Requires smooth-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 171--172
+[]\OT1/ptm/m/n/10.95 Random, jagged
+ []
+
+
+Underfull \hbox (badness 4792) in paragraph at lines 173--174
+[]\OT1/ptm/m/n/10.95 High com-pu-ta-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 177--177
+[]\OT1/ptm/m/n/10.95 Potential
+ []
+
+[17] [18]
+Overfull \hbox (1.52612pt too wide) in paragraph at lines 188--188
+|[]\OT1/ptm/b/n/14 Related Tech-nol-ogy 2 -- Path Smooth-ing and Op-ti-miza-tio
+n Tech-
+ []
+
+
+Overfull \hbox (4.75883pt too wide) in paragraph at lines 192--193
+\OT1/ptm/m/n/12 optimization-based tech-niques to con-tex-tu-al-ize the nat-u-r
+al cu-bic spline ap-proach adopted
+ []
+
+[19] [20] [21]
+Overfull \hbox (1.20404pt too wide) in paragraph at lines 287--288
+[]\OT1/ptm/m/n/12 This for-mu-la-tion en-sures gen-er-a-tion of smooth and dy-n
+am-i-cally fea-si-ble robot paths. 
+ []
+
+[22] [23]
+Underfull \hbox (badness 10000) in paragraph at lines 341--341
+[]\OT1/ptm/m/n/12 Offline Con-trol
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 341--341
+[]\OT1/ptm/m/n/12 Model Pre-dic-tive
+ []
+
+
+Underfull \hbox (badness 3679) in paragraph at lines 341--342
+[]\OT1/ptm/m/n/12 Quadratic pro-gram-ming, point-mass
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 341--342
+\OT1/ptm/m/n/12 dy-nam-ics, demon-strates curvature-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 343--343
+[]\OT1/ptm/m/n/12 Constraint Han-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 343--343
+[]\OT1/ptm/m/n/12 CVXPY
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 345--345
+[]\OT1/ptm/m/n/12 AMCL (Par-ti-cle
+ []
+
+[24] [25] [26] [27] [28]
+<droid.jpeg, id=1575, 954.56625pt x 200.75pt>
+File: droid.jpeg Graphic file (type jpg)
+<use droid.jpeg>
+Package pdftex.def Info: droid.jpeg  used on input line 443.
+(pdftex.def)             Requested size: 333.46758pt x 70.12875pt.
+ [29]
+<magic.jpeg, id=1585, 978.65625pt x 255.95625pt>
+File: magic.jpeg Graphic file (type jpg)
+<use magic.jpeg>
+Package pdftex.def Info: magic.jpeg  used on input line 454.
+(pdftex.def)             Requested size: 333.46758pt x 87.21533pt.
+ [30 <./droid.jpeg> <./magic.jpeg>]
+<wild gs.jpeg, id=1593, 978.65625pt x 298.11375pt>
+File: wild gs.jpeg Graphic file (type jpg)
+<use wild gs.jpeg>
+Package pdftex.def Info: wild gs.jpeg  used on input line 465.
+(pdftex.def)             Requested size: 333.46758pt x 101.58022pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 476--477
+[]\OT1/ptm/b/n/12 Application
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 478--478
+[]\OT1/ptm/m/n/12 LiDAR-Based
+ []
+
+
+Underfull \hbox (badness 7291) in paragraph at lines 478--478
+[]\OT1/ptm/m/n/12 Expensive hard-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 478--479
+[]\OT1/ptm/m/n/12 Industrial
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 480--480
+[]\OT1/ptm/m/n/12 Cost-effective
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 480--481
+[]\OT1/ptm/m/n/12 Indoor mo-bile
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 482--482
+[]\OT1/ptm/m/n/12 High ac-cu-racy
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 482--482
+[]\OT1/ptm/m/n/12 High com-pu-ta-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 482--483
+[]\OT1/ptm/m/n/12 Auto nav-i-ga-tion
+ []
+
+
+Underfull \hbox (badness 6396) in paragraph at lines 484--484
+[]\OT1/ptm/m/n/12 Complex im-ple-
+ []
+
+
+Underfull \hbox (badness 5924) in paragraph at lines 484--485
+[]\OT1/ptm/m/n/12 Multi-robot sys-
+ []
+
+
+Underfull \hbox (badness 4792) in paragraph at lines 486--486
+[]\OT1/ptm/m/n/12 Handles mov-ing
+ []
+
+
+Underfull \hbox (badness 5954) in paragraph at lines 486--486
+[]\OT1/ptm/m/n/12 High pro-cess-ing
+ []
+
+
+Underfull \hbox (badness 5954) in paragraph at lines 486--487
+[]\OT1/ptm/m/n/12 Dynamic in-door
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 507--507
+[]\OT1/ptm/m/n/12 Gargouri et
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 507--507
+[]\OT1/ptm/m/n/12 ROS2 Nav2, AMCL,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 507--508
+[]\OT1/ptm/m/n/12 Developed cost-effective in-door
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 509--509
+[]\OT1/ptm/m/n/12 Deep learn-ing vi-sual
+ []
+
+
+Underfull \hbox (badness 2875) in paragraph at lines 511--511
+[]\OT1/ptm/m/n/12 Multi-agent SLAM, dis-
+ []
+
+
+Underfull \hbox (badness 1325) in paragraph at lines 515--516
+[]\OT1/ptm/m/n/12 Improved tra-jec-tory track-ing and
+ []
+
+
+Overfull \hbox (3.2793pt too wide) in paragraph at lines 501--520
+ [][] 
+ []
+
+[31 <./wild gs.jpeg>] [32]
+Overfull \hbox (5.05788pt too wide) in paragraph at lines 541--542
+[]\OT1/ptm/b/n/12 Simulation-Based Nav-i-ga-tion Test-ing: \OT1/ptm/m/n/12 Stud
+-ies on sim-u-la-tion en-vi-ron-ments high-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 556--556
+[]\OT1/ptm/m/n/12 Traditional Path Plan-ning
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 558--558
+[]\OT1/ptm/m/n/12 Path Ex-e-cu-tion With-out
+ []
+
+
+Underfull \hbox (badness 1997) in paragraph at lines 558--559
+[]\OT1/ptm/m/n/12 Produces tra-jec-to-ries that vi-o-late kine-matic con-
+ []
+
+
+Underfull \hbox (badness 3965) in paragraph at lines 564--564
+[]\OT1/ptm/m/n/12 Limited Dy-namic Ob-sta-cle
+ []
+
+
+Underfull \hbox (badness 3009) in paragraph at lines 566--566
+[]\OT1/ptm/m/n/12 Lack of In-te-grated Hy-brid
+ []
+
+
+Overfull \hbox (5.50569pt too wide) in paragraph at lines 550--569
+ [][] 
+ []
+
+
+Overfull \hbox (3.73932pt too wide) in paragraph at lines 545--570
+\OT1/ptm/m/n/12 Despite sev-eral sig-nif-i-cant im-prove-ments in the au-tonomo
+us move-ment of mo-bile robots,
+ []
+
+[33] [34]) [35]
+\openout2 = `chapter3.aux'.
+
+ (chapter3.tex
+Chapter 3.
+<overall architecture.png, id=1644, 1541.76pt x 1027.84pt>
+File: overall architecture.png Graphic file (type png)
+<use overall architecture.png>
+Package pdftex.def Info: overall architecture.png  used on input line 13.
+(pdftex.def)             Requested size: 416.83289pt x 277.88123pt.
 [36
 
 
 
-] [37] [38]) [39] (main.aux (chapter5.aux))
+
+] [37 <./overall architecture.png (PNG copy)>] [38]
+<overflow.png, id=1659, 1148.29pt x 1380.15625pt>
+File: overflow.png Graphic file (type png)
+<use overflow.png>
+Package pdftex.def Info: overflow.png  used on input line 58.
+(pdftex.def)             Requested size: 333.46758pt x 400.80367pt.
+ [39 <./overflow.png (PNG copy)>] [40]
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
+10.
+ (C:\Users\aitza\AppData\Roaming\MiKTeX\tex/latex/psnfss\ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+) [41]
+Overfull \hbox (3.2793pt too wide) in paragraph at lines 170--185
+ [][] 
+ []
+
+[42] [43] [44] [45] [46]
+Overfull \hbox (5.22653pt too wide) in paragraph at lines 380--381
+\OT1/ptm/m/n/12 Angles be-tween path seg-ments are cal-cu-lated be-tween suc-ce
+s-sive path seg-ments. Smaller
+ []
+
+[47] [48] [49]
+Underfull \hbox (badness 7186) in paragraph at lines 477--478
+[]\OT1/ptm/m/n/12 Provides the tight-est path-
+ []
+
+[50]
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 510.
+
+
+Underfull \hbox (badness 6842) in paragraph at lines 522--522
+[]\OT1/ptm/m/n/12 Flutter (Dart), Provider
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 524--525
+\OT1/ptm/m/n/12 logic, path-planning ex-e-cu-tion,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 528--528
+[]\OT1/ptm/m/n/12 rosbridge[]suite (ros-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 528--528
+\OT1/ptm/m/n/12 bridge[]websocket),
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 530--531
+[]\OT1/ptm/m/n/12 Data ex-change be-tween frontend-
+ []
+
+
+Overfull \hbox (17.50568pt too wide) in paragraph at lines 518--533
+ [][] 
+ []
+
+[51]
+Underfull \hbox (badness 10000) in paragraph at lines 546--546
+[]|\OT1/ptm/b/n/12 Sr.
+ []
+
+
+Overfull \hbox (3.27928pt too wide) in alignment at lines 541--548
+ [] [] [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 551--551
+[]|\OT1/ptm/b/n/12 Sr.
+ []
+
+
+Overfull \hbox (3.27928pt too wide) in alignment at lines 548--553
+ [] [] [] 
+ []
+
+
+Overfull \hbox (3.27928pt too wide) in alignment at lines 553--558
+ [] [] [] 
+ []
+
+
+Overfull \hbox (3.27928pt too wide) in alignment at lines 558--561
+ [] [] [] 
+ []
+
+
+Overfull \hbox (1.4435pt too wide) in paragraph at lines 584--584
+[]|\OT1/ptm/m/n/12 live[]telemetry[]screen.dart| 
+ []
+
+
+Overfull \hbox (1.91174pt too wide) in paragraph at lines 599--599
+[]|\OT1/ptm/m/n/12 user[]directory[]screen.dart| 
+ []
+
+
+Overfull \hbox (3.27928pt too wide) in alignment at lines 561--605
+ [] [] [] 
+ []
+
+ignored error: Infinite glue shrinkage found in box being split [52] [53]
+<app_screen_flow.png, id=1761, 1807.75375pt x 876.27374pt>
+File: app_screen_flow.png Graphic file (type png)
+<use app_screen_flow.png>
+Package pdftex.def Info: app_screen_flow.png  used on input line 613.
+(pdftex.def)             Requested size: 375.14705pt x 181.84346pt.
+
+[54 <./app_screen_flow.png (PNG copy)>] [55]
+Overfull \hbox (19.73207pt too wide) in paragraph at lines 668--683
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 697--697
+[]\OT1/ptm/m/n/12 label[]x, la-bel[]y, re-
+ []
+
+
+Underfull \hbox (badness 2644) in paragraph at lines 697--698
+[]\OT1/ptm/m/n/12 Controls only how the room
+ []
+
+[56]
+Underfull \hbox (badness 10000) in paragraph at lines 714--714
+[]|\OT1/ptm/b/n/12 Sr.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 719--719
+[]|\OT1/ptm/b/n/12 Sr.
+ []
+
+
+Underfull \hbox (badness 1448) in paragraph at lines 737--738
+[]|\OT1/ptm/m/n/12 Implements the robot Fi-nite State Ma-chine
+ []
+
+
+Underfull \hbox (badness 2401) in paragraph at lines 737--738
+\OT1/ptm/m/n/12 (FSM) and man-ages ROS2 com-mu-ni-ca-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 743--743
+[]|\OT1/ptm/m/n/12 PSO[]path[]smothing.py /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 743--744
+[]|\OT1/ptm/m/n/12 Implements Par-ti-cle Swarm Op-ti-miza-tion
+ []
+
+ignored error: Infinite glue shrinkage found in box being split [57]
+Overfull \hbox (1.65082pt too wide) in paragraph at lines 757--758
+\OT1/ptm/m/n/12 The sys-tem uses a re-la-tional SQLite database, ac-cessed thro
+ugh the SQLAlchemy ORM.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 769--769
+[]\OT1/ptm/m/n/12 id, name, x, y, theta,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 771--771
+[]\OT1/ptm/m/n/12 id, sender[]id, re-cip-i-
+ []
+
+
+Underfull \hbox (badness 2781) in paragraph at lines 771--771
+\OT1/ptm/m/n/12 ent[]room[]id, sta-tus, sched-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 773--773
+[]\OT1/ptm/m/n/12 id, type, pickup[]room,
+ []
+
+
+Overfull \hbox (3.2793pt too wide) in paragraph at lines 763--778
+ [][] 
+ []
+
+[58]
+<fsm.png, id=1793, 826.58812pt x 743.02594pt>
+File: fsm.png Graphic file (type png)
+<use fsm.png>
+Package pdftex.def Info: fsm.png  used on input line 789.
+(pdftex.def)             Requested size: 250.10226pt x 224.81422pt.
+
+Overfull \hbox (0.43384pt too wide) in alignment at lines 793--800
+ [] [] [] 
+ []
+
+
+Overfull \hbox (0.43384pt too wide) in alignment at lines 800--805
+ [] [] [] 
+ []
+
+
+Overfull \hbox (0.43384pt too wide) in alignment at lines 805--810
+ [] [] [] 
+ []
+
+
+Overfull \hbox (0.43384pt too wide) in alignment at lines 810--813
+ [] [] [] 
+ []
+
+
+Underfull \hbox (badness 3168) in paragraph at lines 815--816
+[]|\OT1/ptm/m/n/12 A new Room-to-Room or-der is dis-
+ []
+
+
+Overfull \hbox (2.92271pt too wide) in paragraph at lines 818--818
+[]|\OT1/ptm/m/n/12 en[]route[]to[]dropoff| 
+ []
+
+
+Underfull \hbox (badness 3168) in paragraph at lines 818--819
+[]|\OT1/ptm/m/n/12 A new Home-to-Room or-der is dis-
+ []
+
+
+Overfull \hbox (2.92271pt too wide) in paragraph at lines 821--821
+[]|\OT1/ptm/m/n/12 en[]route[]to[]dropoff| 
+ []
+
+
+Overfull \hbox (2.92271pt too wide) in paragraph at lines 824--824
+[]|\OT1/ptm/m/n/12 en[]route[]to[]dropoff| 
+ []
+
+
+Underfull \hbox (badness 4341) in paragraph at lines 830--831
+[]|\OT1/ptm/m/n/12 A new Room-to-Room or-der ar-rives
+ []
+
+
+Underfull \hbox (badness 2035) in paragraph at lines 830--831
+\OT1/ptm/m/n/12 while re-turn-ing. The cur-rent home-
+ []
+
+
+Overfull \hbox (2.92271pt too wide) in paragraph at lines 833--833
+[]|\OT1/ptm/m/n/12 en[]route[]to[]dropoff| 
+ []
+
+
+Underfull \hbox (badness 4341) in paragraph at lines 833--834
+[]|\OT1/ptm/m/n/12 A new Home-to-Room or-der ar-rives
+ []
+
+
+Underfull \hbox (badness 2035) in paragraph at lines 833--834
+\OT1/ptm/m/n/12 while re-turn-ing. The cur-rent home-
+ []
+
+
+Overfull \hbox (0.43384pt too wide) in alignment at lines 813--836
+ [] [] [] 
+ []
+
+ignored error: Infinite glue shrinkage found in box being split [59 <./fsm.png>
+]
+<ros2 bridge architecture.png, id=1801, 1307.63531pt x 147.55125pt>
+File: ros2 bridge architecture.png Graphic file (type png)
+<use ros2 bridge architecture.png>
+Package pdftex.def Info: ros2 bridge architecture.png  used on input line 846.
+(pdftex.def)             Requested size: 333.46758pt x 37.62619pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 869--870
+[]\OT1/ptm/m/n/12 Simulated Li-DAR data for lo-cal-iza-tion and
+ []
+
+
+Overfull \hbox (7.4126pt too wide) in paragraph at lines 871--871
+[]\OT1/ptm/m/n/12 /camera/image[]raw| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 873--873
+[]\OT1/ptm/m/n/12 /battery[]state
+ []
+
+
+Overfull \hbox (17.50568pt too wide) in paragraph at lines 857--876
+ [][] 
+ []
+
+[60 <./ros2 bridge architecture.png>] [61] [62]
+<coor.png, id=1817, 121.45375pt x 79.29625pt>
+File: coor.png Graphic file (type png)
+<use coor.png>
+Package pdftex.def Info: coor.png  used on input line 901.
+(pdftex.def)             Requested size: 166.7306pt x 108.8566pt.
+ [63 <./coor.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 984--984
+[]\OT1/ptm/b/n/12 Evaluation Cat-e-
+ []
+
+
+Underfull \hbox (badness 4132) in paragraph at lines 988--988
+[]\OT1/ptm/m/n/12 Curvature Con-ti-nu-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 988--989
+[]\OT1/ptm/m/n/12 Measures di-rec-tional con-sis-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 992--992
+[]\OT1/ptm/m/n/12 Algorithm Ex-e-cu-
+ []
+
+[64] [65] [66]
+Overfull \hbox (3.2793pt too wide) in alignment at lines 1100--1107
+ [] [] [] 
+ []
+
+
+Overfull \hbox (3.2793pt too wide) in alignment at lines 1107--1112
+ [] [] [] 
+ []
+
+
+Overfull \hbox (3.2793pt too wide) in alignment at lines 1112--1117
+ [] [] [] 
+ []
+
+
+Overfull \hbox (3.2793pt too wide) in alignment at lines 1117--1120
+ [] [] [] 
+ []
+
+
+Underfull \hbox (badness 1975) in paragraph at lines 1122--1122
+[]|\OT1/ptm/m/n/12 Number of Sam-ples (Roll-
+ []
+
+
+Overfull \hbox (3.2793pt too wide) in alignment at lines 1120--1177
+ [] [] [] 
+ []
+
+ignored error: Infinite glue shrinkage found in box being split [67]
+Overfull \hbox (4.63829pt too wide) in paragraph at lines 1187--1188
+[]\OT1/ptm/m/n/12 The \OT1/ptm/b/n/12 global plan-ner \OT1/ptm/m/n/12 (Im-prove
+d A* with PSO smooth-ing) com-putes a long-horizon,
+ []
+
+[68]
+<setting.png.png, id=1859, 181.17688pt x 158.5925pt>
+File: setting.png.png Graphic file (type png)
+<use setting.png.png>
+Package pdftex.def Info: setting.png.png  used on input line 1223.
+(pdftex.def)             Requested size: 208.41644pt x 182.44043pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[69] [70 <./setting.png.png>]
+Overfull \hbox (7.27806pt too wide) in paragraph at lines 1281--1282
+\OT1/ptm/m/n/12 con-firms the re-quest. The mapped/selected rooms are re-solved
+ to their pro-grammed
+ []
+
+[71]
+<gazebo_marking_robot_at_delivery_point.png, id=1883, 967.615pt x 433.62pt>
+File: gazebo_marking_robot_at_delivery_point.png Graphic file (type png)
+<use gazebo_marking_robot_at_delivery_point.png>
+Package pdftex.def Info: gazebo_marking_robot_at_delivery_point.png  used on in
+put line 1309.
+(pdftex.def)             Requested size: 312.62466pt x 140.09776pt.
+
+Overfull \hbox (3.91824pt too wide) in paragraph at lines 1315--1321
+\OT1/ptm/m/n/12 demon-strates that the pro-posed sys-tem suc-cess-fully in-te-g
+rates all six de-vel-op-ment phases
+ []
+
+) [72 <./gazebo_marking_robot_at_delivery_point.png>] [73]
+\openout2 = `chapter4.aux'.
+
+ (chapter4.tex
+Chapter 4.
+
+Overfull \hbox (4.51912pt too wide) in paragraph at lines 4--5
+\OT1/ptm/m/n/12 The soft-ware tools and de-vel-op-ment plat-forms uti-lized for
+ the planned fi-nal year project's
+ []
+
+<vbox.png, id=1898, 169.38281pt x 80.55093pt>
+File: vbox.png Graphic file (type png)
+<use vbox.png>
+Package pdftex.def Info: vbox.png  used on input line 22.
+(pdftex.def)             Requested size: 125.05113pt x 59.47032pt.
+[74
+
+
+
+
+]
+<ubuntu.jpg, id=1906, 292.09125pt x 173.64874pt>
+File: ubuntu.jpg Graphic file (type jpg)
+<use ubuntu.jpg>
+Package pdftex.def Info: ubuntu.jpg  used on input line 32.
+(pdftex.def)             Requested size: 166.7306pt x 99.12389pt.
+<vscode.png, id=1910, 813.0375pt x 813.0375pt>
+File: vscode.png Graphic file (type png)
+<use vscode.png>
+Package pdftex.def Info: vscode.png  used on input line 41.
+(pdftex.def)             Requested size: 83.3653pt x 83.35548pt.
+ [75 <./vbox.png> <./ubuntu.jpg> <./vscode.png>]
+<ros.png, id=1922, 344.28625pt x 147.55125pt>
+File: ros.png Graphic file (type png)
+<use ros.png>
+Package pdftex.def Info: ros.png  used on input line 53.
+(pdftex.def)             Requested size: 125.05113pt x 53.59344pt.
+<colab.png, id=1926, 361.35pt x 154.5775pt>
+File: colab.png Graphic file (type png)
+<use colab.png>
+Package pdftex.def Info: colab.png  used on input line 64.
+(pdftex.def)             Requested size: 208.41644pt x 89.15495pt.
+<github.png, id=1930, 301.125pt x 168.63pt>
+File: github.png Graphic file (type png)
+<use github.png>
+Package pdftex.def Info: github.png  used on input line 74.
+(pdftex.def)             Requested size: 166.7306pt x 93.37204pt.
+ [76 <./ros.png> <./colab.png>]
+<flutterjpg.jpg, id=1942, 529.98pt x 397.485pt>
+File: flutterjpg.jpg Graphic file (type jpg)
+<use flutterjpg.jpg>
+Package pdftex.def Info: flutterjpg.jpg  used on input line 85.
+(pdftex.def)             Requested size: 125.05113pt x 93.78502pt.
+<flask.png, id=1946, 1405.25pt x 790.955pt>
+File: flask.png Graphic file (type png)
+<use flask.png>
+Package pdftex.def Info: flask.png  used on input line 95.
+(pdftex.def)             Requested size: 208.41644pt x 117.29846pt.
+ [77 <./github.png> <./flutterjpg.jpg>]
+<overleaf.png, id=1955, 361.35pt x 140.525pt>
+File: overleaf.png Graphic file (type png)
+<use overleaf.png>
+Package pdftex.def Info: overleaf.png  used on input line 105.
+(pdftex.def)             Requested size: 125.05113pt x 48.63126pt.
+) [78 <./flask.png> <./overleaf.png>]
+\openout2 = `chapter5.aux'.
+
+ (chapter5.tex
+Chapter 5.
+<A(star).png, id=1965, 544.28343pt x 438.8897pt>
+File: A(star).png Graphic file (type png)
+<use A(star).png>
+Package pdftex.def Info: A(star).png  used on input line 26.
+(pdftex.def)             Requested size: 250.10226pt x 201.67072pt.
+[79
+
+
+
+
+]
+<Raw path.png, id=1971, 547.2947pt x 533.74406pt>
+File: Raw path.png Graphic file (type png)
+<use Raw path.png>
+Package pdftex.def Info: Raw path.png  used on input line 45.
+(pdftex.def)             Requested size: 291.78174pt x 284.56071pt.
+ [80 <./A(star).png>]
+<pruned.png, id=1977, 551.05875pt x 523.20468pt>
+File: pruned.png Graphic file (type png)
+<use pruned.png>
+Package pdftex.def Info: pruned.png  used on input line 63.
+(pdftex.def)             Requested size: 291.78174pt x 277.04169pt.
+ [81 <./Raw path.png>]
+<smooth.png, id=1983, 561.59813pt x 535.2497pt>
+File: smooth.png Graphic file (type png)
+<use smooth.png>
+Package pdftex.def Info: smooth.png  used on input line 81.
+(pdftex.def)             Requested size: 291.78174pt x 278.08643pt.
+ [82 <./pruned.png>] [83 <./smooth.png>]
+<MPC 1.png, id=1994, 967.36406pt x 700.86844pt>
+File: MPC 1.png Graphic file (type png)
+<use MPC 1.png>
+Package pdftex.def Info: MPC 1.png  used on input line 110.
+(pdftex.def)             Requested size: 354.31049pt x 256.69714pt.
+
+Overfull \hbox (1.62357pt too wide) in paragraph at lines 115--116
+[]\OT1/ptm/m/n/12 The fig-ure col-lec-tively de-picts the MPC con-troller's tra
+ck-ing per-for-mance. Through-
+ []
+
+[84 <./MPC 1.png>]
+<MPC(start).png, id=2000, 1431.09656pt x 748.29562pt>
+File: MPC(start).png Graphic file (type png)
+<use MPC(start).png>
+Package pdftex.def Info: MPC(start).png  used on input line 130.
+(pdftex.def)             Requested size: 375.14705pt x 196.1508pt.
+<MPC(end).png, id=2001, 1443.14156pt x 745.28438pt>
+File: MPC(end).png Graphic file (type png)
+<use MPC(end).png>
+Package pdftex.def Info: MPC(end).png  used on input line 143.
+(pdftex.def)             Requested size: 375.14705pt x 193.73524pt.
+ [85 <./MPC(start).png>]
+<Tracking Error Analysis S1.png, id=2009, 750.55406pt x 713.66624pt>
+File: Tracking Error Analysis S1.png Graphic file (type png)
+<use Tracking Error Analysis S1.png>
+Package pdftex.def Info: Tracking Error Analysis S1.png  used on input line 163
+.
+(pdftex.def)             Requested size: 354.31049pt x 336.90416pt.
+ [86 <./MPC(end).png>]
+<Tracking Error Analysis S2.png, id=2015, 753.5653pt x 724.20563pt>
+File: Tracking Error Analysis S2.png Graphic file (type png)
+<use Tracking Error Analysis S2.png>
+Package pdftex.def Info: Tracking Error Analysis S2.png  used on input line 178
+.
+(pdftex.def)             Requested size: 354.31049pt x 340.49825pt.
+ [87 <./Tracking Error Analysis S1.png>]
+<MPC(Circle+triangle).png, id=2021, 1444.64719pt x 771.63281pt>
+File: MPC(Circle+triangle).png Graphic file (type png)
+<use MPC(Circle+triangle).png>
+Package pdftex.def Info: MPC(Circle+triangle).png  used on input line 196.
+(pdftex.def)             Requested size: 354.31049pt x 189.24596pt.
+ [88 <./Tracking Error Analysis S2.png>]
+<pso_mpc_tracking_start.png.png, id=2029, 699.11188pt x 363.3575pt>
+File: pso_mpc_tracking_start.png.png Graphic file (type png)
+<use pso_mpc_tracking_start.png.png>
+Package pdftex.def Info: pso_mpc_tracking_start.png.png  used on input line 217
+.
+(pdftex.def)             Requested size: 416.83289pt x 216.64671pt.
+ [89 <./MPC(Circle+triangle).png>]
+<pso_mpc_tracking_end.png.png, id=2036, 684.05562pt x 355.3275pt>
+File: pso_mpc_tracking_end.png.png Graphic file (type png)
+<use pso_mpc_tracking_end.png.png>
+Package pdftex.def Info: pso_mpc_tracking_end.png.png  used on input line 230.
+(pdftex.def)             Requested size: 416.83289pt x 216.52715pt.
+ [90 <./pso_mpc_tracking_start.png.png> <./pso_mpc_tracking_end.png.png>]
+<inflation.png, id=2044, 751.00575pt x 524.55975pt>
+File: inflation.png Graphic file (type png)
+<use inflation.png>
+Package pdftex.def Info: inflation.png  used on input line 257.
+(pdftex.def)             Requested size: 333.46758pt x 232.92009pt.
+ [91 <./inflation.png>]
+<webapp.png, id=2051, 1198.4775pt x 670.75594pt>
+File: webapp.png Graphic file (type png)
+<use webapp.png>
+Package pdftex.def Info: webapp.png  used on input line 284.
+(pdftex.def)             Requested size: 395.98996pt x 221.61624pt.
+ [92] [93 <./webapp.png>]
+<grid.png, id=2065, 744.381pt x 441.44925pt>
+File: grid.png Graphic file (type png)
+<use grid.png>
+Package pdftex.def Info: grid.png  used on input line 307.
+(pdftex.def)             Requested size: 333.46758pt x 197.76117pt.
+<test2.png, id=2067, 752.8125pt x 503.63156pt>
+File: test2.png Graphic file (type png)
+<use test2.png>
+Package pdftex.def Info: test2.png  used on input line 324.
+(pdftex.def)             Requested size: 291.78174pt x 195.209pt.
+ [94 <./grid.png>]
+<test3.png, id=2074, 861.2175pt x 475.02469pt>
+File: test3.png Graphic file (type png)
+<use test3.png>
+Package pdftex.def Info: test3.png  used on input line 343.
+(pdftex.def)             Requested size: 291.78174pt x 160.94089pt.
+ [95 <./test2.png>]
+<test4.png, id=2081, 931.98187pt x 567.62062pt>
+File: test4.png Graphic file (type png)
+<use test4.png>
+Package pdftex.def Info: test4.png  used on input line 357.
+(pdftex.def)             Requested size: 291.78174pt x 177.71013pt.
+ [96 <./test3.png>]
+<starting_screen.jpeg, id=2087, 895.84688pt x 894.34125pt>
+File: starting_screen.jpeg Graphic file (type jpg)
+<use starting_screen.jpeg>
+Package pdftex.def Info: starting_screen.jpeg  used on input line 378.
+(pdftex.def)             Requested size: 208.41644pt x 208.05501pt.
+ [97 <./test4.png>]
+<Sign_up_page.jpeg, id=2097, 525.46312pt x 536.0025pt>
+File: Sign_up_page.jpeg Graphic file (type jpg)
+<use Sign_up_page.jpeg>
+Package pdftex.def Info: Sign_up_page.jpeg  used on input line 390.
+(pdftex.def)             Requested size: 208.41644pt x 212.59787pt.
+<Login_page.jpeg, id=2098, 1094.0875pt x 957.5775pt>
+File: Login_page.jpeg Graphic file (type jpg)
+<use Login_page.jpeg>
+Package pdftex.def Info: Login_page.jpeg  used on input line 397.
+(pdftex.def)             Requested size: 208.41644pt x 182.40918pt.
+ [98 <./starting_screen.jpeg> <./Sign_up_page.jpeg>]
+<user_interface.jpeg, id=2104, 1197.72469pt x 472.01344pt>
+File: user_interface.jpeg Graphic file (type jpg)
+<use user_interface.jpeg>
+Package pdftex.def Info: user_interface.jpeg  used on input line 410.
+(pdftex.def)             Requested size: 375.14705pt x 147.84235pt.
+
+Overfull \hbox (2.12813pt too wide) in paragraph at lines 418--419
+[]\OT1/ptm/m/n/12 Selecting "Re-quest New De-liv-ery" opens the in-ter-ac-tive 
+de-liv-ery re-quest form shown
+ []
+
+<Dispatching_detail_form.jpeg, id=2106, 1176.64594pt x 586.44093pt>
+File: Dispatching_detail_form.jpeg Graphic file (type jpg)
+<use Dispatching_detail_form.jpeg>
+Package pdftex.def Info: Dispatching_detail_form.jpeg  used on input line 422.
+(pdftex.def)             Requested size: 395.98996pt x 197.35599pt.
+[99 <./Login_page.jpeg> <./user_interface.jpeg>]
+<admin_interface.jpeg, id=2113, 1196.21906pt x 493.845pt>
+File: admin_interface.jpeg Graphic file (type jpg)
+<use admin_interface.jpeg>
+Package pdftex.def Info: admin_interface.jpeg  used on input line 436.
+(pdftex.def)             Requested size: 395.98996pt x 163.48175pt.
+ [100 <./Dispatching_detail_form.jpeg>]
+<2d_plan_editor_opt_from_admin_interface.jpeg, id=2119, 1606.0pt x 862.22125pt>
+
+File: 2d_plan_editor_opt_from_admin_interface.jpeg Graphic file (type jpg)
+<use 2d_plan_editor_opt_from_admin_interface.jpeg>
+Package pdftex.def Info: 2d_plan_editor_opt_from_admin_interface.jpeg  used on 
+input line 450.
+(pdftex.def)             Requested size: 395.98996pt x 212.59459pt.
+ [101 <./admin_interface.jpeg>]
+<2d_plan_editor_options_for_changing_sch_as_coordinates.jpeg, id=2125, 1054.690
+3pt x 603.75563pt>
+File: 2d_plan_editor_options_for_changing_sch_as_coordinates.jpeg Graphic file 
+(type jpg)
+<use 2d_plan_editor_options_for_changing_sch_as_coordinates.jpeg>
+Package pdftex.def Info: 2d_plan_editor_options_for_changing_sch_as_coordinates
+.jpeg  used on input line 459.
+(pdftex.def)             Requested size: 395.98996pt x 226.67496pt.
+ [102 <./2d_plan_editor_opt_from_admin_interface.jpeg> <./2d_plan_editor_option
+s_for_changing_sch_as_coordinates.jpeg>]
+<live_robot_camera.png.png, id=2131, 404.00937pt x 252.44313pt>
+File: live_robot_camera.png.png Graphic file (type png)
+<use live_robot_camera.png.png>
+Package pdftex.def Info: live_robot_camera.png.png  used on input line 475.
+(pdftex.def)             Requested size: 250.10226pt x 156.27814pt.
+[103 <./live_robot_camera.png.png>]
+<gazebo_world.png, id=2139, 773.38937pt x 355.3275pt>
+File: gazebo_world.png Graphic file (type png)
+<use gazebo_world.png>
+Package pdftex.def Info: gazebo_world.png  used on input line 489.
+(pdftex.def)             Requested size: 375.14705pt x 172.36073pt.
+ [104 <./gazebo_world.png>]
+<In_middle_of_delivery.png, id=2147, 808.52063pt x 469.755pt>
+File: In_middle_of_delivery.png Graphic file (type png)
+<use In_middle_of_delivery.png>
+Package pdftex.def Info: In_middle_of_delivery.png  used on input line 500.
+(pdftex.def)             Requested size: 375.14705pt x 217.96074pt.
+<2d_map_of_world.png, id=2149, 651.43375pt x 322.20375pt>
+File: 2d_map_of_world.png Graphic file (type png)
+<use 2d_map_of_world.png>
+Package pdftex.def Info: 2d_map_of_world.png  used on input line 512.
+(pdftex.def)             Requested size: 375.14705pt x 185.55579pt.
+ [105 <./In_middle_of_delivery.png>]
+Overfull \hbox (1.0883pt too wide) in paragraph at lines 519--520
+\OT1/ptm/m/n/12 With the world con-structed, the robot was driven through the e
+n-vi-ron-ment us-ing ROS 2's
+ []
+
+<Slam_output_of_world_with_objects.png, id=2157, 331.2375pt x 148.05313pt>
+File: Slam_output_of_world_with_objects.png Graphic file (type png)
+<use Slam_output_of_world_with_objects.png>
+Package pdftex.def Info: Slam_output_of_world_with_objects.png  used on input l
+ine 523.
+(pdftex.def)             Requested size: 354.31049pt x 158.3746pt.
+
+Overfull \hbox (4.30086pt too wide) in paragraph at lines 528--529
+[]\OT1/ptm/m/n/12 This SLAM-generated map was saved and sup-plied di-rectly to 
+our own path-planning
+ []
+
+[106 <./2d_map_of_world.png> <./Slam_output_of_world_with_objects.png>]
+<di.png, id=2165, 318.18875pt x 156.08313pt>
+File: di.png Graphic file (type png)
+<use di.png>
+Package pdftex.def Info: di.png  used on input line 539.
+(pdftex.def)             Requested size: 250.10226pt x 122.6827pt.
+<rviz_p.png, id=2167, 347.2975pt x 164.615pt>
+File: rviz_p.png Graphic file (type png)
+<use rviz_p.png>
+Package pdftex.def Info: rviz_p.png  used on input line 549.
+(pdftex.def)             Requested size: 354.31049pt x 167.94525pt.
+
+[107 <./di.png>] [108 <./rviz_p.png>]
+<person_avoidance_during_delivery.png, id=2179, 882.8985pt x 410.7345pt>
+File: person_avoidance_during_delivery.png Graphic file (type png)
+<use person_avoidance_during_delivery.png>
+Package pdftex.def Info: person_avoidance_during_delivery.png  used on input li
+ne 567.
+(pdftex.def)             Requested size: 375.14705pt x 174.52538pt.
+File: gazebo_marking_robot_at_delivery_point.png Graphic file (type png)
+<use gazebo_marking_robot_at_delivery_point.png>
+Package pdftex.def Info: gazebo_marking_robot_at_delivery_point.png  used on in
+put line 576.
+(pdftex.def)             Requested size: 375.14705pt x 168.11864pt.
+ [109 <./person_avoidance_during_delivery.png>]
+<rviz_showing_complete_delivery.png, id=2188, 387.4475pt x 183.68625pt>
+File: rviz_showing_complete_delivery.png Graphic file (type png)
+<use rviz_showing_complete_delivery.png>
+Package pdftex.def Info: rviz_showing_complete_delivery.png  used on input line
+ 587.
+(pdftex.def)             Requested size: 354.31049pt x 167.97874pt.
+ [110 <./rviz_showing_complete_delivery.png>] [111]) [112] [113]
+\openout2 = `chapter6.aux'.
+
+
+(chapter6.tex
+Chapter 6.
+[114
+
+
+
+
+] [115]) [116]
+\openout2 = `chapter7.aux'.
+
+ (chapter7.tex
+Chapter 7.
+<SDGs.png, id=2219, 1158.0063pt x 694.5147pt>
+File: SDGs.png Graphic file (type png)
+<use SDGs.png>
+Package pdftex.def Info: SDGs.png  used on input line 10.
+(pdftex.def)             Requested size: 354.31049pt x 212.489pt.
+[117
+
+
+
+
+ <./SDGs.png>]
+<sdg3.png, id=2226, 225.84375pt x 225.84375pt>
+File: sdg3.png Graphic file (type png)
+<use sdg3.png>
+Package pdftex.def Info: sdg3.png  used on input line 33.
+(pdftex.def)             Requested size: 125.05113pt x 125.05183pt.
+ [118 <./sdg3.png>]
+<sdg4.png, id=2232, 1505.625pt x 1505.625pt>
+File: sdg4.png Graphic file (type png)
+<use sdg4.png>
+Package pdftex.def Info: sdg4.png  used on input line 52.
+(pdftex.def)             Requested size: 125.05113pt x 125.04724pt.
+<sdg9.png, id=2235, 225.84375pt x 225.84375pt>
+File: sdg9.png Graphic file (type png)
+<use sdg9.png>
+Package pdftex.def Info: sdg9.png  used on input line 76.
+(pdftex.def)             Requested size: 125.05113pt x 125.05183pt.
+ [119 <./sdg4.png> <./sdg9.png>]
+<sdg11.png, id=2242, 1027.84pt x 1027.84pt>
+File: sdg11.png Graphic file (type png)
+<use sdg11.png>
+Package pdftex.def Info: sdg11.png  used on input line 97.
+(pdftex.def)             Requested size: 125.05113pt x 125.04498pt.
+
+Underfull \hbox (badness 7415) in paragraph at lines 120--120
+[]\OT1/ptm/m/n/12 Sustainable Cities &
+ []
+
+
+Underfull \hbox (badness 7451) in paragraph at lines 120--121
+\OT1/ptm/m/n/12 cept by re-duc-ing in-door con-ges-
+ []
+
+
+Overfull \hbox (7.44054pt too wide) in paragraph at lines 110--123
+ [][] 
+ []
+
+[120 <./sdg11.png>]) [121] (main.bbl
+Underfull \hbox (badness 1226) in paragraph at lines 26--30
+\OT1/ptm/m/n/12 bor-hood de-liv-ery robot. Ac-cessed: 2025. [On-line]. Avail-
+ []
+
+[122
+
+
+
+] [123] [124]) [125] (main.aux (chapter1.aux) (chapter2.aux) (chapter3.aux) (ch
+apter4.aux) (chapter5.aux) (chapter6.aux) (chapter7.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 232B7ADE6EB0E1B29A4778725E4B0185;11008.
+(rerunfilecheck)             Checksum: 552453E6847EEA577B92E29A27BE26C4;43285.
  ) 
 Here is how much of TeX's memory you used:
- 15948 strings out of 467871
- 251166 string characters out of 5428443
- 682770 words of memory out of 5000000
- 44417 multiletter control sequences out of 15000+600000
- 649447 words of font info for 81 fonts, out of 8000000 for 9000
+ 17005 strings out of 467871
+ 269346 string characters out of 5428443
+ 703911 words of memory out of 5000000
+ 45053 multiletter control sequences out of 15000+600000
+ 655187 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,103p,1901b,578s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Program Files/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/M
-iKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw
-/times/utmri8a.pfb>
-Output written on main.pdf (52 pages, 11524490 bytes).
+ 75i,14n,103p,1940b,671s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Progra
+m Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.
+pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Prog
+ram Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiK
+TeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw
+/times/utmb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:
+/Program Files/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (143 pages, 17839822 bytes).
 PDF statistics:
- 800 PDF objects out of 1000 (max. 8388607)
- 187 named destinations out of 1000 (max. 500000)
- 602 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2463 PDF objects out of 2487 (max. 8388607)
+ 558 named destinations out of 1000 (max. 500000)
+ 1996 words of extra memory for PDF output out of 10000 (max. 10000000)
 

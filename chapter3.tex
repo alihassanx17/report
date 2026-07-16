@@ -3,10 +3,9 @@
 This chapter presents the design and implementation of the autonomous parcel delivery navigation system. It covers the development approach, performance metrics, software architecture, algorithm design, simulation setup, and prototype demonstration. The chapter explains the step-by-step development process and testing methods used to ensure the system operates reliably and efficiently in complex indoor environments.
 \section{Proposed Design Methodology}
 
-The proposed design methodology develops an autonomous parcel delivery system by integrating a web-based management platform with the ROS2 navigation framework, simulation environment, visualization tools, and autonomous navigation algorithms. The system enables users to assign delivery tasks, monitor the robot in real time, manage maps, and visualize robot operations through a unified interface.
+The parcel delivery system design method combines a web management integration system, the ROS2 (Robot Operating System 2) navigation system, along with a web-based simulation and visualization of autonomous navigation and a web-based automation system. The system integrates management, real-time monitoring of delivery robots, map management, and the ability to visualize robot operations.
 
-Figure~\ref{overall} illustrates the overall system architecture. The top layer consists of a web interface that provides live robot telemetry, task assignment, map management, and delivery log monitoring. The web interface communicates with a Flask-based backend server, which manages the application logic, REST APIs, database operations, and acts as a bridge between the web platform and ROS2. The ROS2 communication layer coordinates the interaction among the navigation stack, Gazebo simulation, RViz visualization, and the TurtleBot3 robot model. The navigation stack consists of the Improved A* path planning algorithm, Particle Swarm Optimization (PSO)-based path smoothing, and a Model Predictive Controller (MPC) for trajectory tracking. Gazebo provides the simulation environment for testing robot navigation, while RViz visualizes the generated maps, planned paths, and live robot telemetry.
-
+Figure~\ref{overall}At the top are the live telemetry and task options along with the maps and logs which are all accessible via the web interface. The web interface is connected to the backend in Flask. From there it's application logic, REST APIs and database, as well as interface between the web and ROS2. The communication layer robs towards the coordination for the navigation stack, the Gazebo simulation, RViz, and the TurtleBot3. The components of the navigation stack are the Improved A* with Particle Swarm Optimization (PSO) for path smoothing, and Model Predictive Controller (MPC) for path and tracking. The simulation for the navigation of the robot is provided by Gazebo, while the visualizations by RViz for the maps, planned paths, and the robot's telemetry are also real time.
 The project is outlined into six development stages:
 
 \begin{figure}[H]
@@ -18,40 +17,41 @@ The project is outlined into six development stages:
 
 \subsection*{Phase 1: Navigation Algorithm Development}
 
-The Improved A* path planning algorithm was implemented to generate collision-free global paths within the simulated environment. The generated paths were further enhanced using Particle Swarm Optimization (PSO)-based path smoothing to obtain shorter, smoother, and more feasible trajectories for autonomous navigation.
-
+To create collision-free global paths in the simulation, the Improved A* path planning algorithm was applied. Then, Particle Swarm Optimization (PSO) path smoothing was used to create paths that were shorter, smoother, and more practical for autonomous navigation.
 \subsection*{Phase 2: Web-Based Management Platform Development}
 
-A Flask-based web application was developed to provide an intuitive interface for users to assign delivery tasks, monitor live robot telemetry, manage occupancy maps, and access delivery logs. The interface serves as the primary interaction point between the user and the autonomous delivery system.
+A Flask-based application based on Flask for users to easily assign delivery tasks, view real time delivery robot telemetry, manage occupancy maps, and view delivery logs. The interface is the main point of user interaction with the autonomous delivery system.
 
 \subsection*{Phase 3: Backend and ROS2 Integration}
 
-The backend server was integrated with ROS2 to establish seamless communication between the web platform and the robotic system. User commands, delivery goals, and map management requests are forwarded to ROS2, while robot status and telemetry information are continuously transmitted back to the web interface.
+To create smooth connection between the online platform and the robotic system, the backend server was linked with ROS2. While robot status and telemetry data are continuously sent back to the web interface, user commands, delivery objectives, and map management requests are routed to ROS2.
 
 \subsection*{Phase 4: Model Predictive Control Implementation}
 
-A Model Predictive Controller (MPC) was implemented to accurately track the optimized navigation path generated by the planning module. The controller computes appropriate velocity commands while satisfying the robot's kinematic constraints, resulting in smooth and stable autonomous motion.
+To precisely track the optimum navigation path produced by the planning module, a Model Predictive Controller (MPC) was put into place. Smooth and stable autonomous mobility is achieved by the controller's computation of suitable velocity commands while meeting the robot's kinematic limitations.
 
 \subsection*{Phase 5: Simulation and Visualization Integration}
+Gazebo and RViz were integrated with the entire navigation stack. While RViz delivers real-time viewing of occupancy maps, robot position, planned trajectories, and navigation status during autonomous deliveries, Gazebo offers a realistic simulation environment for assessing robot performance.
 
-The complete navigation stack was integrated with Gazebo and RViz. Gazebo provides a realistic simulation environment for evaluating robot performance, whereas RViz offers real-time visualization of occupancy maps, robot pose, planned trajectories, and navigation status during autonomous deliveries.
 
 \subsection*{Phase 6: System Deployment and Validation}
 
-The complete autonomous parcel delivery system was deployed using Ubuntu 22.04, ROS2, Gazebo, and the TurtleBot3 robot model equipped with LiDAR and RGB camera sensors. End-to-end testing was performed to validate task execution, autonomous navigation, path tracking, and communication between the web interface and the robotic platform.
+Ubuntu 22.04, ROS2, Gazebo, and the TurtleBot3 robot model with LiDAR and RGB camera sensors were used to implement the whole autonomous package delivery system. To verify task execution, autonomous navigation, path tracking, and communication between the web interface and the robotic platform, end-to-end testing was carried out.
+
 
 
 \subsection{Overall System Architecture}
 
-The proposed autonomous parcel delivery system follows a modular architecture that integrates a web-based user interface, backend processing, robotic middleware, simulation environment, and the autonomous mobile robot. Figure~\ref{fig:system_architecture} illustrates the overall workflow of the proposed system, beginning with user task assignment and ending with successful delivery completion.
+A web-based user interface, backend processing, robotic middleware, simulation environment, and the autonomous mobile robot are all integrated into the modular architecture of the suggested autonomous parcel delivery system. Figure~\ref{fig:system_architecture} shows the general workflow of the suggested system, starting with the assignment of tasks to users and concluding with the effective completion of deliveries.
 
-At the top level, the \textbf{User} interacts with the \textbf{Web Interface} to assign delivery tasks and monitor the robot's live telemetry throughout the delivery process. The web interface communicates with the \textbf{Backend}, which manages user requests and serves as the communication bridge between the web application and the robotic system.
+In order to assign delivery jobs and track the robot's real-time telemetry during the delivery process, the user engages with the Web Interface at the highest level. The Backend, which handles user requests and acts as a communication link between the web application and the robotic system, is communicated with using the web interface.
 
-The backend is integrated with the \textbf{ROS2 Communication Layer}, which acts as the middleware responsible for exchanging information between the software components and the robot. The navigation system is evaluated within the \textbf{Gazebo Simulation} environment, where the TurtleBot3 robot performs autonomous parcel delivery tasks under realistic simulation conditions.
+The ROS2 Communication Layer, which serves as the middleware in charge of information exchange between the robot and the software components, is integrated with the backend. In the Gazebo Simulation environment, where the TurtleBot3 robot completes autonomous parcel delivery tasks under realistic simulation conditions, the navigation system is assessed.
 
-The \textbf{TurtleBot3 Robot} is equipped with a \textbf{LiDAR} sensor for localization and obstacle detection, and an RGB \textbf{Camera} for visual perception. Using the navigation algorithms implemented within the ROS2 framework, the robot autonomously follows the assigned delivery route and reaches the specified destination while continuously providing telemetry updates to the web interface.
+The TurtleBot3 Robot has an RGB camera for visual perception and a LiDAR sensor for obstacle recognition and localization. The robot automatically follows the designated delivery path and arrives at the designated destination using the navigation algorithms built into the ROS2 framework, all the while continuously sending telemetry updates to the web interface.
 
-This modular architecture ensures clear separation between user interaction, backend services, robotic middleware, simulation, and robot operation. Such a design improves scalability, maintainability, and simplifies future integration with physical robot hardware.
+User interaction, backend services, robotic middleware, simulation, and robot operation are all clearly separated thanks to this modular architecture. Scalability, maintainability, and future integration with actual robot hardware are all enhanced by such a design.
+
 
 \begin{figure}[H]
 	\centering
@@ -59,15 +59,300 @@ This modular architecture ensures clear separation between user interaction, bac
 	\caption{Overall System Architecture of the Proposed Autonomous Parcel Delivery System}
 	\label{fig:system_architecture}
 \end{figure}
-\section{Analysis Procedure}
+\section{Implementation Procedure}
+\section{Phase 1: Global Path Planning}
+\label{sec:phase1_astar}
+
+The global route planning module, which is the first part of the six-phase development approach, is fully designed and implemented in this section. The global planner in charge of creating collision-free pathways throughout the occupancy grid representation of the workspace was chosen to be the Improved A* (IA*) algorithm.
 
 
-The analysis process is designed to analyze the performance, reliability and efficiency of the autonomous navigation system in various operation conditions. Quantitative metrics are applied to the performance evaluation in which the quality of path planning, the effectiveness of optimization, the accuracy of the trajectory tracking, and the efficiency of the computations are evaluated.
+\subsection{Why A*}
+\label{subsec:why_astar}
+
+Because of its heuristic-guided search efficiency and optimality guarantees, the A* algorithm was chosen for global path planning. In contrast to ignorant search algorithms like Dijkstra's algorithm, A* employs a heuristic function to steer the search in the direction of the objective. When an admissible heuristic is employed, this drastically reduces the number of nodes examined while still ensuring the shortest path.
+
+The following are the main justifications for using A* as the global planner:
+
+
+\begin{itemize}[noitemsep]
+\item \textbf{Optimality:} When employing an acceptable heuristic (Euclidean distance), A* ensures the shortest collision-free path between the start and target nodes.
+\item \textbf{Completeness:} If there is a solution in the occupancy grid, the algorithm will discover it.
+\item \textbf{Heuristic-guided efficiency:} Compared to exhaustive search techniques, the Euclidean distance heuristic reduces computer overhead by focusing the search on the objective.
+\item \textbf{Grid compatibility:} A* is readily suitable to the workspace representation used in this project because it functions natively on discretized occupancy grid maps.
+\item \textbf{Deterministic behavior:} A* simplifies testing and validation by generating repeated, consistent paths for a given map and start/goal setup.
+
+\end{itemize}
+
+In order to overcome the discontinuities and abrupt turns that come with grid-based planning, A* was used as the main global path planner. Its output was then improved through path trimming and PSO-based smoothing (Phase 2).
+
+
+
+\subsection{A* Implementation}
+\label{subsec:astar_implementation}
+
+A grid-based workspace representation is used in the Python implementation of the A* path planning algorithm. A consistent grid with adjustable resolution is created by discretizing the environment. Based on the locations of obstacles, each grid cell is categorized as either occupied or free area. The technique employs a priority queue to choose nodes with the lowest cost function while maintaining open and closed sets for node exploration:
+
+
+\begin{equation}
+	f(n) = g(n) + h(n)
+	\label{eq:astar_cost_impl}
+\end{equation}
+
+where $g(n)$ is the actual cost from the start node to the current node, and $h(n)$ is the heuristic estimate from the current node to the goal node.
+
+\subsubsection*{Path Pruning}
+
+The A* algorithm generates redundant waypoints, which are reduced by using path pruning. Iterating through successive waypoints, the pruning algorithm eliminates intermediate spots that don't improve path quality. To ensure collision-free connectivity between non-consecutive waypoints, a line-of-sight check is carried out.
+
+
+\subsubsection*{Backend Implementation File}
+
+The A* algorithm is implemented in the backend as \texttt{astar\_modified.py}, which includes the modified A* path planning algorithm tailored for the particular restrictions of the project (dynamic safety margin, adaptive grid resolution, and 8-directional motion model, described in Section
+~\ref{subsec:astar_parameters}).
+
+\subsection{Mathematical Model}
+\label{subsec:astar_math_model}
+
+The path planning process is modeled as a graph search problem where the environment is divided into a discrete grid. The A* algorithm evaluates nodes using the cost function:
+
+\begin{equation}
+	f(n) = g(n) + h(n)
+	\label{eq:astar_cost}
+\end{equation}
+
+where:
+\begin{itemize}[noitemsep]
+	\item $g(n)$ = actual cost from start node to current node
+	\item $h(n)$ = heuristic estimate from current node to goal node
+\end{itemize}
+
+The Euclidean distance heuristic is used, as it is admissible (never overestimates the true cost) and thus preserves the optimality of the A* search:
+
+\begin{equation}
+	h(n) = \sqrt{(x_{goal} - x_{current})^2 + (y_{goal} - y_{current})^2}
+	\label{eq:euclidean_heuristic_p1}
+\end{equation}
+
+Dynamic programming techniques are used to store optimal sub-path solutions, improving computational efficiency through memoization.
+
+\subsection{Parameters}
+\label{subsec:astar_parameters}
+
+The A* path planning algorithm is configured with the following adaptive parameters:
+
+\begin{description}[leftmargin=0cm, labelindent=0cm, itemsep=0.3em, font=\normalfont]
+	\item[Grid Resolution:] The grid resolution adapts to workspace dimensions to balance computational efficiency and path accuracy:
+	\begin{equation}
+		\text{resolution} = \min(\text{width}, \text{height}) \times 0.01
+	\end{equation}
+	
+	\item[Safety Margin:] A dynamic safety margin is applied around obstacles to prevent collisions:
+	\begin{equation}
+		\text{safety\_margin} = \text{resolution} \times 0.2 \text{ meters}
+	\end{equation}
+	
+	\item[Motion Model:] The robot uses an 8-directional motion model with diagonal movement cost of $\sqrt{2} \times \text{resolution}$.
+	
+	\item[Grid Indexing Formula:] Each cell is assigned a unique index for efficient lookup:
+	\begin{equation}
+		\text{index} = y_{\text{index}} \times x_{\text{width}} + x_{\text{index}}
+	\end{equation}
+	
+	\item[Heuristic Function:] Euclidean distance is used as the admissible heuristic for optimal pathfinding.
+\end{description}
+
+Table~\ref{tab:astar_parameters} summarizes the A* configuration parameters.
+
+\begin{table}[H]
+	\centering
+	\caption{A* Algorithm Parameters and Configuration}
+	\label{tab:astar_parameters}
+	\begin{tabular}{|p{4cm}|p{3cm}|p{6.5cm}|}
+		\hline
+		\textbf{Parameter} & \textbf{Type} & \textbf{Value/Formula} \\
+		\hline
+		Grid Resolution & Adaptive & $\min(\text{width}, \text{height}) \times 0.01$ \\
+		\hline
+		Safety Margin & Dynamic & $\text{resolution} \times 0.2$ m \\
+		\hline
+		Motion Model & 8-directional & Diagonal cost $= \sqrt{2} \times \text{resolution}$ \\
+		\hline
+		Heuristic Function & Euclidean & $\sqrt{(x_g - x_c)^2 + (y_g - y_c)^2}$ \\
+		\hline
+		Grid Indexing & Formula & $y_{index} \times x_{width} + x_{index}$ \\
+		\hline
+	\end{tabular}
+\end{table}
+
+
+\section{Phase 2: Path Optimization}
+\label{sec:phase2_optimization}
+
+Following global path generation by the A* planner (Section~\ref{sec:phase1_astar}), the raw path is refined through a two-stage optimization pipeline: path pruning to eliminate redundant waypoints, followed by Particle Swarm Optimization (PSO)-based smoothing to produce a continuous, kinematically feasible trajectory suitable for differential-drive robot motion.
+
+\subsection{Path Pruning}
+\label{subsec:path_pruning}
+
+On an 8-directional grid, the raw path produced by A* usually has a lot of closely spaced, collinear, or near-collinear waypoints that are not necessary for smooth trajectory execution and are computationally costly to monitor. Prior to PSO smoothing, path pruning is used as the initial optimization step to minimize this redundancy.
+
+The pruning method eliminates intermediate points that don't improve path quality by iterating through successive waypoints. To ensure collision-free connection, a line-of-sight check is carried out between non-consecutive waypoints. All intermediate waypoints between two non-adjacent waypoints are eliminated if a straight line between them does not cross any obstacles (within the safety margin).
+By eliminating needless zigzag segments added by the grid-based search, this step considerably lowers waypoint density while also somewhat reducing the overall path length.
+
+
+\subsection{Results}
+\label{subsec:astar_results}
+
+The path planning performance criteria (path length, waypoint density, and computing efficiency) were used to assess the A* global planner in two simulated indoor test scenarios with varying levels of complexity and scale. For comparison, the pruned path (after removing redundant waypoints, see Section~\ref{subsec:astar_implementation}) and the raw A* output were both recorded.
+
+
+\subsubsection*{Scenario 1: M4 Map (100 $\times$ 100 m)}
+
+\textbf{Start:} $(35.0, 95.0)$ \quad \textbf{Goal:} $(50.0, 8.0)$ \\
+\textbf{Grid Resolution:} 2.0 m \quad \textbf{Safety Margin (Inflation):} 3.0 m
+
+\begin{table}[H]
+	\centering
+	\caption{A* Path Planning Results -- Scenario 1 (M4 Map)}
+	\label{tab:astar_results_scenario1}
+	\begin{tabular}{|p{4.5cm}|p{4cm}|p{4cm}|}
+		\hline
+		\textbf{Metric} & \textbf{Raw A* Path} & \textbf{Pruned A* Path} \\
+		\hline
+		Path Length & 100.62 meters & 96.13 meters \\
+		\hline
+		Waypoint Count & 47 waypoints & 6 waypoints \\
+		\hline
+		\multicolumn{3}{|c|}{Computation Time: IA* $\approx$ 0.1346 s \quad A* $\approx$ 0.1410 s} \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsubsection*{Scenario 2: Mobile Robot Workspace (160 $\times$ 160 m)}
+
+\textbf{Start:} $(5.0, 155.0)$ \quad \textbf{Goal:} $(155.0, 5.0)$ \\
+\textbf{Grid Resolution:} 3.0 m \quad \textbf{Safety Margin (Inflation):} 3.0 m
+
+\begin{table}[H]
+	\centering
+	\caption{A* Path Planning Results -- Scenario 2 (Mobile Robot Workspace)}
+	\label{tab:astar_results_scenario2}
+	\begin{tabular}{|p{4.5cm}|p{4cm}|p{4cm}|}
+		\hline
+		\textbf{Metric} & \textbf{Raw A* Path} & \textbf{Pruned A* Path} \\
+		\hline
+		Path Length & 244.99 meters & 233.87 meters \\
+		\hline
+		Waypoint Count & 69 waypoints & 5 waypoints \\
+		\hline
+		\multicolumn{3}{|c|}{Computation Time: IA* $\approx$ 0.4181 s \quad A* $\approx$ 0.4135 s} \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsubsection*{Key Observations}
+
+\begin{itemize}[noitemsep]
+\item \textbf{Identical paths between planners:} Because obstacles obstruct the straight start-to-goal line and require both planners to rely on the whole grid search, the Improved A* (IA*) planner and the conventional A* planner provide similar paths (same length and waypoint counts) in all circumstances. The computation time difference between the two planners is negligible.
+\item \textbf{Effectiveness of pruning:} By eliminating pointless zigzag segments created by the 8-directional grid search, the path pruning step dramatically lowers waypoint density and shortens the overall path length:
+
+\begin{itemize}[noitemsep]
+	\item In Scenario~1, waypoint pruning reduced the number of waypoints from 47 to 6, representing an 87.2\% reduction, while shortening the path length by 4.49~m, from 100.62~m to 96.13~m.
+	
+	\item In Scenario~2, waypoint pruning reduced the number of waypoints from 69 to 5, corresponding to a 92.8\% reduction, and decreased the path length by 11.12~m, from 244.99~m to 233.87~m.
+\end{itemize}	
+\end{itemize}
+
+\subsection{Particle Swarm Optimization (PSO)}
+\label{subsec:pso_overview}
+Pruning will remove pointless waypoints, but the resulting path may have sharp curves and curvature discontinuities that don't fit a differential-drive robot's kinematic specifications. Particle Swarm Optimization (PSO) is used to further smooth the path in order to improve trajectory feasibility and lessen abrupt curves.
+
+Each particle in the swarm represents a single candidate smoothed path, and the coordinates of the way points between the smoothed path particles are represented by the positional variables of each particle. In each iteration, the swarm adjusts the position of each particle according to the velocity equations, all while keeping an eye on a cost function that combines path length, smoothness and obstacle proximity. The swarm moves towards a path that is balancing these conflicting goals.
+\subsection{Cost Function}
+\label{subsec:pso_cost_function}
+
+The PSO smoothing process optimizes a multi-objective cost function combining three weighted components:
+
+\begin{equation}
+	J = w_1 \cdot L + w_2 \cdot C + w_3 \cdot P
+	\label{eq:pso_cost_p2}
+\end{equation}
+
+where:
+\begin{itemize}[noitemsep]
+	\item $L$ = total path length
+	\item $C$ = curvature or smoothness factor
+	\item $P$ = obstacle penalty function
+	\item $w_1, w_2, w_3$ = weighting coefficients
+\end{itemize}
+
+Lower values of $J$ correspond to shorter, smoother, and safer paths. The obstacle penalty term $P$ increases sharply as a candidate path approaches or intersects an obstacle boundary, discouraging the swarm from converging on infeasible trajectories.
+
+\subsection{Equations}
+\label{subsec:pso_equations}
+
+Particle position and velocity updates follow the standard PSO formulation:
+
+\begin{align}
+	v_i(t+1) &= w \cdot v_i(t) + c_1 \cdot r_1 \cdot (p_{best,i} - x_i(t)) + c_2 \cdot r_2 \cdot (g_{best} - x_i(t)) \label{eq:pso_velocity_p2} \\
+	x_i(t+1) &= x_i(t) + v_i(t+1) \label{eq:pso_position_p2}
+\end{align}
+
+where:
+\begin{itemize}[noitemsep]
+	\item $w$ = inertia weight, controlling the influence of a particle's previous velocity
+	\item $c_1, c_2$ = cognitive and social coefficients, weighting a particle's attraction to its own best-known position and the swarm's best-known position respectively
+	\item $r_1, r_2$ = random values in $[0,1]$, introducing stochastic variation into the search
+	\item $p_{best,i}$ = personal best position found by particle $i$
+	\item $g_{best}$ = global best position found by the entire swarm
+\end{itemize}
+
+At each iteration, every particle's cost $J$ (Equation~\ref{eq:pso_cost_p2}) is evaluated, and $p_{best,i}$ and $g_{best}$ are updated whenever a particle discovers a lower-cost path. This process repeats until a maximum number of iterations is reached or convergence criteria are satisfied.
+
+\subsection{Parameters}
+\label{subsec:pso_parameters}
+
+Particle Swarm Optimization is configured with the following parameters to balance exploration and exploitation:
+
+\begin{table}[H]
+	\centering
+	\caption{PSO Algorithm Parameters}
+	\label{tab:pso_parameters_p2}
+	\begin{tabular}{|p{6cm}|p{2cm}|p{2cm}|}
+		\hline
+		\textbf{Parameter} & \textbf{Symbol} & \textbf{Value} \\
+		\hline
+		Swarm Size & $N_p$ & 50 particles \\
+		\hline
+		Maximum Iterations & $I_{max}$ & 100 \\
+		\hline
+		Inertia Weight & $w$ & 0.7 \\
+		\hline
+		Cognitive Coefficient & $c_1$ & 1.5 \\
+		\hline
+		Social Coefficient & $c_2$ & 1.5 \\
+		\hline
+		Weight -- Path Length & $w_1$ & 0.5 \\
+		\hline
+		Weight -- Smoothness & $w_2$ & 0.3 \\
+		\hline
+		Weight -- Obstacle Penalty & $w_3$ & 0.2 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsection{Implementation}
+\label{subsec:pso_implementation}
+
+A Python implementation of Particle Swarm Optimization enhances the smoothness of navigational trajectories. Each particle represents a potential smoothed path, and the particle's search space is made up of the positional variables that make up the path's intermediate nodes. The swarm uses the velocity update equations to compute particle positions across a number of iterations.
+ (Equations~\ref{eq:pso_velocity_p2}--\ref{eq:pso_position_p2}), while simultaneously evaluating the cost function (Equation~\ref{eq:pso_cost_p2}) combining path length, curvature, and obstacle proximity.
+
+The PSO smoothing module is implemented in the backend and provides an optimized, smoothed trajectory to be sent to the MPC trajectory tracking controller (Phase 4) after receiving the pruned waypoint list from the path pruning stage.
 
 \subsection{Path Planning Performance Metrics}
 
-The quality and feasibility of generated paths are examined in determining performance of path planning. This test is aimed at collision-free navigation verification and reduction of path length, as well as its computational efficiency.
-Path planning performance is measured using the following metrics:
+The effectiveness of path planning is assessed by looking at the generated paths' quality and viability. Verification of collision-free navigation, path length reduction, and computational efficiency are the goals of this test.
+The following measures are used to assess path planning performance:
+
 
 \subsubsection{Path Length}
 
@@ -94,37 +379,587 @@ The change in curvature in successive path segments is studied to determine the 
 
 Angles between path segments are calculated between successive path segments. Smaller turning angles represent smoother routes and it follows that such routes demand less aggressive steering inputs.  
 
-\subsubsection{Waypoint Reduction Ratio}
 
+\section{Phase 3: Controller Design}
+\label{sec:phase3_mpc}
 
-Path pruning gets rid of unnecessary waypoints created by global planner. The percentage of waypoints that have been removed over the number of original waypoints is considered the pruning efficiency, and the higher ratios the more effectively waypoints have been simplified without affecting the quality of the paths.
+After the global path is planned (Phase 1) and smoothed (Phase 2), a Model Predictive Controller (MPC) is designed to make the robot follow this path accurately. The controller makes sure the robot moves smoothly, stays close to the planned path, and never asks the robot to move faster or turn sharper than it physically can. This section explains the robot model, the math behind the MPC, its limits, its settings, and how it was built.
 
-\subsection{Trajectory Tracking Performance Metrics}
-Trajectory tracking performance measurement is necessary to determine how the robot follows the optimal path calculated using Model Predictive Control(MPC).
+\subsection{Robot Model}
+\label{subsec:mpc_robot_model}
 
+This project uses the \textbf{TurtleBot3 Waffle} robot. It is a differential-drive robot, meaning it moves using two wheels that can be driven at different speeds. Because of this design, the robot cannot move sideways -- it can only move forward/backward and turn, based on its linear speed and turning speed. This is called a non-holonomic robot. The MPC controller is designed around this simple but realistic motion behavior.
 
-\subsubsection{Tracking Error}
-The difference between the required trajectory and the real route of the robot is referred to as the tracking error. This measure is determined as the perpendicular distance between the current location of the robot and the closest location at the reference trajectory. A decrease in the error of tracking is a factor of the superior controller effectiveness.
+\subsection{Kinematics}
+\label{subsec:mpc_kinematics}
 
-\subsubsection{Orientation Error}
+The robot's motion is described using these basic equations:
 
-Orientation error measures the difference between the heading of the robot and the heading that is needed according to the trail that it is on. Correct orientation is essential with the differential-drive platforms because any error in heading can be disastrous to following the path correctly.
+\begin{align}
+	\dot{x} &= v \cos(\theta) \label{eq:mpc_kinematic_x} \\
+	\dot{y} &= v \sin(\theta) \label{eq:mpc_kinematic_y} \\
+	\dot{\theta} &= \omega \label{eq:mpc_kinematic_theta}
+\end{align}
 
-\subsubsection{Velocity Tracking Accuracy}
-
-Velocity tracking is used to measure how fast the robot is following the velocity profile as specified by the MPC controller. The constant speed monitoring of the velocity is not only a requirement of smooth movement, but it also assures the predictability of the dynamic behaviour of the robotic system.
-\subsection{Computational Efficiency Analysis}
-
-Computational efficiency is evaluated to ensure real-time navigation feasibility. This analysis examines the processing time required for various system components:
-
+where:
 \begin{itemize}[noitemsep]
-	\item Path planning execution time
-	\item PSO optimization convergence time
-	\item MPC computation overhead
-	\item Visualization, server processing delay
+	\item $x, y$ = the robot's position
+	\item $\theta$ = the direction the robot is facing
+	\item $v$ = forward speed
+	\item $\omega$ = turning speed
 \end{itemize}
 
-Computational efficiency is considered in order to determine the feasibility of real-time navigation. This discussion examines the time required to process the different parts of the system:
+Since the controller works in small time steps, these equations are converted into a step-by-step (discrete) form using simple time-stepping (Euler integration):
+
+\begin{align}
+	x_{k+1} &= x_k + v_k \cos(\theta_k) \, \Delta t \\
+	y_{k+1} &= y_k + v_k \sin(\theta_k) \, \Delta t \\
+	\theta_{k+1} &= \theta_k + \omega_k \, \Delta t
+\end{align}
+
+Here $\Delta t$ is the time between each step, and $k$ means "step number." This step-by-step version is what the MPC actually uses internally to guess the robot's future position.
+
+\subsection{MPC Equations}
+\label{subsec:mpc_equations}
+
+MPC works by looking a few steps into the future, checking many possible ways the robot could move, and picking the one that follows the path best while also moving smoothly. Only the very first move of that plan is actually used -- then the controller repeats the whole process again at the next time step. This is called a receding horizon approach.
+
+The controller tries to minimize this cost:
+
+\begin{equation}
+	\min_{u} \sum_{k=0}^{N-1} \left( \|x_k - x_{ref}\|^2_Q + \|u_k\|^2_R + \|\Delta u_k\|^2_S \right)
+	\label{eq:mpc_cost_p3}
+\end{equation}
+
+In simple terms, this equation adds up three types of "penalties" over the next $N$ steps and tries to keep the total as low as possible:
+
+\begin{itemize}[noitemsep]
+	\item $x_k$ = the robot's predicted state (position, heading, speed) at step $k$
+	\item $x_{ref}$ = the target point on the smoothed path (from Phase 2)
+	\item $u_k$ = the control command at step $k$: acceleration $a$ and turning speed $\omega$
+	\item $\Delta u_k = u_k - u_{k-1}$ = how much the command changes from one step to the next
+	\item $Q$ = penalty for being far from the path
+	\item $R$ = penalty for using large control effort
+	\item $S$ = penalty for sudden, jerky changes in control
+	\item $N$ = how many steps ahead the controller looks (prediction horizon)
+\end{itemize}
+
+So: $Q$ keeps the robot on track, $R$ keeps its movements gentle, and $S$ keeps its movements smooth and non-jerky.
+
+\subsection{Constraints}
+\label{subsec:mpc_constraints}
+While solving the above optimization problem, the controller must satisfy the following constraints:
+
+\begin{itemize}[noitemsep]
+	\item The predicted robot motion must satisfy the kinematic model (Equations~\ref{eq:mpc_kinematic_x}--\ref{eq:mpc_kinematic_theta}).
+	\item \textbf{Velocity limits:} $0 \leq v \leq 0.22$~m/s and $-2.84 \leq \omega \leq 2.84$~rad/s.
+	\item \textbf{Obstacle avoidance:} The predicted trajectory must maintain a safe distance from all known obstacles.
+\end{itemize}
+These limits make sure the commands the MPC generates are things the TurtleBot3 Waffle can actually do, and that the robot never plans a path through an obstacle.
+
+\subsection{Parameters}
+\label{subsec:mpc_parameters}
+
+The impact of the MPC tuning profiles on the path-following performance of the robot was examined. Each profile modifies the robot's smoothness and degree of adherence to the intended course.
+
+\begin{table}[H]
+	\centering
+	\caption{MPC Tuning Profiles}
+	\label{tab:mpc_profiles}
+	\begin{tabular}{|p{3.8cm}|c|c|p{5.2cm}|}
+		\hline
+		\textbf{Profile} & \textbf{$Q_x,Q_y$} & \textbf{$R,\;S$} & \textbf{Purpose} \\
+		\hline
+		Calibrated Tuning & 500 & (0.1, 1.0) & Balanced performance for normal path following. \\
+		\hline
+		Glue-to-Path & 2500 & (0.01, 0.05) & Reduces corner cutting and improves path adherence. \\
+		\hline
+		Strict Glue-to-Path & 2500 & (0.01, 0.01) & Provides the tightest path-following behavior. \\
+		\hline
+	\end{tabular}
+\end{table}
+The \textbf{Calibrated Tuning} profile is appropriate for general navigation and offers balanced performance. The robot stays closer to the intended path while turning fewer corners thanks to the Glue-to-Path profile, which boosts the position-tracking weight. Out of the three profiles, the Strict Glue-to-Path profile produces the most precise path-following behavior by strengthening route tracking and reducing control variances.
+
+
+
+\subsection{Implementation}
+\label{subsec:mpc_implementation}
+
+Using common optimization libraries, the MPC controller is written in Python. The prediction step of the controller incorporates the robot's kinematic model (Section~\ref{subsec:mpc_kinematics}), and each time the controller operates, the speed/control-change restrictions from the selected tuning profile (Section~\ref{subsec:mpc_parameters}) are enforced.
+
+To put it simply, the controller does this action during each control cycle:
+
+
+\begin{enumerate}[noitemsep]
+	\item Reads the robot's current position, heading, and speed, and reads the next section of the target path (from Phase 2).
+	\item Predicts what will happen over the next $N$ steps using the kinematic model.
+	\item Solves the optimization problem (Equation~\ref{eq:mpc_cost_p3}) using the selected profile's $Q$, $R$, and $S$ values to find the best sequence of moves.
+	\item Uses only the very first move $u_0 = (a_0, \omega_0)$ from that sequence and sends it to the robot.
+	\item Moves the prediction window one step forward and repeats the whole process again.
+\end{enumerate}
+
+The robot's mobility is precise and fluid because the controller continuously replans at each stage, allowing it to automatically adapt to minor mistakes or unforeseen disruptions. Depending on what is required, the system can trade off between very tight path following and softer, smoother control by switching between the three tuning profiles.
+
+
+
+
+\section{Phase 4: Web Interface and Backend Implementation}
+
+The web-based interface has been designed to provide users with a user-friendly platform to plan navigation environments, manage delivery rooms, dispatch delivery tasks, and monitor the robot in real time. The system follows a client-server architecture, with a clear separation between the Flutter frontend, the Flask backend, and the ROS2 robotic middleware. The complete frontend is delivered as a single Flutter web application named \textbf{ParcelPath} a real-time, autonomous indoor delivery management portal through which end users request and track deliveries and administrators configure and monitor the robot.
+
+\subsubsection{Frontend and Backend Technology Stack}
+
+Table~\ref{tab:web_stack} presents the technology stack used for developing the web platform.
+
+\begin{table}[H]
+	\centering
+	\caption{Web Platform Technology Stack}
+	\label{tab:web_stack}
+	\begin{tabular}{|p{3cm}|p{4.5cm}|p{6.5cm}|}
+		\hline
+		\textbf{Component} & \textbf{Technology} & \textbf{Responsibility} \\
+		\hline
+		Frontend & Flutter (Dart), Provider state management & User interface, interactive map canvas, delivery requests, real-time robot tracking \\
+		\hline
+		Backend & Python (Flask), SQL & REST API handling, delivery FSM logic, path-planning execution, database management \\
+		\hline
+		Database & SQLite & Persistent storage for users, rooms, deliveries, orders, and robot state \\
+		\hline
+		ROS2 Bridge & rosbridge\_suite (rosbridge\_websocket), roslibpy & Bidirectional WebSocket communication between the Flask backend and ROS2 middleware \\
+		\hline
+		Communication & HTTP/JSON (REST) and WebSocket & Data exchange between frontend-backend and backend-ROS2 layers \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsubsection{Frontend Development}
+
+The Flutter framework and the Dart programming language are used to create the frontend, which is intended for the web platform. The interface offers forms for creating and scheduling delivery requests, a welcome landing screen, a complete authentication flow, an interactive map canvas for drawing obstacles and workspace boundaries, and a live telemetry view that queries the backend for the robot's current position, battery level, and active navigation path.
+
+
+Table~\ref{tab:frontend_files} summarizes the core frontend files and their functionality.
+\begin{longtable}{|p{1cm}|p{4.3cm}|p{8.2cm}|}
+	\caption{Frontend Files and Functions}
+	\label{tab:frontend_files}\\
+	
+	\hline
+	\textbf{Sr. No} & \textbf{File Name} & \textbf{Functionality Description} \\
+	\hline
+	\endfirsthead
+	
+	\hline
+	\textbf{Sr. No} & \textbf{File Name} & \textbf{Functionality Description} \\
+	\hline
+	\endhead
+	
+	\hline
+	\multicolumn{3}{|r|}{\textit{Continued on next page}} \\
+	\hline
+	\endfoot
+	
+	\hline
+	\endlastfoot
+	
+	1 & starting\_screen.dart & Welcome landing screen; displays the ``ParcelPath'' title and tagline and routes to the login flow. \\
+	\hline
+	
+	2 & login\_screen.dart & Handles user login, credential validation, and role-based routing after sign-in. \\
+	\hline
+	
+	3 & register\_screen.dart & Handles new user registration (full name, email, password). \\
+	\hline
+	
+	4 & api\_service.dart & Manages REST and WebSocket API calls between the Flutter frontend and the Flask backend, including path-planning and delivery requests. \\
+	\hline
+	
+	5 & map\_provider.dart & Provider-based state management for map data, obstacles, and computed paths (raw, pruned, and smoothed). \\
+	\hline
+	
+	6 & auth\_provider.dart & Manages user authentication state and session persistence across the web application. \\
+	\hline
+	
+	7 & new\_delivery\_screen.dart & Interface for creating immediate or scheduled delivery requests between rooms, supporting both ``Home to Room'' and ``Room to Room'' dispatch types. \\
+	\hline
+	
+	8 & live\_telemetry\_screen.dart & Displays the robot's real-time position, battery status, and path tracking by polling robot data every 500 ms. \\
+	\hline
+	
+	9 & main\_screen.dart & Interactive map canvas for boundary definition, obstacle placement, and path visualization; hosts the Path Planner module. \\
+	\hline
+	
+	10 & admin\_dashboard.dart & Admin Operations Hub providing access to the five administrator modules. \\
+	\hline
+	
+	11 & floor\_plan\_editor.dart & 2D Floor Plan Editor for mapping and renaming rooms using navigation coordinates. \\
+	\hline
+	
+	12 & deliveries\_log\_screen.dart & Displays historical delivery records, including order times, statuses, and dispatch profiles. \\
+	\hline
+	
+	13 & user\_directory\_screen.dart & Admin tool for listing users, modifying roles, and managing account status. \\
+	\hline
+	
+	14 & main.dart & Entry point of the Flutter application; initializes providers and configures application routing. \\
+	\hline
+	
+\end{longtable}
+\subsubsection{ParcelPath Web Application}
+
+The Flutter web application \textbf{ParcelPath}, designed for end users, dispatch personnel, and system administrators, handles daily delivery operations. This program serves as the main interface for requesting, tracking, and managing deliveries as well as configuring the facility's rooms in relation to the robot's navigation coordinates. It connects with the Flask backend and the delivery FSM (Section~\ref{sec:fsm_design}) via the API routes outlined previously in this chapter. Its design adheres to a role-based screen flow, as shown in Figure~\ref{fig:app_flow}. From the landing page to the administrator's tools, the subsections that follow go screen by screen through the application.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{app_screen_flow.png}
+	\caption{Web screen flow, showing the separate user and administrator navigation paths}
+	\label{fig:app_flow}
+\end{figure}
+
+\subsubsection{The Welcome Landing Screen}
+
+With the headline \textit{``ParcelPath''} and the tagline \textit{``Autonomous indoor delivery, planned in real time''}, the application launches on a welcome landing screen that presents the platform. The user can access the login screen with just one \textbf{Get Started} action.
+
+
+\subsubsection{Login and Registration}
+The user is sent to either registration (complete name, email, and password) or login (registered email and password), both of which have password fields that are hidden, from the landing screen. New users can register straight from this flow, and the system ensures safe authentication by verifying email format and password strength before to submission.
+
+\textbf{Routing based on roles.} The backend determines the user's role after a successful sign-in and routes them appropriately:
+
+\begin{itemize}[noitemsep]
+	\item \textbf{Users} are directed to the User Portal.
+	\item \textbf{Administrators} are directed to the Admin Operations Hub.
+\end{itemize}
+
+\subsubsection{User Portal}
+\label{sec:user_portal}
+A typical user's main hub is the User Portal, which offers a live status card along with two essential actions: requesting a new delivery and examining the delivery history record. \textbf{Robot Status.} Without revealing any ROS2-level information to the user, the status card replicates the robot's current state: an idle robot is displayed as \textit{free}, while an active delivery is displayed as \textit{busy} along with its target room. The robot's current battery level is also shown as a percentage on the same card.
+
+\textbf{Delivery Log.} The delivery history log lists each request together with its status and the date and time it was placed, so that users can track a delivery from submission through completion.
+
+\textbf{Delivery Types.} The system supports two delivery types, distinguished by their pickup location:
+\begin{itemize}[noitemsep]
+	\item \textbf{Room to Room:} The robot travels from its home position to the specified pickup room to collect the parcel, then proceeds to the specified drop-off room, before finally returning to its home position.
+	\item \textbf{Home to Room:} The robot's home position is itself the pickup location; the robot proceeds directly from home to the specified drop-off room and then returns.
+\end{itemize}
+
+\textbf{Requesting a New Delivery.} The Delivery Request form is centered on the same floor plan utilized to construct the Gazebo world. Rooms are represented as select blocks to enable delivery or pick-up/drop-off to be selected either from within the interactive map interface or by using its corresponding dropdown interface, to remove the need for the user to know coordinate system values. The selection live state displays a summary of rooms determined after selection. On confirmation, the backend resolves the selected rooms into their stored ROS navigation coordinates and begins the delivery process: if the robot is already free, the delivery is dispatched immediately; if the robot is busy with another delivery, the new request is queued and is automatically dispatched once the robot becomes free (or, in the case of a robot that is currently returning home, it may preempt the return trip, as described in Section~\ref{sec:fsm_design}).
+
+\subsubsection{Admin Operations Hub (Command Center)}
+\label{sec:admin_hub}
+
+Administrators are routed to a separate Operations Hub rather than the delivery request screen. The hub presents an interactive grid layout of five independent modules, each represented by a custom line illustration that scales up slightly on hover. These modules are described below.
+
+\textbf{Live Telemetry.} A dashboard showing the robot's real-time state. It streams the robot's $x, y$ coordinates (in metres), battery percentage, delivery queue length, and current order, and includes a live camera stream feed.
+
+\textbf{2D Floor Plan Editor.} Allows administrators to edit and rename rooms in the building, and to update each room's coordinates so that a physical room maps to its exact pose on the map. Its detailed design is presented in Section~\ref{sec:floor_plan_editor}.
+
+\textbf{Path Planner.} The path configuration screen. Built on an OpenStreetMap layout, it provides drawing tools for workspace boundaries and circular/polygonal obstacles (representing static walls or furniture), together with solver buttons that trigger A* search path calculations, cell decomposition, and Particle Swarm Optimization (PSO) path smoothing. Its full workflow is described in Section~3.4.3 (Phase 3: Web Platform Integration).
+
+\textbf{Delivery Logs.} A historical audit list of all deliveries, showing order times, statuses (pending, transit, completed), and dispatch profiles.
+
+\textbf{User Directory.} An admin tool to list all registered users, switch their authorization roles (e.g., upgrading a user to Administrator), or toggle their active status.
+
+Table~\ref{tab:admin_modules} summarizes the functionality of these five modules.
+
+\begin{table}[H]
+	\centering
+	\caption{Admin Operations Hub Modules}
+	\label{tab:admin_modules}
+	\begin{tabular}{|p{4cm}|p{10.5cm}|}
+		\hline
+		\textbf{Module} & \textbf{Functionality} \\
+		\hline
+		Live Telemetry & Streams robot position, battery percentage, queue length, current order, and live camera feed \\
+		\hline
+		2D Floor Plan Editor & Renames rooms and updates their navigation coordinates \\
+		\hline
+		Path Planner & Workspace/obstacle drawing and A*/cell-decomposition/PSO solver controls \\
+		\hline
+		Delivery Logs & Historical audit of all deliveries \\
+		\hline
+		User Directory & User role and account status management \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsubsection{2D Floor Plan Editor Design}
+\label{sec:floor_plan_editor}
+
+In order for the room choices supplied in the delivery request form to resolve to legitimate goal poses, the Floor Plan Editor is created to map each physical room to its corresponding coordinates in the robot's navigation frame. To keep room labels consistent with the actual facility, managers can rename rooms directly from this screen in addition to adjusting coordinates. Each room entry is purposefully divided into two separate groups of fields: (i) \emph{visual layout} fields (bounding-box width/height and on-map position, edited as percentage sliders) that control only the room's screen drawing, and (ii) \emph{ROS navigation} fields ($x$, $y$, $\theta$) that control the robot's actual goal pose. Table~\ref{tab:room_fields} illustrates this division, which enables the on-screen floor plan to be modified for visual clarity without risking accidental changes to the robot's calibrated delivery points.
+\begin{table}[H]
+	\centering
+	\caption{Separation of Visual Layout and Navigation Fields in the Room Editor}
+	\label{tab:room_fields}
+	\begin{tabular}{|p{3.2cm}|p{4.5cm}|p{5.5cm}|}
+		\hline
+		\textbf{Field Group} & \textbf{Fields} & \textbf{Effect} \\
+		\hline
+		Visual Layout & label\_x, label\_y, region\_width, region\_height & Controls only how the room block is drawn on the floor plan (display-only) \\
+		\hline
+		ROS Navigation & x, y, theta & Defines the actual goal pose sent to Nav2 for that room \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsubsection{Backend Server Development}
+
+The backend server is implemented using the Python Flask framework and acts as the central coordination layer between the database, the path-planning algorithms, the web frontend, and the ROS2 robotic stack. Flask routes handle HTTP requests for map data, obstacle configuration, delivery management, robot telemetry, and user authentication and account management.
+
+Table~\ref{tab:backend_files} summarizes the main backend files and their responsibilities.
+\begin{longtable}{|p{0.8cm}|p{4.5cm}|p{8cm}|}
+	\caption{Backend Files and Responsibilities}
+	\label{tab:backend_files}\\
+	
+	\hline
+	\textbf{Sr. No} & \textbf{File Name} & \textbf{Functionality Description} \\
+	\hline
+	\endfirsthead
+	
+	\hline
+	\textbf{Sr. No} & \textbf{File Name} & \textbf{Functionality Description} \\
+	\hline
+	\endhead
+	
+	\hline
+	\multicolumn{3}{|r|}{\textit{Continued on next page}} \\
+	\hline
+	\endfoot
+	
+	\hline
+	\endlastfoot
+	
+	1 & server.py & Flask application entry point; defines REST API routes and coordinates all backend modules. \\
+	\hline
+	
+	2 & models.py & Defines the database schema (User, Room, Delivery, Order, RobotState) using SQLAlchemy ORM. \\
+	\hline
+	
+	3 & robot\_service.py & Implements the robot Finite State Machine (FSM) and manages ROS2 communication through rosbridge. \\
+	\hline
+	
+	4 & astar\_modified.py & Implements the Improved A* path planning algorithm with obstacle inflation and path pruning. \\
+	\hline
+	
+	5 & PSO\_path\_smothing.py / PSO\_implimentation.py & Implements Particle Swarm Optimization (PSO)-based path smoothing and cubic spline interpolation. \\
+	\hline
+	
+\end{longtable}
+The backend server performs three main tasks:
+\begin{itemize}[noitemsep]
+	\item Receives map, obstacle, and delivery request data in JSON format
+	\item Executes the selected path-planning pipeline and returns computed trajectories
+	\item Manages the robot's delivery Finite State Machine and dispatches navigation goals to ROS2
+\end{itemize}
+
+\subsubsection{Database Design}
+\label{sec:db_design}
+
+The system uses a relational SQLite database, accessed through the SQLAlchemy ORM. Table~\ref{tab:db_schema} summarizes the core tables.
+
+\begin{table}[H]
+	\centering
+	\caption{Core Database Tables}
+	\label{tab:db_schema}
+	\begin{tabular}{|p{2.5cm}|p{5cm}|p{6cm}|}
+		\hline
+		\textbf{Table} & \textbf{Key Fields} & \textbf{Purpose} \\
+		\hline
+		users & id, name, email, role & Stores login credentials and role-based access (admin/user) \\
+		\hline
+		rooms & id, name, x, y, theta, is\_robot\_home & Stores real-world coordinates of delivery locations \\
+		\hline
+		deliveries & id, sender\_id, recipient\_room\_id, status, scheduled\_at & Tracks the lifecycle of a delivery request from submission to completion \\
+		\hline
+		orders & id, type, pickup\_room, dropoff\_room, status & Low-level FSM task queue derived from deliveries \\
+		\hline
+		robot\_state & id, current\_status, x, y, battery\_level & Singleton table holding the robot's live FSM state, coordinates, and battery percentage \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsubsection{Finite State Machine (FSM) Design}
+\label{sec:fsm_design}
+
+The robot's delivery behaviour is governed by a Finite State Machine implemented in the backend, with its current state persisted in the robot state record described in Section~\ref{sec:db_design}. The FSM consists of four states: \textbf{free} (idle, parked at the home room), \textbf{en\_route\_to\_pickup} (moving to collect a parcel for room-to-room deliveries), \textbf{en\_route\_to\_dropoff} (moving to the destination room), and \textbf{returning} (navigating back to the home room after a completed delivery).
+
+Transitions are triggered either by new delivery requests written to the database or by success/failure callbacks from the ROS2 Nav2 action client. Figure~\ref{fig:fsm} illustrates the complete state transition diagram, and Table~\ref{tab:fsm_transitions} summarizes the transition logic, with the pickup and drop-off transitions kept on separate rows to reflect the Room-to-Room and Home-to-Room delivery types described in Section~\ref{sec:user_portal}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{fsm.png}
+	\caption{Robot Delivery Finite State Machine (FSM)}
+	\label{fig:fsm}
+\end{figure}
+\begin{longtable}{|p{3.2cm}|p{3.2cm}|p{7cm}|}
+	\caption{FSM State Transitions}
+	\label{tab:fsm_transitions}\\
+	
+	\hline
+	\textbf{From State} & \textbf{To State} & \textbf{Trigger} \\
+	\hline
+	\endfirsthead
+	
+	\hline
+	\textbf{From State} & \textbf{To State} & \textbf{Trigger} \\
+	\hline
+	\endhead
+	
+	\hline
+	\multicolumn{3}{|r|}{\textit{Continued on next page}} \\
+	\hline
+	\endfoot
+	
+	\hline
+	\endlastfoot
+	
+	free & en\_route\_to\_pickup & A new Room-to-Room order is dispatched; the robot must first travel to the pickup room. \\
+	\hline
+	
+	free & en\_route\_to\_dropoff & A new Home-to-Room order is dispatched; the robot proceeds directly to the drop-off room. \\
+	\hline
+	
+	en\_route\_to\_pickup & en\_route\_to\_dropoff & Robot reaches the pickup room (Nav2 goal succeeds). \\
+	\hline
+	
+	en\_route\_to\_dropoff & returning & Robot reaches the destination room and the delivery is marked complete. \\
+	\hline
+	
+	returning & free & Robot reaches the home room; the FSM checks for any queued orders. \\
+	\hline
+	
+	returning & en\_route\_to\_pickup & A new Room-to-Room order arrives while returning. The current home-navigation goal is cancelled, and the robot is redirected to the pickup room. \\
+	\hline
+	
+	returning & en\_route\_to\_dropoff & A new Home-to-Room order arrives while returning. The current home-navigation goal is cancelled, and the robot is redirected to the drop-off room. \\
+	\hline
+	
+\end{longtable}
+This preemption mechanism allows the robot to be redirected mid-return to a new delivery without first completing the trip home, improving overall delivery throughput. It also implements the queuing behaviour exposed to users on the User Portal (Section~\ref{sec:user_portal}): a request submitted while the robot is busy is simply stored as a pending order and picked up automatically by this same transition logic once the robot becomes free.
+
+
+\subsubsection{Backend-to-ROS2 Communication}
+
+The Flask backend communicates with the ROS2 stack asynchronously over WebSockets, avoiding the need to run ROS2 nodes inside the Flask process itself. A rosbridge\_websocket server (rosbridge\_suite) is run on port 9090, and the backend connects to it as a client using the roslibpy library. Figure~\ref{fig:ros_bridge} illustrates this communication path.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{ros2 bridge architecture.png}
+	\caption{Backend-to-ROS2 Communication Architecture via rosbridge}
+	\label{fig:ros_bridge}
+\end{figure}
+
+Table~\ref{tab:ros2_topics} summarizes the key ROS2 interfaces used in this communication. The Interface column indicates whether the channel is a Topic or an Action, and the Data Type column gives the specific ROS2 message or action type carried on that channel.
+
+\begin{table}[H]
+	\centering
+	\caption{ROS2 Topics, Services, and Actions Used}
+	\label{tab:ros2_topics}
+	\begin{tabular}{|p{3cm}|p{2.3cm}|p{8.7cm}|}
+		\hline
+		\textbf{Channel} & \textbf{Interface} & \textbf{Role} \\
+		\hline
+		/navigate\_to\_pose & Action & Receives navigation goals from the backend FSM \\
+		\hline
+		/amcl\_pose & Topic & Publishes robot pose; read by backend to update telemetry \\
+		\hline
+		/plan & Topic & Publishes the active global trajectory; read by backend for display \\
+		\hline
+		/cmd\_vel & Topic & Velocity commands from the Nav2/MPPI controller to the simulated robot \\
+		\hline
+		/scan & Topic & Simulated LiDAR data for localization and costmaps \\
+		\hline
+		/camera/image\_raw & Topic & Camera stream, relayed to the web interface's Live Telemetry module \\
+		\hline
+		/battery\_state (simulated) & Topic & Simulated battery telemetry, relayed to the robot state record and displayed as a percentage in the Live Telemetry module and User Portal status card \\
+		\hline
+	\end{tabular}
+\end{table}
+
+
+
+\section{Phase 5: ROS2 \& Gazebo Setup}
+\label{sec:phase5_ros2_gazebo}
+
+The setup of the virtual machine, operating system, ROS2 distribution, Gazebo simulator, and TurtleBot3 Waffle robot model are all covered in this section. No physical hardware was needed for this project because it is entirely simulation-based; the complete navigation stack was developed and tested in this virtual environment.
+
+
+\subsection{Virtual Machine and Ubuntu Setup}
+\label{subsec:vm_ubuntu_setup}
+
+Because ROS2 and Gazebo are Linux natives, a Linux virtual machine was built on top of the host operating system using \textbf{Oracle VirtualBox}. The virtual machine was set up with a minimum of two processing cores, 4 GB of RAM, and network connectivity for package downloads. Since Ubuntu 22.04 LTS \textbf(Jammy Jellyfish) is the officially supported platform for the ROS2 Humble distribution, it was installed as the guest operating system. To guarantee compatibility with the software added in subsequent stages, the system packages were updated after installation.
+
+
+\subsection{Gazebo 11 Classic Installation} \label{subsec:gazebo_install} \textbf{Gazebo Classic 11} was used as the physics simulation platform, as it is the version officially integrated with ROS2 Humble through the ROS-Gazebo bridge packages. The Gazebo simulator and its ROS2 integration packages were installed together, and the installation was verified by launching Gazebo directly to confirm it opened correctly. \subsection{TurtleBot3 Packages Installation} \label{subsec:turtlebot3_install} The \textbf{TurtleBot3 Waffle} robot model was used as the simulated robot platform. The complete set of TurtleBot3 packages was installed through the ROS2 package manager, and the robot model was configured to Waffle by setting the appropriate environment variable, which was also saved permanently so it persists across future terminal sessions. \subsection{ROS2 Workspace Creation} \label{subsec:ros2_workspace} All of the unique packages and nodes built for this project were housed in a special ROS2 workspace. This workspace had bespoke components, such as the MPC controller node, the trajectory publisher, and the custom world files. ROS2's build tool was then used to construct the workspace, and its setup file was sourced (and added to the shell startup file, after the ROS2 Humble source line), making all custom packages available in addition to the basic ROS2 installation in each new terminal session.
+ \subsection{World Creation} \label{subsec:gazebo_world_creation} A custom Gazebo world was designed to simulate a realistic indoor environment for evaluating the proposed autonomous delivery system. The environment consists of four interconnected rooms linked by a central hallway, providing a combination of open spaces and confined passages to test the robot's navigation capabilities under different conditions. To resemble a real-world indoor facility, each room was furnished with a variety of Gazebo models, including office desks, chairs, sofas, cabinets, tables, waiting areas, and other indoor fixtures. One of the rooms was configured as a dedicated \textbf{robot room}, serving as the robot's starting location before executing delivery tasks. The diverse arrangement of furniture and room layouts creates a realistic environment containing both static obstacles and narrow navigation paths. To evaluate the robot's performance in dynamic environments, a walking person model was incorporated into the simulation to act as a moving obstacle. This dynamic obstacle introduces unpredictable motion, enabling the navigation system to be tested for real-time obstacle detection, avoidance, and path replanning. The complete simulation environment was launched together with the TurtleBot3 Waffle robot using a dedicated ROS~2 launch file, providing a realistic testbed for autonomous indoor navigation and delivery experiments.
+
+\subsubsection*{Room Coordinate Mapping}
+
+Each room in the simulated environment needed a known position so that it could later be selected as a pickup or drop-off point in the ParcelPath web interface (Phase 4). To determine these positions, a reference point was manually placed at the desired delivery location within each room in the Gazebo world. The corresponding $(x,y)$ coordinates of the selected point were then obtained directly from Gazebo's \textit{Property} panel, which displays the pose of the selected object in the world reference frame. This procedure was repeated for every room, resulting in a fixed set of coordinates that were subsequently registered in the 2D Floor Plan Editor as valid navigation goals.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{coor.png}
+	\caption{Gazebo Property panel displaying the world coordinates $(x,y)$ }
+	\label{fig:gazebo_coordinates}
+\end{figure}
+
+The robot's home position, referred to as the \textbf{Robo Room}, was intentionally placed near the world origin at approximately $(0,0)$ to simplify initialization and navigation. Table~\ref{tab:room_coordinates} lists the recorded coordinates for all rooms in the simulated environment.
+
+\begin{table}[H]
+	\centering
+	\caption{Registered Room Coordinates}
+	\label{tab:room_coordinates}
+	\begin{tabular}{|c|p{3cm}|p{3cm}|p{3cm}|}
+		\hline
+		\textbf{ID} & \textbf{Name} & \textbf{X Coordinate} & \textbf{Y Coordinate} \\
+		\hline
+		1 & Room 1 & -14.6662 & 2.28722 \\
+		\hline
+		2 & Room 2 & -9.26448 & 3.14276 \\
+		\hline
+		3 & Room 3 & -14.9200 & -1.62217 \\
+		\hline
+		4 & Room 4 & -9.00083 & -2.43645 \\
+		\hline
+		5 & Robo Room & 0.0000 & 0.0000 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+The link between the actual rooms in the Gazebo environment and the corresponding delivery locations in the ParcelPath web interface is established by these recorded coordinates. The stored coordinates are retrieved and converted into navigation goals when a user chooses a pickup or delivery room during operation, allowing the robot to navigate to the intended place on its own.
+
+\subsection{Environment Configuration Summary}
+\label{subsec:gazebo_config_summary}
+
+Table~\ref{tab:gazebo_configuration_p5} summarizes the complete simulation environment configuration.
+
+\begin{table}[H]
+	\centering
+	\caption{Gazebo Simulation Environment Configuration}
+	\label{tab:gazebo_configuration_p5}
+	\begin{tabular}{|p{3.5cm}|p{10cm}|}
+		\hline
+		\textbf{Component} & \textbf{Description} \\
+		\hline
+		Virtualization & Oracle VirtualBox \\
+		\hline
+		Operating System & Ubuntu 22.04 LTS (Jammy Jellyfish) \\
+		\hline
+		ROS Distribution & ROS2 Humble Hawksbill \\
+		\hline
+		Simulation Platform & Gazebo 11 Classic \\
+		\hline
+		Robot Model & TurtleBot3 Waffle \\
+		\hline
+		Environment Design & Four rooms with one Robo room connected by a hallway, with a dynamic walking-person obstacle \\
+		\hline
+		Visualization & RViz2 for real-time monitoring \\
+		\hline
+		Physics Engine & ODE (Open Dynamics Engine) \\
+		\hline
+	\end{tabular}
+\end{table}
+
 
 \subsection{Navigation Reliability Assessment in Dynamic Environments}
 
@@ -161,622 +996,339 @@ The test establishes that the navigation structure works well in the real world.
 	\end{tabular}
 \end{table}
 
+% ============================================================
+% UPDATED REPLACEMENT BLOCK for chapter3.tex (v3)
+% Covers: Phase 2 (Web Interface) through System Integration and Testing
+% Paste this in place of the corresponding existing block.
+% Uses the same \subsection / \subsubsection formatting already
+% defined in main.tex — no formatting commands changed.
+%
+% CHANGES IN THIS VERSION:
+%   - Admin Operations Hub modules (previously an A/B/C/D/E
+%     description list) are now individual bold lead-in paragraphs
+%     ("Live Telemetry.", "2D Floor Plan Editor.", etc.), matching
+%     the style already used in the User Portal subsection — no
+%     more lettered list.
+%   - Removed \texttt{CustomPainter} styling from the prose; the
+%     Admin Hub intro now describes the hover illustrations without
+%     naming the specific Flutter widget class.
+%   - "Admin Operations Hub Modules and Source Files" table is now
+%     a 2-column table (Module, Functionality): the Source File
+%     column and the A./B./C. letter prefixes have been removed.
+%   - FSM State Transitions table: rows that previously combined
+%     two destination states in one cell (e.g. "en_route_to_pickup
+%     / en_route_to_dropoff") are now split into separate rows, one
+%     transition per row, with the Room-to-Room vs Home-to-Room
+%     distinction stated explicitly in the trigger column.
+%   - ROS2 Topics table: fixed an inconsistent message-type string
+%     (the /amcl_pose row was missing "/msg/", unlike every other
+%     row) and relabelled the columns (Interface / Data Type) so
+%     the Type and Message/Action columns no longer read as
+%     duplicates of each other.
+% ============================================================
+
+\section{Phase 7: MPPI Navigation}
+\label{sec:phase7_mppi}
+
+While the MPC controller (Phase 3) tracks the smoothed global path under nominal conditions, it relies on a fixed cost formulation and struggles to react quickly to unexpected, close-range disturbances such as a moving obstacle suddenly entering the robot's path. To address this, \textbf{Model Predictive Path Integral (MPPI) control} was introduced as a local planner, working alongside the global planning pipeline (Phases 1--2) to detect and avoid dynamic obstacles particularly a person walking through the robot's path in real time.
+
+\subsection{What is MPPI}
+\label{subsec:mppi_overview}
+
+Model Predictive Path Integral (MPPI) is a sampling-based model predictive control method. Unlike traditional MPC, which solves a constrained optimization problem analytically or through gradient-based solvers, MPPI works by randomly generating many possible future control sequences rollouts, simulating the outcome of each one using the robot's motion model, scoring each rollout with a cost function, and then combining them into a single weighted-average control command.
+
+This sampling-based approach has several practical advantages for local, reactive navigation:
+
+\begin{itemize}[noitemsep]
+	\item It does not require the cost function or motion model to be smooth or differentiable, so arbitrarily complex costs (e.g. sharp obstacle penalties) can be used directly.
+	\item It naturally handles nonlinear dynamics and non-convex obstacle constraints, which are difficult for gradient-based MPC to optimize reliably.
+	\item It can be updated at high frequency, making it well suited for reacting to sudden, dynamic obstacles such as a walking person crossing the robot's path.
+\end{itemize}
+
+For these reasons, MPPI was integrated as the \textbf{local planner}, responsible for short-horizon, reactive obstacle avoidance, while the global planner (A* with PSO smoothing) remains responsible for long-horizon route planning across the full environment.
+
+\subsection{Local Planning with MPPI}
+\label{subsec:mppi_local_planning}
+
+At every control cycle, the MPPI local planner performs the following steps:
+
+\begin{enumerate}[noitemsep]
+	\item \textbf{Sample} a large number ($K$) of candidate control sequences, each consisting of a short sequence of linear and angular velocity commands, by perturbing a nominal control sequence with random noise.
+	\item \textbf{Simulate (rollout)} each candidate sequence forward through the robot's kinematic model over a short prediction horizon, producing $K$ candidate future trajectories.
+	\item \textbf{Evaluate} each candidate trajectory using a cost function that penalizes deviation from the local reference path, proximity to obstacles (including the dynamic walking-person obstacle), and excessive control effort.
+	\item \textbf{Weight} each candidate trajectory using a soft-min (exponential) weighting based on its cost 
+	\item \textbf{Combine} all weighted candidate control sequences into a single optimal control sequence.
+	\item \textbf{Apply} only the first control command of this combined sequence to the robot, then repeat the entire process at the next control cycle (receding horizon, similar to Phase 3).
+\end{enumerate}
+
+Because MPPI operates over a short horizon and reacts directly to real-time sensor data (LiDAR-detected obstacles), it complements the global planner by handling situations the global plan could not anticipate, such as a person walking into the corridor after the global path was already computed.
+
+\subsection{Mathematical Formulation}
+\label{subsec:mppi_math}
+
+Given a nominal control sequence $U = (u_0, u_1, \dots, u_{N-1})$, MPPI generates $K$ perturbed control sequences:
+
+\begin{equation}
+	u_k^{(i)} = u_k + \epsilon_k^{(i)}, \qquad i = 1, \dots, K
+	\label{eq:mppi_perturbation}
+\end{equation}
+
+where $\epsilon_k^{(i)} \sim \mathcal{N}(0, \Sigma)$ is Gaussian noise sampled independently for each rollout $i$ and each time step $k$, with covariance $\Sigma$.
+
+Each rollout $i$ is assigned a cost $S^{(i)}$, accumulated over the horizon:
+
+\begin{equation}
+	S^{(i)} = \sum_{k=0}^{N-1} c(x_k^{(i)}, u_k^{(i)}) + c_{terminal}(x_N^{(i)})
+	\label{eq:mppi_cost}
+\end{equation}
+
+where $c(x_k, u_k)$ is the running cost (tracking error, obstacle penalty, control effort) and $c_{terminal}$ penalizes the final predicted state.
+
+The optimal control update is computed as a cost-weighted average over all rollouts:
+
+\begin{equation}
+	u_k^{*} = u_k + \frac{\sum_{i=1}^{K} \exp\left(-\frac{1}{\lambda} S^{(i)}\right) \epsilon_k^{(i)}}{\sum_{i=1}^{K} \exp\left(-\frac{1}{\lambda} S^{(i)}\right)}
+	\label{eq:mppi_update}
+\end{equation}
+
+where $\lambda$ is a temperature parameter controlling how strongly low-cost rollouts are favored over higher-cost ones -- a smaller $\lambda$ concentrates weight more heavily on the lowest-cost rollouts, while a larger $\lambda$ produces a more evenly averaged result.
+
+\subsection{Parameters}
+\label{subsec:mppi_parameters}
+Table~\ref{tab:mppi_parameters} summarizes the MPPI local planner configuration used in this project.
+
+\begin{longtable}{|p{5cm}|p{2.5cm}|p{6cm}|}
+	\caption{MPPI Local Planner Parameters}
+	\label{tab:mppi_parameters} \\
+	
+	\hline
+	\textbf{Parameter} & \textbf{Symbol} & \textbf{Value} \\
+	\hline
+	\endfirsthead
+	
+	\hline
+	\textbf{Parameter} & \textbf{Symbol} & \textbf{Value} \\
+	\hline
+	\endhead
+	
+	\hline
+	\multicolumn{3}{r}{\textit{Continued on next page}} \\
+	\hline
+	\endfoot
+	
+	\hline
+	\endlastfoot
+	
+	Number of Samples (Rollouts) &
+	$K$ &
+	1000 \\
+	\hline
+	
+	Prediction Horizon &
+	$N$ &
+	30 steps \\
+	\hline
+	
+	Sampling Time &
+	$\Delta t$ &
+	0.05 seconds \\
+	\hline
+	
+	Temperature Parameter &
+	$\lambda$ &
+	1.0 \\
+	\hline
+	
+	Control Noise Standard Deviation (linear velocity) &
+	$\sigma_v$ &
+	0.2 m/s \\
+	\hline
+	
+	Control Noise Standard Deviation (angular velocity) &
+	$\sigma_\omega$ &
+	0.4 rad/s \\
+	\hline
+	
+	Linear Velocity Limits &
+	$v$ &
+	$v \in [0,0.26]$ m/s \\
+	\hline
+	
+	Angular Velocity Limits &
+	$\omega$ &
+	$\omega \in [-1.9,1.9]$ rad/s \\
+	\hline
+	
+	Obstacle Cost Weight &
+	-- &
+	50.0 \\
+	\hline
+	
+	Path Tracking Cost Weight &
+	-- &
+	10.0 \\
+	\hline
+	
+	Minimum Safe Obstacle Distance &
+	-- &
+	0.35 m \\
+	\hline
+	
+\end{longtable}
+These values were picked to balance speed and safety. Using 1000 sample paths gives the controller enough options to reliably judge which path is safest, without taking too long to compute at each step. The low temperature value ($\lambda = 1.0$) makes the robot commit strongly to the single best path it finds, instead of blending it with riskier options -- so it reacts quickly and decisively when the person gets close. Finally, the obstacle avoidance weight (50.0) is set much higher than the path-following weight (10.0), meaning the robot will happily move off the original path to avoid a collision rather than sticking rigidly to its route.
+
+
+\subsection{Integration with the Global Planner}
+\label{subsec:mppi_integration}
+
+MPPI operates as a local planning layer on top of the global path produced in Phases 1 and 2, forming a two-tier navigation architecture:
+
+\begin{itemize}[noitemsep]
+	\item The \textbf{global planner} (Improved A* with PSO smoothing) computes a long-horizon, obstacle-free path across the entire known map, based on the static occupancy grid.
+	\item The \textbf{local planner} (MPPI) continuously tracks a short rolling section of this global path, while reacting in real time to LiDAR sensor data that may reveal dynamic obstacles  most notably the \textbf{walking person} present in the Gazebo simulation world (Phase 5) that are not represented in the original static map.
+\end{itemize}
+
+At each control cycle, the local reference segment for MPPI is extracted from the nearest upcoming portion of the global path. Under normal conditions, with no dynamic obstacles nearby, MPPI closely tracks this reference segment, producing motion very similar to the underlying MPC tracking behavior (Phase 3). However, when the walking-person obstacle moves into or near the robot's planned path, the obstacle cost term in the MPPI cost function (Equation~\ref{eq:mppi_cost}) sharply penalizes any rollout that passes too close to the obstacle's detected position. Since MPPI evaluates a large number of randomly sampled trajectories at every cycle, it naturally identifies alternative rollouts that steer around the obstacle while still making progress toward the local goal, and the weighted combination of these low-cost rollouts produces a smooth avoidance maneuver.
+
+Once the dynamic obstacle has moved clear of the robot's path, the obstacle cost term no longer dominates, and the path tracking cost term draws the robot back onto the original global path. This layered design combines the strengths of both planners: the global planner ensures the robot always has an efficient, complete route to the goal, while the local MPPI planner ensures safe, reactive behavior in the presence of unpredictable, real-time disturbances  such as a person walking through the corridor that the global planner cannot foresee in advance.
+
+
+
+\section{Phase 8: Rviz setting }
+
+\subsection{RViz Visualization Configuration}
+
+To visualize the outputs of the custom navigation stack during simulation, RViz2
+was configured with dedicated Path displays for both the raw global planner
+output and the optimized trajectory used for control. Figure~\ref{fig:rviz_settings}
+shows the corresponding display settings.
+
+The raw global path generated by the Improved A* planner is subscribed from the
+\textit{/plan} topic and rendered using a green Lines style (RGB: 25, 255, 0).
+The pruned and PSO-smoothed trajectory, subscribed from the \textit{/plan\_smoothed}
+topic, is rendered separately using a blue Lines style (RGB: 0, 170, 255). Both
+displays use a buffer length of 1, ensuring that only the most recently published
+path is shown at any given time, rather than accumulating older paths from
+previous planning cycles.
+
+This configuration allows the raw A* output and the PSO-smoothed path to be
+visually compared in real time within the same scene, making it possible to
+directly observe the effect of the pruning and smoothing stages on path quality.
+The Model Predictive Controller subscribes to the smoothed path on
+\textit{/plan\_smoothed} and uses it as the reference trajectory for generating
+the velocity commands that drive the robot's motion.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{setting.png}
+	\caption{RViz configuration showing the raw A* global path
+		and the PSO-smoothed path used as	the reference trajectory for the MPC controller.}
+	\label{fig:rviz_settings}
+\end{figure}
 
 \section{Design of the Project Hardware}
 
-The current project is fully a simulation project and does not need any physical hardware design and development. The autonomous navigation system, such as the modeling of the robot, the process of sensor integration, the creation of the environment, the execution of the path planning and the tracking of the trajectory are all implemented and tested in Gazebo simulation environment with ROS2 with Jazzy. The TurtleBot3 Burger robot example is the virtual hardware platform and all specifications, sensors, and motion dynamic specifications are defined by the parameters in the simulation process, which ensures the whole system development and testing process are done in a fully virtual environment without the necessity of having any physical hardware components.
+The current project is fully a simulation project and does not need any physical hardware design and development. The autonomous navigation system, such as the modeling of the robot, the process of sensor integration, the creation of the environment, the execution of the path planning and the tracking of the trajectory are all implemented and tested in Gazebo simulation environment with ROS2 with Jazzy. The TurtleBot3 Waffle robot example is the virtual hardware platform and all specifications, sensors, and motion dynamic specifications are defined by the parameters in the simulation process, which ensures the whole system development and testing process are done in a fully virtual environment without the necessity of having any physical hardware components.
 
-\section{Design of the Project Software/Algorithm}
-
-This section presents the software design and development methodology adopted for the proposed autonomous parcel delivery system. The software was developed using a modular approach, where each component was designed, implemented, and tested independently before being integrated into the complete navigation framework. This methodology improves maintainability, simplifies debugging, and allows each module to be validated individually prior to system integration.
-
-The software development workflow is illustrated in Figure~\ref{fig:flow}. The development process begins with the implementation of the Improved A* path planning algorithm to generate collision-free global paths within the environment. The generated paths are subsequently refined using a Particle Swarm Optimization (PSO)-based path smoothing algorithm to obtain smoother and more efficient trajectories. A Model Predictive Controller (MPC) is then implemented to accurately track the optimized trajectory while satisfying the robot's kinematic constraints. After validating the navigation algorithms, they are integrated with the ROS2 middleware and Gazebo simulation environment to enable autonomous robot navigation. Finally, a Flutter-based web interface and a Flask backend server are developed to provide task assignment, live telemetry monitoring, map management, and delivery log management. Once all software modules are integrated, the complete autonomous parcel delivery system is validated through simulation.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\textwidth]{flow.png}
-	\caption{Software Development Workflow of the Proposed Autonomous Parcel Delivery System}
-	\label{fig:flow}
-\end{figure}
-
-\subsection{Software Architecture and Integration}
-
-The proposed software architecture follows a modular and distributed design in which each software module performs a dedicated responsibility while communicating through well-defined interfaces. The navigation algorithms, backend services, web application, robotic middleware, and simulation environment operate independently but collectively provide a complete autonomous delivery solution. This modular design improves scalability, simplifies software maintenance, and allows individual modules to be upgraded without affecting the overall system.
-
-Table~\ref{tab:software_modules} summarizes the primary software modules used in the proposed system along with their corresponding technologies and functional responsibilities.
-
-\begin{table}[H]
-	\centering
-	\caption{Software Modules and Their Functional Responsibilities}
-	\label{tab:software_modules}
-	\begin{tabular}{|p{4.2cm}|p{3.5cm}|p{6cm}|}
-		\hline
-		\textbf{Software Module} & \textbf{Technology Used} & \textbf{Function} \\
-		\hline
-		
-		Web Interface & Flutter (Dart) & Provides a user-friendly interface for task assignment, live telemetry monitoring, map management, and viewing delivery logs. \\
-		
-		\hline
-		
-		Backend Server & Python (Flask) & Manages API requests, application logic, communication with ROS2, and coordination between the web interface and robotic system. \\
-		
-		\hline
-		
-		Improved A* Path Planner & Python & Generates collision-free global paths between the robot's current position and the assigned delivery destination. \\
-		
-		\hline
-		
-		PSO-Based Path Smoothing & Python & Optimizes the planned path by reducing unnecessary turns and producing smooth trajectories suitable for autonomous navigation. \\
-		
-		\hline
-		
-		Model Predictive Controller (MPC) & Python & Computes optimal control commands to accurately follow the optimized trajectory while satisfying the robot's motion constraints. \\
-		
-		\hline
-		
-		ROS2 \& Gazebo Integration & ROS2 Humble, Gazebo & Provides robotic middleware, communication, simulation environment, sensor integration, and testing of autonomous navigation. \\
-		
-		\hline
-		
-	\end{tabular}
-\end{table}
-
-\section{Implementation Procedure}
-
-This section describes the step-by-step implementation process followed to develop the autonomous parcel delivery navigation system. The implementation follows the six-phase methodology described in section 3.2
-
-\subsection{Phase 1: Path Planning Algorithm Implementation}
-
-\subsubsection{A* Algorithm Implementation}
-
-The A* path planning algorithm is implemented in Python using a grid-based representation of the workspace. The environment is discretized into a uniform grid with configurable resolution. Each grid cell is classified as free space or occupied based on obstacle positions. The algorithm maintains open and closed sets for node exploration and uses a priority queue to select nodes with minimum cost function:
-
-\begin{equation}
-	f(n) = g(n) + h(n)
-\end{equation}
-
-where $g(n)$ is the actual cost from the start node to the current node, and $h(n)$ is the heuristic estimate from the current node to the goal node.
-\subsubsection{Path Pruning Implementation}
-
-Path pruning is applied to reduce redundant waypoints generated by the A* algorithm. The pruning algorithm iterates through consecutive waypoints and removes intermediate points that do not contribute to path quality. A line-of-sight check is performed between non-consecutive waypoints to verify collision-free connectivity.
-
-\subsubsection{PSO-Based Path Smoothing Implementation}
-
-The smoothness of navigational trajectories has been improved with the help of Particle Swarm Optimization that has been utilized. Every single, or particle, represents a possible flattened path, where the nodes are the constituent positional variables. The swarm then, following a series of repetitions, recalculates the positions of the particles through velocity equations and simultaneously measures cost functions which combine measures of path length, curvature and obstacle proximity.
-
-
-\subsection{Phase 2: Web Interface Implementation}
-
-The web-based interface has been carefully designed to provide the users with a user-friendly platform that is able to create environments of navigation, set up barriers and a complex path-planning procedure. Its architecture is based on a traditional client-server design, which guarantees that there is a clear division between the front-end responsibilities and the back-end responsibilities.
-\subsubsection{Frontend and Backend Technology Stack}
-
-Table~\ref{tab:web_stack} presents the technology stack used for developing the web interface.
-
-\begin{table}[H]
-	\centering
-	\caption{Web Interface Technology Stack}
-	\label{tab:web_stack}
-	\begin{tabular}{|p{3cm}|p{4cm}|p{7cm}|}
-		\hline
-		\textbf{Component} & \textbf{Technology} & \textbf{Responsibility} \\
-		\hline
-		Frontend & Dart (Flutter) & User interface, map canvas, obstacle drawing, interactive controls, real-time visualization \\
-		\hline
-		Backend & Python (Flask) & API request handling, algorithm execution, data processing, path computation \\
-		\hline
-		Communication & HTTP/JSON & RESTful API for data exchange between frontend and backend \\
-		\hline
-	\end{tabular}
-\end{table}
-
-\subsubsection{Frontend Development}
-
-In the front-end, the system is developed in the Dart programming language and Flutter framework together. It provides delineation of maps, obstacles and points of navigation with interactive canvas gadgets to users. Interactions with the users, in turn, trigger event handlers that retrieve the needed coordinate information and send the relevant requests to the back-end computer.
-Table~\ref{tab:frontend_files} summarizes the core frontend files and their functionality.
-
-\begin{table}[H]
-	\centering
-	\caption{Frontend Files and Functions}
-	\label{tab:frontend_files}
-	\begin{tabular}{|p{1cm}|p{4cm}|p{8.5cm}|}
-		\hline
-		\textbf{Sr. No} & \textbf{File Name} & \textbf{Functionality Description} \\
-		\hline
-		1 & api\_service.dart & Manages API calls and HTTP communication between Flutter frontend and Flask backend \\
-		\hline
-		2 & map\_data.dart & Handles map data models and coordinates management for the navigation interface \\
-		\hline
-		3 & obstacle.dart & Defines obstacle data models and properties for the Flutter application \\
-		\hline
-		4 & map\_provider.dart & Provides state management for map-related data and user interactions \\
-		\hline
-		5 & main\_screen.dart & Implements the main user interface screen for map visualization and path planning \\
-		\hline
-		6 & main.dart & Entry point of the Flutter application, initializes app components and routing \\
-		\hline
-	\end{tabular}
-\end{table}
-
-\subsubsection{Backend Server Development}
-
-The Python Flask framework is used in the implementation of the backend server. Flask routes are established to deal with the post request of the HTTP containing data on the map and obstacles in the form of a JSON.
-
-The main files of the backend and their functionality is summarized in Table 1.
-
-\begin{table}[H]
-	\centering
-	\caption{Backend Files and Algorithms}
-	\label{tab:backend_files}
-	\begin{tabular}{|p{1cm}|p{4.5cm}|p{8cm}|}
-		\hline
-		\textbf{Sr. No} & \textbf{File Name} & \textbf{Functionality Description} \\
-		\hline
-		1 & server.py & Handles incoming API requests and manages communication between the backend and web interface \\
-		\hline
-		2 & astar\_modified.py & Implements the modified A* path planning algorithm customized for the project's specific constraints \\
-		\hline
-		3 & decomposition.py & Implements Cell Decomposition for environment partitioning \\
-		\hline
-		4 & PSO\_implementation.py & Implements Particle Swarm Optimization (PSO) for path enhancement \\
-		\hline
-		5 & Obstacle\_list.py & Defines and creates the obstacles within the simulation environment \\
-		\hline
-	\end{tabular}
-\end{table}
-
-The backend server performs three main tasks:
-\begin{itemize}[noitemsep]
-	\item Receives map and obstacle data in JSON format
-	\item Converts latitude/longitude coordinates to meters for processing
-	\item Runs the selected algorithm and returns the optimal path
-\end{itemize}
-
-\subsection{Phase 3: Web Platform Integration}
-
-The web platform integration links the frontend user interface to the backend path-planning algorithms so that there is smooth interaction and real-time view of the paths. Figure 2  Figure~\ref{fig:web_integration} shows the entire process of user input to displaying the path.
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.35\textwidth]{flutter flow.png}
-	\caption{Web Platform Integration Workflow}
-	\label{fig:web_integration}
-\end{figure}
-The process of integration is regulated by a strictly designed workflow which outlines the series of interactions of the user with the system:
-
-After definition of workspaces, users are allowed to draw obstacles in the environment using two canonical geometric objects:
-
-
-\subsubsection{Workspace Configuration}
-
-The user begins by specifying the navigation workspace boundary. This working area forms the area of operation of the robot that shall go through, and it is defined by choosing relevant map dimensions. It is this boundary that essentially defines the scope as well as the magnitude of the planning environment.
-
-\subsubsection{Obstacle Placement}
-
-After definition of workspaces, users are allowed to draw obstacles in the environment using two canonical geometric objects:
-
-
-\begin{itemize}[noitemsep]
-	\item \text{Rectangular Obstacles:}
-	The obstacles are created as a rectangle by clicking and dragging the size and position of the obstacles of any size and shape.
-	\item \text{Circular Obstacles:} Circular obstacles are configured by users when they enter the centre point and the radius.
-	
-\end{itemize}
-
-Multiple obstacles can be added to create complex navigation situations. Every one of these obstacles is defined by its geometric parameters and passed to the remote server where they are checked with crashes in the path-planning phase.  
-
-
-\subsubsection{Start and Goal Position Selection}
-
-The participants choose the starting point of the robot, and the desired destination by clicking on the map canvas. These coordinates define the beginning and the final points of the planned path and they are highlighted on the interface to be seen visually.  
-
-\subsubsection{Algorithm Selection and Execution}
-
-The site provides two path-planning algorithms, both of which are made available through special user interface elements:
-
-\textbf{A* Path Planning Widget:}
-When the user clicks the A* algorithm button, the system executes the following sequence:
-\begin{enumerate}[noitemsep]
-	\item Frontend sends workspace, obstacles, start, and goal data to Flask backend
-	\item Backend executes A* path planning algorithm
-	\item Path pruning removes redundant waypoints
-	\item PSO-based smoothing optimizes the path for smooth robot motion
-	\item Smoothed trajectory is returned to frontend
-	\item Path is displayed on the map canvas with waypoints visualized
-\end{enumerate}
-
-The A* algorithm generates a collision-free, optimized path that avoids all obstacles while minimizing travel distance.
-
-\textbf{Dynamic Programming Widget:}
-When the user selects the Dynamic Programming option, the system performs:
-\begin{enumerate}[noitemsep]
-	\item Cell decomposition of the workspace into uniform grid cells
-	\item Classification of cells as free or occupied based on obstacle positions
-	\item Construction of cell connectivity graph
-	\item Computation of optimal path through cell sequence
-	\item Path smoothing and waypoint generation
-	\item Display of decomposed cells and planned path on the interface
-\end{enumerate}
-
-The Dynamic Programming approach provides systematic exploration of the workspace and is particularly effective in structured environments.
-
-\subsubsection{Path Visualization and Output}
-
-Upon successful path generation, the web interface displays:
-\begin{itemize}[noitemsep]
-	\item The complete planned path as a connected line
-	\item Individual waypoints along the trajectory
-	\item Obstacle boundaries for collision verification
-	\item Path statistics including total path length and number of waypoints
-\end{itemize}
-
-Users can modify the environment, adjust obstacle positions, or change start/goal locations and re-run the planning algorithms to generate updated paths. The integration ensures real-time responsiveness and provides immediate visual feedback for all user interactions.
-\subsection{Phase 4: MPC Controller Implementation}
-
-\subsubsection{Controller Development}
-
-The Model Predictive Control (MPC) scheme is realized in a Python setting, using the state-of-the-art optimization packages. Embedded with the mathematical formulation of the controller, the kinematic model of the robot is used and strict limits on both the linear and angular velocities are properly observed. The controller calculates the best control commands based on a prediction horizon in order to reduce the trajectory tracking error.
-
-\subsection{Phase 5: Dynamic Programming Integration}
-
-\subsubsection{Cell Decomposition Implementation}
-
-The space of operation is discretized into a grid of uniformly sized grid cells which is user configurable. Individual cells are assigned unique identifiers and adjacency between cells defined in a systematic manner so that the graph can be constructed using graph theory. The Boustrophedon decomposition algorithm is used to define cells containing navigable free-space, and to build an adjacency cell-network graph.
-
-\subsubsection{Web Integration}
-
-The Dynamic Programming planner is integrated into the web platform alongside the A* algorithm. Users can select the psreferred planning method from the interface, and the backend executes the corresponding algorithm based on user selection.
-
-\subsection{Phase 6: ROS2 and Gazebo Setup}
-
-\subsubsection{Virtual Environment Configuration}
-
-Oracle VirtualBox is installed and configured with appropriate memory allocation (minimum 4GB RAM) and processor cores. Ubuntu 22.04 LTS is installed as the guest operating system with network configuration for internet access.
-
-\subsubsection{ROS2 Jazzy Installation}
-
-The ROS2 Jazzy distribution is installed following the official installation procedure. Required dependencies and build tools are installed.
-
-\subsubsection{Gazebo Simulation Setup}
-
-Gazebo simulation platform is installed and configured. The TurtleBot3 packages are installed using the following commands:
-
-\begin{itemize}
-	\item sudo apt install ros-jazzy-turtlebot3
-	\item export TURTLEBOT3\_MODEL=burger
-\end{itemize}
-
-\subsubsection{ROS2 Node Development}
-
-ROS2 nodes are developed for trajectory publishing and robot control. A trajectory publisher node reads waypoints from the planned path and publishes velocity commands to the robot. The robot subscribes to velocity topics and executes motion commands in the Gazebo simulation.
-
-\subsection{System Integration and Testing}
-
-The system integration is organized into two independent testing environments. The web-based planner integrates path planning algorithms (A* and Dynamic Programming), path pruning, and PSO smoothing with the Flutter frontend interface. Users can create maps, place obstacles, select algorithms, and visualize optimized paths through the web platform. The Flask backend processes requests and executes navigation algorithms, returning planned paths for display.
-
-Separately, the ROS2-Gazebo simulation environment is configured for future trajectory tracking and control implementation. A custom simulation world is created in Gazebo consisting of indoor environments with multiple rooms and corridors. The TurtleBot3 Burger robot model is integrated into this environment with LiDAR and camera sensors configured for perception tasks.
-
-Multiple test scenarios are conducted on the web platform including navigation in obstacle-free environments, navigation in cluttered spaces with multiple obstacles, and path optimization across different map configurations. Performance metrics including path length, computation time, and waypoint reduction are collected for analysis and validation of the planning algorithms.
-\section{Details of Simulations / Mathematical Modeling}
-
-This section presents the mathematical formulations and simulation models used to develop and evaluate the autonomous navigation system. The modeling covers robot kinematics, path planning algorithms, optimization techniques, and control formulations.
-
-\subsection{Robot Kinematic Modeling}
-
-The TurtleBot3 Burger robot used in this project follows a differential drive kinematic model. The robot's motion is described by the following equations:
-
-\begin{align}
-	\dot{x} &= v \cos(\theta) \label{eq:kinematic_x} \\
-	\dot{y} &= v \sin(\theta) \label{eq:kinematic_y} \\
-	\dot{\theta} &= \omega \label{eq:kinematic_theta}
-\end{align}
-
-where:
-\begin{itemize}[noitemsep]
-	\item $x, y$ are the robot's position coordinates
-	\item $\theta$ is the robot's heading angle
-	\item $v$ is the linear velocity
-	\item $\omega$ is the angular velocity
-\end{itemize}
-
-These equations are used in both the path planning validation and trajectory tracking using MPC. The discrete-time formulation is obtained using Euler integration for numerical simulation.
-
-\subsection{Mathematical Modeling of Path Planning}
-
-The path planning process is modeled as a graph search problem where the environment is divided into a discrete grid. The A* algorithm evaluates nodes using the cost function:
-
-\begin{equation}
-	f(n) = g(n) + h(n)
-	\label{eq:astar_cost}
-\end{equation}
-
-Where:
-\begin{itemize}[noitemsep]
-	\item $g(n)$ = actual cost from start node to current node
-	\item $h(n)$ = heuristic estimate from current node to goal node
-\end{itemize}
-
-The Euclidean distance heuristic is used:
-
-\begin{equation}
-	h(n) = \sqrt{(x_{goal} - x_{current})^2 + (y_{goal} - y_{current})^2}
-	\label{eq:euclidean_heuristic}
-\end{equation}
-
-Dynamic programming techniques are used to store optimal sub-path solutions, improving computational efficiency through memoization.
-
-\subsection{Optimization Formulation of PSO Smoothing}
-
-Particle Swarm Optimization (PSO) is applied to smooth the initially generated path and remove unnecessary sharp turns. Each particle represents a candidate smoothed path, and the swarm optimizes a multi-objective cost function:
-
-\begin{equation}
-	J = w_1 \cdot L + w_2 \cdot C + w_3 \cdot P
-	\label{eq:pso_cost}
-\end{equation}
-
-Where:
-\begin{itemize}[noitemsep]
-	\item $L$ = total path length
-	\item $C$ = curvature or smoothness factor
-	\item $P$ = obstacle penalty function
-	\item $w_1, w_2, w_3$ = weighting coefficients
-\end{itemize}
-
-Particle position and velocity updates follow standard PSO equations:
-
-\begin{align}
-	v_i(t+1) &= w \cdot v_i(t) + c_1 \cdot r_1 \cdot (p_{best,i} - x_i(t)) + c_2 \cdot r_2 \cdot (g_{best} - x_i(t)) \label{eq:pso_velocity} \\
-	x_i(t+1) &= x_i(t) + v_i(t+1) \label{eq:pso_position}
-\end{align}
-
-where:
-\begin{itemize}[noitemsep]
-	\item $w$ = inertia weight
-	\item $c_1, c_2$ = cognitive and social coefficients
-	\item $r_1, r_2$ = random values in [0,1]
-	\item $p_{best,i}$ = personal best position
-	\item $g_{best}$ = global best position
-\end{itemize}
-
-This smoothing step ensures the path is suitable for real robot motion and improves trajectory tracking performance.
-
-\subsection{Mathematical Formulation of MPC Controller}
-
-Model Predictive Control (MPC) is implemented for trajectory tracking. MPC predicts future robot motion over a prediction horizon and computes optimal control inputs. The optimization problem is formulated as:
-
-\begin{equation}
-	\min_{u} \sum_{k=0}^{N-1} \left( \|x_k - x_{ref}\|^2_Q + \|u_k\|^2_R \right)
-	\label{eq:mpc_cost}
-\end{equation}
-
-subject to:
-\begin{itemize}[noitemsep]
-	\item Robot kinematic constraints (Equations \ref{eq:kinematic_x}--\ref{eq:kinematic_theta})
-	\item Velocity limits: $v_{min} \leq v \leq v_{max}$, $\omega_{min} \leq \omega \leq \omega_{max}$
-	\item Obstacle avoidance constraints
-\end{itemize}
-
-where:
-\begin{itemize}[noitemsep]
-	\item $x_k$ = predicted robot state at time step $k$
-	\item $x_{ref}$ = reference trajectory
-	\item $u_k$ = control input $(v, \omega)$
-	\item $Q, R$ = weighting matrices for state error and control effort
-	\item $N$ = prediction horizon
-\end{itemize}
-The MPC controller continuously updates control commands, ensuring accurate trajectory tracking and smooth robot motion.
-
-\subsection{Algorithm Parameters and Configuration}
-
-This section summarizes the key algorithmic parameters and configuration values used throughout the navigation system implementation.
-
-\subsubsection*{A* Algorithm Configuration}
-
-The A* path planning algorithm is configured with the following adaptive parameters:
-\begin{description}[leftmargin=0cm, labelindent=0cm, itemsep=0.3em, font=\normalfont]
-	\item[Grid Resolution:] The grid resolution adapts to workspace dimensions to balance computational efficiency and path accuracy:
-	\begin{equation}
-		\text{resolution} = \min(\text{width}, \text{height}) \times 0.01
-	\end{equation}
-	
-	\item[Safety Margin:] A dynamic safety margin is applied around obstacles to prevent collisions:
-	\begin{equation}
-		\text{safety\_margin} = \text{resolution} \times 0.2 \text{ meters}
-	\end{equation}
-	
-	\item[Motion Model:] The robot uses an 8-directional motion model with diagonal movement cost of $\sqrt{2} \times \text{resolution}$.
-	
-	\item[Grid Indexing Formula:] Each cell is assigned a unique index for efficient lookup:
-	\begin{equation}
-		\text{index} = y_{\text{index}} \times x_{\text{width}} + x_{\text{index}}
-	\end{equation}
-	
-	\item[Heuristic Function:] Euclidean distance is used as the admissible heuristic for optimal pathfinding.
-\end{description}
-\subsubsection*{PSO Optimization Configuration}
-
-Particle Swarm Optimization is configured with the following parameters to balance exploration and exploitation:
-
-% Table 3.5
-\begin{table}[H]
-	\centering
-	\caption{PSO Algorithm Parameters}
-	\label{tab:pso_parameters}
-	\begin{tabular}{|p{6cm}|p{2cm}|p{2cm}|}
-		\hline
-		\textbf{Parameter} & \textbf{Symbol} & \textbf{Value} \\
-		\hline
-		Swarm Size & $N_p$ & 30 particles \\
-		\hline
-		Maximum Iterations & $I_{max}$ & 100 \\
-		\hline
-		Inertia Weight & $w$ & 0.7 \\
-		\hline
-		Cognitive Coefficient & $c_1$ & 1.5 \\
-		\hline
-		Social Coefficient & $c_2$ & 1.5 \\
-		\hline
-		Weight - Path Length & $w_1$ & 0.5 \\
-		\hline
-		Weight - Smoothness & $w_2$ & 0.3 \\
-		\hline
-		Weight - Obstacle Penalty & $w_3$ & 0.2 \\
-		\hline
-	\end{tabular}
-\end{table}
-
-The particle velocities and positions are updated using the standard PSO equations (Equations \ref{eq:pso_velocity} and \ref{eq:pso_position}), where $r_1$ and $r_2$ are random values in [0,1], $V$ is velocity, $X$ is position, $P_{best}$ is personal best position, and $G_{best}$ is global best position.
-
-The PSO cost function minimizes a weighted combination of path characteristics:
-
-\begin{equation}
-	J = w_1 \cdot L + w_2 \cdot C + w_3 \cdot P
-\end{equation}
-
-where $L$ = total path length, $C$ = curvature smoothness factor, $P$ = obstacle proximity penalty, and $w_1, w_2, w_3$ are the weights specified in Table \ref{tab:pso_parameters}.
-
-\subsubsection*{Dynamic Programming Configuration}
-
-The cell decomposition-based Dynamic Programming planner uses the following key components:
-
-\begin{description}[leftmargin=0cm, labelindent=0cm, itemsep=0.3em, font=\normalfont]
-	\item[Memory Table:] A 2D memoization table of size $n_{\text{cells}} \times n_{\text{cells}}$ stores precomputed paths between cell pairs for efficient retrieval.
-	
-	\item[Map Hashing:] SHA-256 hashing detects environment changes. When the map hash matches the saved hash, stored paths are reused; otherwise, replanning occurs.
-	
-	\item[Cell Center Calculation:] Cell centroids are computed as:
-	\begin{align}
-		x_{\text{center}} &= \frac{\min_x + \max_x}{2} \\
-		y_{\text{center}} &= \frac{\min_y + \max_y}{2}
-	\end{align}
-	
-\end{description}\subsubsection*{Complete Parameter Summary}
-
-Table \ref{tab:comprehensive_parameters} provides a comprehensive summary of all algorithm parameters used in the navigation system.
-
-% Table 3.6
-\begin{table}[H]
-	\centering
-	\caption{Comprehensive Algorithm Parameters and Configuration}
-	\label{tab:comprehensive_parameters}
-	\begin{tabular}{|p{4.5cm}|p{3cm}|p{6.5cm}|}
-		\hline
-		\textbf{Algorithm Component} & \textbf{Parameter} & \textbf{Value/Formula} \\
-		\hline
-		A* Grid Resolution & Adaptive & $\min(\text{width}, \text{height}) \times 0.01$ \\
-		\hline
-		A* Safety Margin & Dynamic & $\text{resolution} \times 0.2$ m \\
-		\hline
-		A* Motion Model & 8-directional & Diagonal cost = $\sqrt{2} \times \text{resolution}$ \\
-		\hline
-		A* Heuristic & Euclidean & $\sqrt{(x_g - x_c)^2 + (y_g - y_c)^2}$ \\
-		\hline
-		PSO Swarm Size & Fixed & 30 particles \\
-		\hline
-		PSO Iterations & Fixed & 100 \\
-		\hline
-		PSO Inertia Weight & $w$ & 0.7 \\
-		\hline
-		PSO Cognitive \& Social & $c_1, c_2$ & 1.5 \\
-		\hline
-		PSO Cost Weights & $w_1, w_2, w_3$ & 0.5, 0.3, 0.2 \\
-		\hline
-		DP Cell Resolution & Adaptive & Based on workspace dimensions \\
-		\hline
-		DP Map Hashing & SHA-256 & Detects environment changes \\
-		\hline
-		MPC Prediction Horizon & $N$ & 10 steps \\
-		\hline
-		MPC Sampling Time & $\Delta t$ & 0.1 seconds \\
-		\hline
-		Velocity Limits & $v, \omega$ & $v \in [0, 0.22]$ m/s, $\omega \in [-2.84, 2.84]$ rad/s \\
-		\hline
-	\end{tabular}
-\end{table}
-
-
-\subsection{Algorithm Selection and Justification}
-
-\begin{description}[leftmargin=0cm, labelindent=0cm, itemsep=0.5em]
-	\item[A* Algorithm:] Selected for global path planning due to its optimality guarantees and heuristic-guided efficiency. The algorithm ensures shortest path generation while minimizing computational overhead.
-	
-	\item[Particle Swarm Optimization:] Chosen for path smoothing because of its global optimization capability and ability to handle multi-objective cost functions balancing path length, smoothness, and obstacle clearance.
-	
-	\item[Model Predictive Control:] Selected for trajectory tracking due to its predictive capability, which considers future states and constraints. MPC enables smooth control command generation and accurate path following under kinematic constraints.
-	
-	\item[Dynamic Programming with Cell Decomposition:] Implemented to provide systematic grid-based exploration with memoization benefits. This approach excels in structured environments and enables rapid replanning through stored path segments.
-\end{description}
 \section{Details of Final Working Prototype}
-This section describes the current development status of the autonomous navigation system prototype. The project is actively under development with several key components completed and operational.
+\label{sec:final_prototype}
 
-\subsection{Gazebo Simulation Environment Status}
-The Gazebo simulation environment has been successfully configured and deployed. A custom indoor environment consisting of two rooms connected by a hallway has been created. The simulation includes the TurtleBot3 Burger robot model and a dynamic walking person to simulate real-world obstacle scenarios.
+The final working prototype integrates all six development phases described in
+the preceding sections into a single, end-to-end simulated delivery pipeline. The
+complete system is brought online through a fixed startup sequence executed across
+multiple terminals, after which the robot is able to autonomously accept, plan, and
+execute delivery tasks issued from the web interface.
+The prototype requires five independent processes to be launched in sequence, each
+in its own terminal, before the system becomes fully operational:
+\begin{enumerate}
+	\item \textbf{Gazebo Simulation:} The custom indoor world,
+	together with the TurtleBot3 Waffle robot model, is launched using the
+	project's ROS 2 launch file. This initializes the physics simulation,
+	the robot's sensors (LiDAR and RGB camera), and the dynamic walking-person
+	obstacle.
+	
+	\item \textbf{RViz Visualization:} RViz2 is launched to provide real-time
+	visualization of the occupancy map, the robot's localized pose, the planned
+	global path, and the local MPPI-adjusted trajectory during navigation.
+	
+	\item \textbf{Rosbridge WebSocket Server:} The rosbridge server is started
+	on port 9090 to expose the ROS 2 communication layer to the Flask backend
+	by running ros2 launch rosbridge\_server rosbridge\_websocket\_launch.xml.
+	This bridge is what allows the backend to publish navigation goals and
+	subscribe to telemetry, pose, and battery topics over a standard WebSocket
+	connection rather than requiring a native ROS 2 client.
+	
+	\item \textbf{Camera Streaming Server:} The web\_video\_server
+	package is launched to relay the robot's RGB camera feed as an
+	HTTP-accessible video stream by running ros2 run web\_video\_server
+	web\_video\_server. This stream is consumed directly by the Live Telemetry
+	module of the Admin Operations Hub.
+	
+	\item \textbf{Backend and Frontend Servers:} Finally, the Flask backend
+	server (server.py) and the Flutter frontend (ParcelPath) are
+	started, completing the software stack and exposing the web application to
+	the user.
+\end{enumerate}
+\subsection*{End-to-End Delivery Workflow}
 
-% Table 3.4
-\begin{table}[H]
+With the prototype fully launched, a complete delivery is executed as follows:
+
+\begin{enumerate}
+	\item \textbf{Authentication.} The user logs in through the ParcelPath
+	landing screen and is routed, based on their role, to either the User
+	Portal or the Admin Operations Hub
+	
+	\item \textbf{Task Assignment.} A user creates a delivery request simply by selecting their drop-off and/or pickup room from the interactive map/room selection menu and confirms the request. The mapped/selected rooms are resolved to their programmed navigation co-ordinates, and these co-ordinates are communicated back to the backend.
+	
+	\item \textbf{Dispatch and Queuing.} The backend's Finite State Machine
+ checks the robot's current status. If the
+	robot is the delivery is dispatched immediately; otherwise,
+	the request is stored as a pending order and automatically dispatched once
+	the robot becomes available.
+	
+	\item \textbf{Path Planning.} Upon dispatching, the backend call the whole
+	planning pipeline, which consists of: An Improved A* planning a collision-free trajectory on the
+	grid Path pruning that get rid of unnecessary points and PSO based smoothing algorithm that generates a
+	kinematically feasible trajectory in an ongoing curve.
+	\item \textbf{Trajectory Tracking.} The smoothed trajectory is published
+	to ROS 2 and subscribed to by the MPC controller node in RViz/Gazebo, which computes velocity commands to
+	track the path while respecting the robot's kinematic and actuator
+	constraints.
+	
+	\item \textbf{Dynamic Obstacle Avoidance.} While executing the planned
+	trajectory, the MPPI local planner continuously monitors LiDAR data for unexpected obstacles, most notably the
+	walking-person model in the simulation, and reactively adjusts the robot's
+	short-horizon motion to avoid collisions before resuming the original path.
+	
+	\item \textbf{Live Monitoring.} As it’s running the robot’s position, battery life, and delivery state is broadcast back to the web application interface. Admins will also want to watch the progress of the delivery using Live Telemetry to see where the robot is in real-time, together with its live camera Feed sent over Web video service.
+	\item \textbf{Completion and Return.} When the delivery is completed and the FSM reaches the drop-off room, it becomes marked as completed in the database, and the FSM changes its current state from route to dropoff to returning back towards Robo Room. If when the robot reaches home, there are no other deliveries in the delivery pipeline, then the FSM changes from returning to free and the robot stays at home doing nothing, till a new delivery request comes. But if in case of any other delivery request when the robot was on its way home to reach the Free state, then the currently pursuing home-navigation goal is cancelled, and the robot will start heading towards the pickup or the dropoff location of the new order, without completing the return journey, therefore reducing delay of new delivery.
+\end{enumerate}
+
+\begin{figure}[h]
 	\centering
-	\caption{Gazebo Simulation Environment Configuration}
-	\label{tab:gazebo_configuration}
-	\begin{tabular}{|p{3.5cm}|p{10cm}|}
-		\hline
-		\textbf{Component} & \textbf{Description} \\
-		\hline
-		Operating System & Ubuntu 22.04 LTS (VirtualBox) \\
-		\hline
-		ROS Distribution & ROS2 Jazzy Jalisco \\
-		\hline
-		Robot Model & TurtleBot3 Burger \\
-		\hline
-		Simulation Platform & Gazebo (latest compatible version) \\
-		\hline
-		Environment Design & Custom hall connecting two rooms with walking person \\
-		\hline
-		Control Interface & Under development \\
-		\hline
-		Visualization & RViz2 for real-time monitoring \\
-		\hline
-		Physics Engine & ODE (Open Dynamics Engine) \\
-		\hline
-	\end{tabular}
-\end{table}
-\subsection{Web-Based Planning Interface Status}
-The web-based navigation interface has been developed and is fully operational. Users can interact with the system through the following implemented features:
+	\includegraphics[width=0.75\textwidth]{gazebo_marking_robot_at_delivery_point}
+	\caption{TurtleBot3 Waffle robot completing delivery task at
+		the destination.}
+	\label{fig:delivery_complete}
+\end{figure}
 
-\textbf{Completed Web Interface Capabilities:}
-\begin{itemize}[noitemsep]
-	\item Interactive obstacle drawing module for custom environment creation
-	\item Path planning algorithm execution (A* and Dynamic Programming)
-	\item Path smoothing using PSO optimization
-	\item Cell decomposition-based environment partitioning
-	\item Map upload functionality for loading pre-designed environments
-	\item Real-time path visualization on the web canvas
-\end{itemize}
-
-The web platform successfully processes user inputs, executes navigation algorithms, and displays optimized paths with waypoints.
-
-\subsection{Current Development Progress}
-
-\textbf{Fully Operational Components:}
-\begin{itemize}[noitemsep]
-	\item Web-based map creation and obstacle drawing interface
-	\item A* path planning algorithm with collision detection
-	\item Path pruning for waypoint reduction
-	\item PSO-based path smoothing optimization
-	\item Dynamic Programming with cell decomposition
-	\item Map upload and save functionality
-	\item Gazebo simulation environment with TurtleBot3 robot
-	\item Dynamic obstacle simulation (walking person model)
-\end{itemize}
-
-\textbf{Components Under Development:}
-\begin{itemize}[noitemsep]
-	\item Integration between web-planned paths and Gazebo simulation
-	\item ROS2 trajectory publisher for path execution
-	\item MPC controller implementation for trajectory tracking
-	\item Real-time obstacle avoidance during navigation
-	\item Bidirectional communication between web interface and ROS2
-\end{itemize}
-
-The prototype demonstrates successful implementation of the core planning algorithms through the web interface, while the simulation environment provides a realistic testing platform for future integration and validation of the complete autonomous navigation system
+This complete workflow,spanning task assignment, global path planning,
+smoothing, MPC-based tracking, MPPI-based dynamic obstacle avoidance,
+real-time telemetry, and FSM-driven dispatch (including mid-return
+preemption for queued orders)  demonstrates that the proposed system
+successfully integrates all six development phases into a functioning,
+simulation-based autonomous parcel delivery prototype.
 \section{Chapter Summary}
+\label{sec:chapter_summary}
 
-
-This chapter presented the design and implementation of the autonomous navigation system following a six-phase development approach. The system combines a web-based interface for path planning, Flask backend for algorithm execution, and ROS2-Gazebo simulation for testing.Currently, the web interface is fully operational with obstacle drawing, A* and Dynamic Programming path planning, PSO smoothing, and map upload features. The Gazebo simulation environment is configured with TurtleBot3 robot and dynamic obstacles. Integration between web-planned paths and simulation is under development.
+This chapter presented the design and implementation of the autonomous parcel
+delivery system, developed through six phases: global path planning, path
+optimization, controller design, web and backend development, ROS2/Gazebo
+simulation setup, and MPPI-based dynamic obstacle avoidance.The Improved A* algorithm generated collision-free global paths, which were
+pruned and smoothed using Particle Swarm Optimization to produce short,
+feasible trajectories. A Model Predictive Controller tracked these paths whilerespecting the robot's motion constraints, and an MPPI local planner was addedto reactively avoid dynamic obstacles such as a moving person.
+A web platform, ParcelPath, was built with a Flutter frontend and Flask
+backend to let users request deliveries and let admins monitor the robot via
+live telemetry and camera feed. A Finite State Machine managed delivery
+dispatch, queuing, and mid-return preemption, communicating with ROS2 throughrosbridge.The complete system was tested in a custom Gazebo world with TurtleBot3,demonstrating reliable path planning, smooth trajectory tracking, and
+effective obstacle avoidance, all fully simulated without physical hardware.
