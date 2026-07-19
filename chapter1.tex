@@ -6,20 +6,21 @@ This paper proposes a simulation-based autonomous indoor parcel delivery system.
 
 The core tasks of the differential drive robot navigation system in this study include mapping, localization, path planning, trajectory smoothing, and obstacle avoidance. For global path planning, this study adopts an improved A* algorithm, which generates collision-free paths based on an occupancy grid map. To address the problem that grid-based paths have sharp turns that differential drive robots cannot follow smoothly, a spline smoothing technique is introduced. A model predictive trajectory tracking module will be developed in subsequent work.
 
-The whole system works inside the ROS 2 framework. It uses ways of talking like topics and services to work together on navigation and control. The system also has a web-based control interface. This interface lets users give the robot jobs to do like delivering things and set where the robot needs to go. Users can also watch what the robot is doing in time when they are testing it.
+The whole system works inside the ROS 2 framework. It uses ways of talking like topics and services to work together on navigation and control. The system also has a web-based control interface. This interface allows the user to assign tasks to the robot, such as delivering items, and set the robot's destination. Users can also view what the robot is doing in real time while testing it.
 
-The project only uses simulation, which means it is safe to test the robots navigation without using a real robot. This also helps when we want to use a robot in the real world. The ROS 2 framework and the simulation help us make sure the robot works well before we actually use it.
+The project uses only simulation so it is safe to test the robots navigation without using a real robot. This is also useful if we want to use a robot in the real world. The simulation and the ROS 2 framework allow us to verify the robot’s behavior before deploying it in the real world.
 
 \section{Project idea} 
-This project is about making a system that can deliver parcels on its inside buildings. The system uses a robot that can move around inside places like university buildings and office corridors. This robot delivers parcels without anyone helping it. The main things this system has to do are find the path avoid things in the way and move smoothly. All of these things are tested in a world. There is also a website that lets people tell the system where to deliver parcels and see how it is working. The system is made using ROS 2. It is really good, at delivering parcels indoors.
+This project is about the development of a system capable of delivering parcels inside its buildings. This system uses a robot that is capable of maneuvering inside spaces like university buildings and office hallways. This robot can deliver parcels without anyone helping it. The main things this system has to do are find the path avoid things in the way and move smoothly. All of these things are tested in a world. There is also a website that lets people tell the system where to deliver parcels and see how it is working. The system is made using ROS 2. It is really good, at delivering parcels indoors.
 
 \section{Purpose of the project}
 The goal of this project is to create a system that can deliver parcels on its own inside a building. This project is going to use something called ROS 2 to make this happen. The main idea is to make a robot that can move around inside a building without getting stuck or hitting things. The robot should be able to find an easy way to get where it needs to go. This project is, about making a navigation system that works well for the indoor parcel delivery system using ROS 2. The indoor parcel delivery system using ROS 2 is going to be tested to make sure it is reliable.
 
-The project is working on navigation. It is doing this by testing the system in a simulation. This way the project can make autonomous navigation better. It is looking at things like planning a path and making the movement smooth. The project also wants to make the controls work well. This will help when they actually build the system with hardware. The goal is to make indoor delivery systems work. Autonomous indoor delivery systems are what the project is really, about.
+Navigation is what the project is working on. It does this by testing the system in simulation. This way the project can help improve self-driving. It looks at things such as planning a path, And making the movement smooth . The project also aims for the controls to feel good. That'll help when they actually build the system in hardware. The goal is to get indoor delivery systems operational. This project is really about indoor autonomous delivery systems.
 
 \section{Motivation and Need of the Project}
-The reason we started this project is that people want automation and contactless services especially after the pandemic. Lots of organizations want to make it so that people do not have to do hard tasks but still get good service. There are not workers costs are going up and people want service all the time, which makes autonomous delivery systems very important. Also in places like hospitals, factories and emergency areas it can be dangerous for people to deliver things. Autonomous robots can work well in these situations. Make workplaces safer. This project helps with these problems by providing a good, reliable and easy to use indoor parcel delivery solution that works well in structured environments, like offices and buildings. Autonomous indoor parcel delivery solution is what we are focusing on and we want to make it the best it can be so people can use indoor parcel delivery solution easily and safely.
+We started this project because people want automation and contactless services especially after the pandemic. There are a lot of organizations that want to make it so that people don’t have to do hard tasks, but still get good service. Autonomous delivery systems are very important as the cost of workers is rising and people want service at all times. It can also be dangerous for people to deliver things in places such as hospitals, factories and emergency areas.
+ Autonomous robots can work well in these situations. Make workplaces safer. This project helps with these problems by providing a good, reliable and easy to use indoor parcel delivery solution that works well in structured environments, like offices and buildings. Autonomous indoor parcel delivery solution is what we are focusing on and we want to make it the best it can be so people can use indoor parcel delivery solution easily and safely.
 \subsection{Project Specifications}
 This part is about the details of the User-Friendly Autonomous Parcel Delivery System with Adaptive Navigation.
 The details explain the environment the User-Friendly Autonomous Parcel Delivery System with Adaptive Navigation works in how the User-Friendly Autonomous Parcel Delivery System with Adaptive Navigation navigates, how it is controlled what software is used and how the User-Friendly Autonomous Parcel Delivery System, with Adaptive Navigation stays safe.
@@ -62,20 +63,20 @@ The details explain the environment the User-Friendly Autonomous Parcel Delivery
 The system is made to work on its own. It is all based on software. This means we can make and test it in an environment inside before we use any actual machines. The system can move around. Do tasks because it has a special set of instructions that we made ourselves. We use this of the usual set of instructions that people use.
 To find its way the system uses a special kind of search called A star. It also uses something called Bezier curves to make sure it moves smoothly and does not get stuck. The system can see where it is and what is around it because it uses a kind of mapping called SLAM and a device that sends out laser beams called LiDAR. It can also avoid things that get in its way in time.
 The system can control how it moves because it has a kind of controller that we made ourselves. This controller helps the system move where it needs to go and stay steady. The system also has a map of its environment that is like a big grid.
-We made the system using a programming language called Python for the parts that control the robot and the parts that do work in the background. We used another programming language called Dart for the part that people interact with. The system is safe because it has features, like making obstacles bigger so it can avoid them stopping itself if it is about to crash and stopping away if there is an emergency. This means it can work safely in spaces where people're around.
+We made the system using a programming language called Python for the parts that control the robot and the parts that do work in the background. We used another programming language called Dart for the part that people interact with. The system is safe because it has features, like making obstacles bigger so it can avoid them stopping itself if it is about to crash and stopping away if there is an emergency. That means it can safely operate in areas with people.
 \section{Project Objectives}
 
 \subsection{General Objectives}
-The main goal of this project is to create a parcel delivery system. This system should be able to move around indoors on its own in an efficient way. The autonomous parcel delivery system is supposed to do this without needing help from people. It should also make sure parcels are delivered to the place and make the whole process work better. The autonomous parcel delivery system will use navigation and control to make this happen.
+The primary objective of this project is to develop a parcel delivery system. The system should be able to navigate efficiently on its own indoors. That's what the autonomous parcel delivery system is supposed to do without people. It should also ensure that parcels are delivered to the location and improve the entire process. Navigation and control will be used for this purpose in the autonomous parcel delivery system.
 \subsection{Specific Objectives}
 
-The specific objectives of this project are:
+The specific objectives of this project include:
 \begin{itemize}
-    \item To design an autonomous mobile robot capable of safe indoor navigation.
-    \item To develop adaptive path planning and obstacle avoidance algorithms for dynamic environments.
-    \item To implement a user-friendly application for task assignment and real-time monitoring.
-    \item To evaluate system performance under different indoor scenarios.
-    \item To propose a scalable architecture for future system expansion.
+    \item Develop an autonomous mobile robot for safe indoor navigation.
+    \item In an effort to develop adaptive path planning and obstacle avoidance algorithms for dynamic
+    \item Build an easy-to-use app for assigning tasks and monitoring in real-time.
+    \item For the system performance evaluation in different indoor scenarios.
+    \item To suggest a scalable architecture for future growth of the system.
 \end{itemize}
 
 
@@ -93,8 +94,8 @@ The autonomous navigation project is also very useful in a way. It gives us a wa
 \subsection{Hospitals}
 The parcel delivery system that works on its own can be used to move medicines, lab samples, medical records and equipment from one department to another. This helps the people who work in healthcare because they have work to do. It also means that people are not touching things in areas where this can be a problem. When things get delivered on time patients get care and the hospital can work more smoothly. The robot that delivers these things can move around the hospital without hurting anyone even when the halls are filled with staff and patients. The parcel delivery system is really good, at getting things from one place to another.
 \subsection{University Campuses}
-On campuses this system helps move papers, books and gear between offices, libraries and labs.
-It cuts down on delays that happen when places are apart and staff are busy.
+ The system helps move papers, books and gear between offices, libraries and labs around a campus.
+It avoids delays caused by the distance between locations and busy staff.
 The robot makes it easier for different departments to work together and helps with getting things from one place to another inside the campus.
 
 \subsection{Office Buildings}
@@ -118,14 +119,14 @@ The system is based on the idea of automation and lean manufacturing. It makes t
 In hotels robots can bring room service items, laundry and guest amenities to your door. This makes your stay better by getting things to you and without any hassle. The robot moves quietly down hallways and, in areas so it does not disturb you.
 
 \subsection{Emergency and Disaster Zones}
-In places that're not safe indoors a robot can bring important things where people can't go without getting hurt.It helps in rescue missions by taking things like tools, food or medicine.The robot can move on its own. Still work well even if the place is not stable.
+In places that're not safe indoors a robot can bring important things where people can't go without getting hurt. It helps in rescue missions by carrying tools, food or medicine.It is a self-powered robot. They still work well even if the place is not stable.
 
 \section{Limitations of the System}
-Although the proposed system has benefits it also has some limitations.The robot works well if its sensors are accurate its battery is strong and the surroundings are suitable.The system is made for indoor areas and may not work properly on stairs or bumpy surfaces.
-There is also a chance that network problems can affect watching the robot in time.
+The advantages of the proposed system are there but there are some limitations also.The robot works well if the sensors are accurate , the battery is strong and the surroundings are right .It’s designed for indoor use and may not work properly on stairs or uneven surfaces.
+Also, there is a chance that network problems can prevent watching the robot in time.
 
 \section{Project Plan}
-The following table shows the proposed project plan and timeline. The entire project, spanning literature review, algorithm development, web interface implementation, and full ROS 2/Gazebo simulation integration, was successfully completed within a total duration of \textbf{32 weeks}.
+The table below shows the planned project plan and timeline. The entire project, including literature review, algorithm development, web interface implementation and full integration with the ROS 2/Gazebo simulation, was successfully completed in a total time of \textbf{32 weeks}.
 
 \begin{table}[H]
 	\centering
@@ -198,7 +199,7 @@ Develops a scalable autonomous delivery architecture using ROS~2 to modernize in
 Promotes smart community living in universities and offices by reducing congestion and improving operational efficiency through automated delivery. \\ \hline
 \end{tabular}
 \end{table}\section{Report Organization}
-The report is set up to help you understand the project from start to finish. Chapter 1 is an introduction to the project.It talks about why the project's important what it aims to achieve its details and what it covers.Chapter 2 looks at what other people have done in the field of path planning algorithms controlling robots ROS 2 navigation setup and past projects.It finds out what's missing in methods.Chapter 3 is about creating a navigation system.It explains the IA* path planning algorithm, how to make paths smoother designing a motion controller and how it all works with ROS 2.Chapter 4 discusses the tools and techniques used in the project.These include the robot, ROS 2 framework, Gazebo for simulation Python for programming and RViz, for visualization. Chapter 5 presents project results and evaluation, discussing navigation performance, tracking accuracy, path quality, web interface and Ros.Chapter 6 provides the conclusion and future work, summarizing achievements, lessons learned, limitations, and recommendations for enhancements like dynamic obstacle handling, multi-robot coordination, and real-world deployment. Chapter 7 relates the project to Sustainable Development Goals (SDGs), showing how autonomous navigation contributes to innovation, sustainable cities, and responsible production. Finally, Chapter 7 provides the conclusion and future work, summarizing achievements, lessons learned, limitations, and recommendations for enhancements like dynamic obstacle handling, multi-robot coordination, and real-world deployment.
+The report is set up to help you understand the project from start to finish. Chapter 1 is an introduction to the project.It talks about why the project's important what it aims to achieve its details and what it covers.Chapter 2 looks at what other people have done in the field of path planning algorithms controlling robots ROS 2 navigation setup and past projects.It finds out what's missing in methods.Chapter 3 is about creating a navigation system.It explains the IA* path planning algorithm, how to make paths smoother designing a motion controller and how it all works with ROS 2.Chapter 4 discusses the tools and techniques used in the project.These include the robot, ROS 2 framework, Gazebo for simulation Python for programming and RViz, for visualization. Chapter 5 presents project results and evaluation, discussing navigation performance, tracking accuracy, path quality, web interface and Ros.Chapter 6 concludes and discusses future work, describing what has been achieved, lessons learned, limitations and recommendations for improvements such as dynamic obstacle handling, multi-robot coordination, and deployment in the real world. In Chapter 7, the project is linked to the Sustainable Development Goals (SDGs) – demonstrating how autonomous navigation contributes to innovation, sustainable cities and responsible production. 
 
 \section{Chapter Summary}
 

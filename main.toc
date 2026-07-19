@@ -71,7 +71,7 @@
 \contentsline {subsection}{\numberline {2.2.11}Related Technology 11 -- WildGS-SLAM for Dynamic Environment Mapping}{30}{subsection.2.2.11}%
 \contentsline {section}{\numberline {2.3}Related Projects}{31}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Related Studies / Research}{32}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Limitations and Bottlenecks of the Existing Work}{33}{section.2.5}%
+\contentsline {section}{\numberline {2.5}Limitations and Bottlenecks of the Existing Work}{34}{section.2.5}%
 \contentsline {section}{\numberline {2.6}Problem Statement}{34}{section.2.6}%
 \contentsline {section}{\numberline {2.7}Summary}{35}{section.2.7}%
 \contentsline {chapter}{\numberline {3}PROJECT DESIGN AND IMPLEMENTATION}{36}{chapter.3}%
@@ -124,19 +124,19 @@
 \contentsline {subsection}{\numberline {3.7.3}TurtleBot3 Packages Installation}{62}{subsection.3.7.3}%
 \contentsline {subsection}{\numberline {3.7.4}ROS2 Workspace Creation}{62}{subsection.3.7.4}%
 \contentsline {subsection}{\numberline {3.7.5}World Creation}{62}{subsection.3.7.5}%
-\contentsline {subsection}{\numberline {3.7.6}Environment Configuration Summary}{64}{subsection.3.7.6}%
+\contentsline {subsection}{\numberline {3.7.6}Environment Configuration Summary}{63}{subsection.3.7.6}%
 \contentsline {subsection}{\numberline {3.7.7}Navigation Reliability Assessment in Dynamic Environments}{64}{subsection.3.7.7}%
-\contentsline {section}{\numberline {3.8}Phase 7: MPPI Navigation}{65}{section.3.8}%
+\contentsline {section}{\numberline {3.8}Phase 6: MPPI Navigation}{65}{section.3.8}%
 \contentsline {subsection}{\numberline {3.8.1}What is MPPI}{65}{subsection.3.8.1}%
 \contentsline {subsection}{\numberline {3.8.2}Local Planning with MPPI}{66}{subsection.3.8.2}%
 \contentsline {subsection}{\numberline {3.8.3}Mathematical Formulation}{66}{subsection.3.8.3}%
 \contentsline {subsection}{\numberline {3.8.4}Parameters}{67}{subsection.3.8.4}%
 \contentsline {subsection}{\numberline {3.8.5}Integration with the Global Planner}{68}{subsection.3.8.5}%
-\contentsline {section}{\numberline {3.9}Phase 8: Rviz setting }{69}{section.3.9}%
+\contentsline {section}{\numberline {3.9}Phase 7: Rviz setting }{69}{section.3.9}%
 \contentsline {subsection}{\numberline {3.9.1}RViz Visualization Configuration}{69}{subsection.3.9.1}%
 \contentsline {section}{\numberline {3.10}Design of the Project Hardware}{69}{section.3.10}%
 \contentsline {section}{\numberline {3.11}Details of Final Working Prototype}{70}{section.3.11}%
-\contentsline {section}{\numberline {3.12}Chapter Summary}{73}{section.3.12}%
+\contentsline {section}{\numberline {3.12}Chapter Summary}{72}{section.3.12}%
 \contentsline {chapter}{\numberline {4}TOOLS AND TECHNIQUES}{74}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Overview}{74}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Hardware Tools Used}{74}{section.4.2}%

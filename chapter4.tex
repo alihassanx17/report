@@ -35,7 +35,7 @@ Ubuntu Linux~\cite{ubuntu2024} is an open-source operating system that is heavil
 \end{figure}
 
 \subsection{Visual Studio Code}
-Microsoft created Visual Studio Code~\cite{vscode2024}, a lightweight yet potent source code editor. The project source code was written, edited, and debugged using it as the main development environment. Extensive extension support and smooth version control system integration are features of Visual Studio Code.
+Microsoft created Visual Studio Code~\cite{vscode2024}, a lightweight yet potent source code editor. The project source code was written, edited, and debugged using it as the main development environment. Visual Studio Code includes lots of extensions and seamless integration with the version control system.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.20\textwidth]{vscode.png}
@@ -44,9 +44,9 @@ Microsoft created Visual Studio Code~\cite{vscode2024}, a lightweight yet potent
 \end{figure}
 
 \subsection{ROS 2 and Gazebo Simulation Environment}
-An open-source middleware framework for creating robotic applications is called Robot Operating System~2 (ROS~2)~\cite{ros2jazzy2024}. It divides software into nodes, which are modular parts that interact with one another through action servers, services, and topics. The main basis for this project was ROS~2. The core of the system was ROS~2.
+An open-source middleware framework for creating robotic applications is called Robot Operating System~2 (ROS~2)~\cite{ros2jazzy2024}. It segments software into nodes that communicate with each other via action servers, services and topics. The main basis for this project was ROS~2. The core of the system was ROS~2.
 
-An open-source 3D robot simulator called Gazebo~\cite{gazebo2024} offers a physics-based environment for testing robotic systems prior to their implementation on actual hardware. To verify the navigation algorithms in a secure virtual setting, it was integrated with ROS~2. Based on the TurtleBot3 platform~\cite{turtlebot3doc}, the robot model had wheel encoders, a depth camera, and a simulated LiDAR. In order to test path planning, obstacle avoidance, and multi-waypoint delivery missions, custom indoor settings featuring walls, hallways, and obstacles were constructed. This eliminated the requirement to run unverified code on real hardware during development.
+An open source 3D robot simulator, Gazebo~\cite{gazebo2024}, provides a physics-based environment for simulating robotic systems before putting them into real-world settings. The navigation algorithm was tested in a safe virtual environment by integrating it with ROS~2. As a robot model, the robot was built on TurtleBot3 with wheel encoders, a depth camera, and a simulated LiDAR.The robot model was built on top of TurtleBot3 \cite{turtlebot3doc} with wheel encoders, a depth camera, and a simulated LiDAR. Custom indoor environments with walls, hallways, and obstacles were created for pathway planning, obstacle avoidance, and multi-waypoint delivery missions. This eliminated the need to run code that was not tested during development on real hardware.
 
 \begin{figure}[h]
 	\centering
@@ -57,7 +57,7 @@ An open-source 3D robot simulator called Gazebo~\cite{gazebo2024} offers a physi
 
 \subsection{Google Colaboratory}
 
-A cloud platform called Google Colaboratory (Colab)~\cite{colab2024} offers a Jupyter notebook platform that enables users to develop and execute Python code in a web browser without requiring a local configuration. It provides unrestricted access to the GPU's processing capabilities, making it especially suitable for algorithm development and data analysis endeavors.
+A cloud platform called Google Colaboratory (Colab)~\cite{colab2024} offers a Jupyter notebook platform that enables users to develop and execute Python code in a web browser without requiring a local configuration. It allows full access to the GPU's processing power, which is particularly good for developing algorithms and analyzing data projects.
 
 \begin{figure}[h]
 	\centering
@@ -89,7 +89,7 @@ Flutter~\cite{flutter2024} is an open-source framework that Google created to cr
 
 \subsection{Flask}
 
-Flask~\cite{flask2024} is a lightweight Python framework that is employed in the development of web applications. It was used in this project to build up the back-end server which is responsible in dealing with the communication between the web application and the autonomous robot. The Flask server receives delivery requests using the mobile application, writes the information into the database, and dispatches the navigation instructions to the ROS 2 system.
+Flask~\cite{flask2024} is a lightweight Python framework that is employed in the development of web applications. It was used in this project to build up the back-end server which is responsible in dealing with the communication between the web application and the autonomous robot. Using the mobile application, the Flask server is sent delivery requests, which are recorded in the database, and the navigation instructions are sent to the ROS 2 system.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{flask.png}
@@ -98,7 +98,7 @@ Flask~\cite{flask2024} is a lightweight Python framework that is employed in the
 \end{figure}
 
 \subsection{Overleaf}
-Overleaf~\cite{overleaf2024} is an online collaborative LaTeX editor used for writing and formatting academic documents. It was utilized in this project to create the final report in compliance with Capital University of Science and Technology's (CUST) formatting specifications. A professionally designed paper with consistent headings, captions, equations, and IEEE-style citations was created by using LaTeX through Overleaf.
+Overleaf~\cite{overleaf2024} is a collaborative online editor to create and compose academic documents using the LaTeX typesetting system. It was used in this project for producing the final report according to the formatting norms of Capital University of Science and Technology (CUST). Using LaTeX through Overleaf, a professionally designed paper with consistent headings, captions, equations and IEEE-style citations was created.
 
 \begin{figure}[h]
 	\centering
@@ -108,4 +108,4 @@ Overleaf~\cite{overleaf2024} is an online collaborative LaTeX editor used for wr
 \end{figure}
 
 \section{Summary}
-The software tools utilized for the project were described in this chapter. Visual Studio Code was the primary IDE for all coding operations, and Oracle VirtualBox housed the Ubuntu development environment. Gazebo offered a physics-based simulation platform for testing navigation algorithms prior to hardware deployment, while ROS~2 Jazzy served as the fundamental robotics framework. Overleaf facilitated expert report creation, GitHub preserved version control and teamwork, while Google Colab helped early algorithm prototyping and SLAM implementation. Together, they supported every stage of the project, from concept to final documentation, and each tool was chosen for a particular function.
+This chapter showed the application of the software tools used for the project. All the coding work was done using visual studio code and the Ubuntu development environment ran on Oracle VirtualBox. Gazebo offered a physics-based simulation platform for testing navigation algorithms prior to hardware deployment, while ROS~2 Jazzy served as the fundamental robotics framework. Overleaf facilitated expert report creation, GitHub preserved version control and teamwork, while Google Colab helped early algorithm prototyping and SLAM implementation. Together, they supported every stage of the project, from concept to final documentation, and each tool was chosen for a particular function.

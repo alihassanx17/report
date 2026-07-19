@@ -7,9 +7,9 @@ The outcomes of the Autonomous Parcel Delivery System, which was created and tes
 
 \section{Presentation of the Findings}
 
-The outcomes of the Autonomous Parcel Delivery System's development and testing are shown in this section. The performance of the path planning, motion control, and web interface components—all of which were tested and assessed in various scenarios—is the main emphasis of the findings because the project was fully implemented in software.
+The outcomes of the Autonomous Parcel Delivery System's development and testing are shown in this section. The result of the project is fully implemented in software and the emphasis is placed on the performance of the path planning component, the motion control component and the web interface, all of which were tested and evaluated in different scenarios.
 
-```
+
 \section{Phase 1: Path Planning in VS Code}
 
 In the first phase the path planning logic was written and implemented in a Python environment using Visual Studio Code. This was intentionally done by keeping things simple at first, any bugs in the algorithm could be caught and fixed without the added complexity of ROS 2 or hardware.Everything was done in parts and then integrated together The planning process was broken into four steps.
@@ -65,15 +65,15 @@ The outcome is a blue dashed line with much fewer points once the long, unnecess
 	\label{fig:pruned}
 \end{figure}
 
-The outcome of the pruning procedure is indicated by the blue dashed line. The path is now shorter and cleaner because redundant waypoints have been eliminated. The motion controller can process and follow this shortened path much more easily, thereby lowering computing overhead while preserving obstacle avoidance.
+The results of the pruning process are shown as a blue dashed line. Now the path is shorter and cleaner, due to the removal of redundant waypoints. This condensed path can be processed and followed much easier by the motion controller, which reduces the amount of computing resources required without compromising the obstacle avoidance.
 
 
 % ─── Step 4 ──────────────────────────────────────────────────────────────────
 \subsection{Step 4: Smoothing the Path}
 
-The final composition was still a concatenation of rectilinear stretches with angular corners, regardless of the trimming techniques used. The last stage was to employ cubic spline interpolation to expertly integrate each of these components into a single continuous line.
+All trimming methods resulted in the same ending, which was still a string of rectilinear segments, rounded at the corners. The last stage was to employ cubic spline interpolation to expertly integrate each of these components into a single continuous line.
 
-The blue curving trajectory depicted in the illustration is the outcome. The robot now has a soft, arc-like path to follow instead of sharp bends. This is significant because a robot traveling along a smooth curve can keep a constant speed throughout the trip without having to slow down at every turn. The following stage receives this smoothed trajectory.
+The blue curving trajectory depicted in the illustration is the outcome. This arc-like trail is softer for the robot to follow than sharp bends. This is important as it means that a robot moving along a smooth curve can maintain a steady speed and not have to slow down for every turn. The smoothed trajectory is passed onto the following stage.
 
 
 \begin{figure}[H]
@@ -83,12 +83,11 @@ The blue curving trajectory depicted in the illustration is the outcome. The rob
 	\label{fig:smooth}
 \end{figure}
 
-The blue curve represents the final smoothed trajectory generated through cubic spline interpolation. The path is now continuous and curved, eliminating all sharp corners. This allows the robot to navigate without stopping at any turn, maintaining a steady speed throughout the journey and providing smoother, more efficient motion.
-
+The blue curve is the final curve obtained by doing cubic spline interpolation. The road is now a continuous stream and is curved, with no sharp corners. This enables the robot to move without stopping at any turn, without slowing down during the trip, and will give smoother, more efficient motion.
 % ══════════════════════════════════════════════════════════════════════════════
 \section{Phase 2: Motion Control with MPC}
 
-A Model Predictive Controller (MPC) was used to ensure that the robot could precisely follow the clean reference path.
+A Model Predictive Controller (MPC) was employed to enable the robot to accurately follow the generated reference path.
 
 MPC looks ahead, which is the main distinction between it and a more straightforward controller like PID. It employs a short-term prediction of where the robot will be over the next few steps and modifies its motions accordingly, rather than only responding to where the robot is right now. Because it may begin slowing down or changing direction prior to a turn rather than after it has already missed it, this greatly improves its ability to handle curves.
 
@@ -103,7 +102,7 @@ TurtleBot3-based version of the MPC.% ─── Basic Test ───────
 
 The blue line indicates the intended reference trajectory whereas the orange line indicates the real path taken by the robot. These two curves are nearly intersecting, which indicates that the controller had high level of precision at the beginning.
 
-The plots on the right hand side illustrate the velocity and acceleration of the robot throughout the period of time in the experiment. These profiles are smooth and there are no sharp spikes or unstable excursions which proves that the robot moved in a controlled and natural way during the run without any unnecessary jerks and opposition to the path.
+The plots on the right hand side illustrate the velocity and acceleration of the robot throughout the period of time in the experiment. The robot has these profiles and no unstable excursions or sharp spikes in the profiles that would indicate that the robot ran in an unexpected manner or impediment was encountered during the run which would have caused these spikes.
 
 \begin{figure}[H]
 	\centering
@@ -112,13 +111,13 @@ The plots on the right hand side illustrate the velocity and acceleration of the
 	\label{fig:mpc1}
 \end{figure}
 
-The figure collectively depicts the MPC controller's tracking performance. Throughout the duration, the orange true trajectory tracks the purple reference path, and the side plots verify the presence of smooth velocity/acceleration profiles—a sign of controlled, inconspicuous robot motion devoid of abrupt and unstable transitions.
+The figure collectively depicts the MPC controller's tracking performance. The orange curve matches the purple curve along the reference path's side plots over the entire time span, with smooth velocity/acceleration plots indicating controlled, inconspicuous motion by the robot without abrupt and erratic transitions.
 
 
 % ─── Dual Scenario ───────────────────────────────────────────────────────────
 \subsection{Testing in Two Different Environments at Once}
 
-The controller was tested simultaneously in two entirely different environments—a maze with tiny corridors (Scenario~1) and a big open space (Scenario~2)—to ensure that it was not only working effectively in one particular map. This side-by-side comparison assisted in confirming that the MPC was not only tuned to a specific configuration but was actually dependable.
+The controller was tested in a maze with very small corridors (Scenario~1) and in a large open space (Scenario~2), to ensure that it does not just work very well in one specific map. This comparison against the side was useful in establishing not only the MPC's tuning to a specific configuration, but also as a means of establishing reliability.
 
 
 \subsubsection{Start of the Mission}
@@ -145,17 +144,17 @@ Once both runs completed, the orange path the robot actually took falls almost p
 	\label{fig:mpc_end}
 \end{figure}
 
-The successful completion of the mission in both environments is shown in the image \ref{fig:mpc_end}. In both cases, the orange real path overlays the purple reference path, demonstrating consistent tracking accuracy independent of the complexity of the surroundings. This confirms that the MPC controller performs well in a variety of map layouts and navigational situations.
+The successful completion of mission is shown in both environments, as seen in the image \ref{fig:mpc_end}. The orange real path is shown on top of the purple reference path in both cases, with consistent tracking accuracy in both cases, regardless of the complexity of the surroundings. The MPC controller does a good job in different map layouts and situations of navigation.
 
 
 % ─── Error Analysis ──────────────────────────────────────────────────────────
 \subsection{Measuring the Tracking Error}
-Visual inspection of the paths is helpful, but quantifying the actual error provides a more accurate picture of the controller's performance. For both cases, the cross-track error—the robot's deviation from the reference path at any given time—was noted.
+While it can be useful to simply look at the paths, it is more useful to determine the actual error of the controller. In both cases, the deviation of the robot from the reference path (cross-track error) was observed at any time.
 
 
 \subsubsection{Scenario 1: Standard Maze}
 
-There is a slight increase in inaccuracy at the beginning of the run. The robot is only speeding from a stop and momentarily overshooting before settling, which is usual. The inaccuracy decreases to almost zero after a few seconds. There are brief, little bumps throughout the maze's rapid curves, but they go away fast. The inaccuracy remained substantially below 2~cm during steady movement.
+There is a slight increase in inaccuracy at the beginning of the run. The robot is accelerating from a standstill and briefly exceeding the speed before slowing down—typical. The inaccuracy decreases to almost zero after a few seconds. There are brief, little bumps throughout the maze's rapid curves, but they go away fast. The error was still significant when moving at constant speed (2~cm).
 
 
 \begin{figure}[H]
@@ -165,12 +164,12 @@ There is a slight increase in inaccuracy at the beginning of the run. The robot 
 	\label{fig:error_s1}
 \end{figure}
 
-The cross-track error for the maze environment with time is depicted in the figure. The inaccuracy rapidly stabilizes after an early startup transient and stays below 2~cm for the duration of the trip. The controller's capacity to handle difficult navigation circumstances with tight bends is demonstrated by the brief error spikes that occur at steep curves but are quickly repaired.
+The cross track error for the maze environment with time is shown in the figure. Inaccuracy quickly settles into almost a constant value after an initial transient upon startup and remains below 2~cm throughout the trip. Its ability to navigate tight corners with little error can be seen in the quick correction of the errors that occur at the corners.The controller's ability in difficult to navigate situations, with tight bends, is shown by the brief error spikes that occur at steep curves followed by quick corrections.
 
 
 \subsubsection{Scenario 2: Large Open Workspace}
 
-Compared to the maze, the open workspace yielded an even smoother error profile. The controller had less corrective work to do because there were fewer sharp corners to negotiate, and the error signal stayed flat for the most of the run. This demonstrates that the MPC can function successfully in less demanding settings while being competent in more demanding ones.
+Compared to the maze, the open workspace yielded an even smoother error profile. The error signal was not fluctuating much during the bulk of the run and the amount of corrective action performed by the controller was less since there were fewer sharp corners to overcome. This shows the MPC to be capable and effective in less demanding situations and competent in more demanding situations.
 
 
 \begin{figure}[H]
@@ -180,17 +179,17 @@ Compared to the maze, the open workspace yielded an even smoother error profile.
 	\label{fig:error_s2}
 \end{figure}
 
-Because there are fewer curvature requirements in the open workspace, the error profile is notably flatter than in Scenario 1. The controller performs far better in areas with relatively few limits because it maintains an extraordinarily low tracking error throughout the mission in spaces with fewer sharp bends and challenges.  
+The error profile in the open workspace will be quite flat as there are fewer requirements for curvature. The controller works better in regions with relatively few limits as it keeps the tracking error extremely small during the entire course of the mission in less challenging spaces with lesser sharp bends. 
 
 
 
 % ─── Stress Test ─────────────────────────────────────────────────────────────
 \subsection{Stress Test: Circles and Triangles}
 
-A specially designed map with irregularly shaped obstacles in the shape of triangles and circles was built in order to test the motion controller even further. This resulted in extremely limited and awkward routes. Because these non-orthogonal designs produce sharp angles and curved sides that call for quick and precise navigational maneuvers, they are more challenging to handle than the more conventional rectangular barriers.  
+To this end, a specially designed map with irregularly shaped obstacles in the form of triangles and circles has been constructed, in order to further test the motion controller. This led to very restricted and cumbersome routes. Because these non-orthogonal designs produce sharp angles and curved sides that call for quick and precise navigational maneuvers, they are more challenging to handle than the more conventional rectangular barriers.   
 
-The robot moved through each of the little apertures without colliding with anything or acting erratically.
-. Its path sensorimotor remained in a steady flow even as it manoeuvred around the sharp corners of triangular shapes hence proving that the Model Predictive Control scheme has the ability to cope with the challenging geometries just as easily as simpler ones.
+The little openings the robot navigated through weren't blocked and the bot didn't get confused.
+Its path sensorimotor remained in a steady flow even as it manoeuvred around the sharp corners of triangular shapes hence proving that the Model Predictive Control scheme has the ability to cope with the challenging geometries just as easily as simpler ones.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.85\textwidth]{MPC(Circle+triangle).png}
@@ -236,19 +235,19 @@ These findings verify that, regardless of map size or obstacle layout, the MPC c
 
 
 \subsection{Keeping the Robot Safe: Obstacle Inflation}
-One crucial safety feature that is integrated into the navigation backend is obstacle inflation. The algorithm is operated over a mathematical expansion of the obstacle's footprint rather than the physical barrier, creating a virtual no-go buffer zone.
+One crucial safety feature that is integrated into the navigation backend is obstacle inflation. The algorithm is used not on the physical obstacle itself, but on a mathematical expansion of the footprint of the obstacle, which forms a virtual "no-go" buffer zone.
 
 
 Figure \ref{fig:inflation} visualizes this mechanism clearly. The diagram differentiates between two distinct zones:
 \begin{itemize}
 	\item \textbf{Original Obstacle:} 
-	The core, which was marked by a light pink colour, is used to outline the real physical size of the object.
+	The core area is light pink and is used to indicate what the object physically would look like.
 	
 	\item \textbf{Inflated Obstacle:} 
-	The outer representation, which is shown in deeper red, represents the safety buffer that the algorithm introduces.
+	The outer drawing is the safety buffer as drawn by the algorithm and is drawn in deeper red.
 \end{itemize}
 
-By the hard limit is defined as the Inflated edge, the path planner is pushed to maintain a safe distance of the physical object of the robot. This essentially supplies the uncertainties encountered in the real world, such as sensor noise, or small localization errors, and thus the robot (initially in the green marker) will never hit the wall when working towards the goal (red square).
+Hard limit is the Inflated edge, the path planner is forced to keep distance to the physical object (the robot). This essentially supplies the uncertainties encountered in the real world, such as sensor noise, or small localization errors, and thus the robot (initially in the green marker) will never hit the wall when working towards the goal (red square).
 
 
 
@@ -262,15 +261,15 @@ By the hard limit is defined as the Inflated edge, the path planner is pushed to
 % ══════════════════════════════════════════════════════════════════════════════
 \section{Phase 3: Web Interface}
 
-A web-based control interface was developed once the fundamental algorithms were functioning properly, allowing an individual to monitor the robot and assign delivery duties without using ROS~2 or writing any code. Making the system usable by everyone, not just technical experts, was the aim.
+When the basic algorithms were successful, a web-based control interface was created to enable a person to observe the robot and set the delivery tasks without any code or ROS~2. Making the system usable by everyone, not just technical experts, was the aim.
 
 
 % ─── Dashboard ───────────────────────────────────────────────────────────────
 \subsection{The Control Dashboard}
 
-The control dashboard serves as a specific interface for mission planning. Although the system is intended to eventually support custom facility maps or Point Cloud Data (PCD), in its current demonstration state it uses an OpenStreetMap layer to offer a realistic visual context.
+A particular interface for mission planning is the control dashboard. The system will ultimately be able to accept custom facility maps or Point Cloud Data (PCD), but for the purposes of this demonstration it is based on an OpenStreetMap layer to provide a realistic visual context.
 
-To guarantee secure path generation, the interface is made for a sequential, structured workflow:
+The interface follows a structured, step-by-step workflow to ensure secure path generation:
 \begin{enumerate}
 	\item \textbf{Define Workspace:} To define the robot's safe working area, the operator first chooses the "Draw Boundary" option.
 
@@ -294,7 +293,7 @@ In order to assess the planner correctly we established three scenarios. Each sc
 \subsection{Cellular Decomposition Output (2D Workspace Partitioning)}
 In order to make global navigation in a complex indoor setting simple, we adopted a cellular decomposition method on the 2D workspace. The primary aim of this step is to divides into several non-overlapping areas (cells) the free space according to the boundaries of obstacles. The cells are safe zones where the robot will not run into anything.
 
-After decomposition, we select a representative point (cell center) for each region. These centers are then utilized to create a connectivity graph using adjacency relations.This graph aids the planner in quickly calculating a feasible path from the starting point to the destination and offers a simplified high-level structure of the environment.
+Once the cells are decomposed, A representative point (cell center) is chosen for each region. These centers are then used to build an adjacency graph of connectivity.This graph helps the planner to easily determine a possible route from start to finish, and provides a simplified, high level structure of the environment.
 
 
 Figure~\ref{fig:cellular_decomposition} shows the final output of the cellular decomposition
@@ -366,11 +365,11 @@ Results act as confidence measures for the proper functioning of the path-planni
 
 \section{Phase 4: Flutter Web Application for Delivery Management}
 
-While the dashboard described in Section 5.3 was used early in the project to validate map-based path planning, the delivery task itself is issued and monitored in practice through a dedicated Flutter web application built for end users, dispatch staff, and system administrators. This section presents the working screens of that application, covering user authentication, delivery requests, interactive floor-plan room selection, and the administrative tools used to configure the facility map.
+While the dashboard described in Section 5.3 was used early in the project to validate map-based path planning, the delivery task itself is issued and monitored in practice through a dedicated Flutter web application built for end users, dispatch staff, and system administrators. The following section show the various screens of that application, including user authentication, requests for delivery, floor plan selection (with interaction), and administration tools for editing the facility map.
 
 \subsection{Starting screen and Authentication}
 
-Before guiding the user into the authentication process, the program begins with a straightforward landing screen that explains the system and its function.
+The web starts with a simple presentation page showing a brief description of the system and its purpose before leading the user to the authentication interface.
 
 
 \begin{figure}[H]
@@ -380,9 +379,9 @@ Before guiding the user into the authentication process, the program begins with
 	\label{fig:starting_screen}
 \end{figure}
 
-Figure~\ref{fig:starting_screen} shows the starting screen, which introduces the system under the "Indoor Delivery Robot" banner and displays the ParcelPath name with the tagline "Autonomous indoor delivery, planned in real time." The "Start Delivering" button carries the user forward into the authentication flow.
+The starting screen (figure~\ref{fig:starting_screen}) welcomes the user to the system in the name of “Indoor Delivery Robot” and presents the name ParcelPath with the tagline: “Autonomous indoor delivery, planned in real time”. The "Start Delivering" button takes the user forward in the authentication process.
 
-While returning users are sent to the login screen in Figure~\ref{fig:login}, which authenticates them using their registered email and password before allowing access to the delivery portal, new users are directed to a sign-up form, shown in Figure~\ref{fig:signup}, where they register with a full name, email address, and password.
+On returning users, the system redirects them to the login screen as shown in Figure~\ref{fig:login} and requires them to log in with their registered email and password to gain access to the delivery portal, while in case of a new user, he is redirected to sign up page as shown in Figure~\ref{fig:signup} where he enters his details such as full name, registered email and password to sign up.
 
 
 \begin{figure}[H]
@@ -399,11 +398,11 @@ While returning users are sent to the login screen in Figure~\ref{fig:login}, wh
 	\label{fig:login}
 \end{figure}
 
-Both forms include masked password fields with a visibility toggle, and the login screen links directly to the sign-up form for users who have not yet registered.
+Both forms have masked password fields with a visibility toggle, and a link to the sign up form for users who haven't already signed up.
 
 \subsection{User Portal and Delivery Requests}
 
-Once authenticated, a regular user is taken to the User Portal, shown in Figure~\ref{fig:user_portal}, which serves as the main hub for requesting and monitoring deliveries.
+Once authenticated, the user is taken to the User Portal, shown in Figure~\ref{fig:user_portal}, which serves as the main hub for requesting and monitoring deliveries.
 
 \begin{figure}[H]
 	\centering
@@ -466,9 +465,9 @@ As shown in Figure~\ref{fig:plan_editor_edit}, selecting a room opens an "Edit R
 % ─────────────────────────────────────────────────────────────────────────────
 \subsection{Live Robot Camera Monitoring}
 
-The administrator interface also enables the administrator to set up the navigation environment and get a live video stream from the robot's built-in RGB camera when a delivery mission is running. This feature enables operators to see the robot's surroundings in real time without requiring direct access to ROS~2 visualization tools.
+The administrator interface also allows the administrator to configure the navigation environment, and to get a live video stream from the robot's onboard RGB camera in the case of a delivery mission being executed. This feature allows the operators to visualize the robot context in real time without having to access ROS~2 visualization tools directly.
 
-The administrator can monitor the robot's navigation, any pedestrians or other dynamic barriers, and the delivery task's progress using the video feed. By immediately integrating the live video stream into the web application, the solution improves situational awareness and provides a practical means of controlling robot operations from a distance.
+The video feed allows the administrator to see the movements of the robot and any pedestrians or other moving obstacles, and the progress of the delivery task. The solution allows the live video stream to be immediately integrated into the web application, enhancing situational awareness and offering a viable tool for controlling the robot remotely.
 
 \begin{figure}[H]
 	\centering
@@ -477,7 +476,7 @@ The administrator can monitor the robot's navigation, any pedestrians or other d
 	\label{fig:live_camera}
 \end{figure}
 
-Figure~\ref{fig:live_camera} shows the live RGB camera feed captured by the robot while navigating through the indoor delivery environment. The administrator can observe the robot's current surroundings, including corridors, room entrances, and nearby pedestrians, allowing continuous monitoring of the delivery process. This capability provides an additional layer of operational awareness and assists in verifying safe autonomous navigation throughout the mission.
+The live RGB camera feed received by the robot during its navigation in the delivery environment is shown in figure~\ref{fig:live_camera}. The administrator can see what the robot is doing in the current area, such as corridors, room entry points and other people who are close by the robot so that the delivery process can be constantly monitored. This ability adds an extra layer of operational awareness and helps in verifying safe autonomous navigation throughout the mission.
 
 \section{Phase 5: ROS 2 and Gazebo Simulation Results}
 
@@ -532,7 +531,7 @@ This SLAM-generated map was saved and supplied directly to our own path-planning
 
 
 
-To validate the planning and smoothing pipeline under realistic conditions, a test was conducted in a cluttered obstacle environment. The generated global path was inflated around obstacle boundaries to maintain a safe clearance margin, after which the raw IA* path was refined using the pruning and PSO-based smoothing stages. Figure~\ref{fig:planning_smoothing_test} shows the resulting inflated planning map, the initial planned path, and the final smoothed trajectory produced by the pipeline while navigating through the obstacle-dense environment.
+To validate the planning and smoothing pipeline under realistic conditions, a test was conducted in a cluttered obstacle environment. The generated global path was inflated around obstacle boundaries to maintain a safe clearance margin, after which the raw IA* path was refined using the pruning and PSO-based smoothing stages. The pipeline then generated a planning map (Figure~\ref{fig:planning_smoothing_test}) that was inflated, a initial planned path, and a final smoothed planning path while navigating through the obstacle dense environment.
 
 \begin{figure}[H]
 	\centering
@@ -541,7 +540,7 @@ To validate the planning and smoothing pipeline under realistic conditions, a te
 	\label{fig:planning_smoothing_test}
 \end{figure}
 
-The results confirm that the planner successfully generates a collision-free route while respecting the inflated safety margins, and that the smoothing stage produces a continuous trajectory suitable for tracking by the motion controller, even in the presence of densely packed obstacles.
+The results show that the planner is able to generate the route that does not collide with the obstacles while maintaining the inflated safety margins and the smoothing stage results in a continuous trajectory that is suitable for the motion controller.
 Once localized within the SLAM-generated map, the robot was assigned a pickup goal, and the resulting inflated planning map, planned path, and smoothing behaviour produced by our own IA*, pruning, and spline-smoothing pipeline were visualized in RViz. Figure~\ref{fig:rviz_planning} shows the obstacle-inflated map overlaid on the static map, where the light pink region is the inflation buffer and the cyan outline marks the true obstacle boundaries. The red trace shows the path generated by our global planner and refined by the smoothing stage, while the small spiral near the goal is a brief in-place recovery rotation performed by our MPC controller to correct heading before the final approach.
 
 \begin{figure}[H]
@@ -556,11 +555,11 @@ The pruning and smoothing pipeline validated earlier in Section 5.1, Step 4, car
 
 \subsection{Dynamic Obstacle Avoidance}
 A human actor was given instructions to stroll across the robot's intended delivery route while it was navigating toward its destination in order to assess the robustness of the suggested navigation framework in dynamic interior situations.
- Figure~\ref{fig:person_avoidance} presents a top-down view of this experiment, where the robot's LiDAR continuously scans the surrounding environment and detects the moving pedestrian upon entering its sensing range.
+The experiment is presented in a top-down view in Figure~\ref{fig:person_avoidance} where the robot's LiDAR continually scans the environment around him and detects the moving pedestrian when it enters into the environment's sensing range.
 
-The robot initially followed the globally optimized trajectory generated using the A* algorithm, followed by path pruning and PSO-based path smoothing. When the pedestrian was detected, the MPPI (Model Predictive Path Integral) controller used the real-time LiDAR measurements to predict multiple feasible short-horizon trajectories while considering obstacle avoidance, path tracking accuracy, and motion smoothness. The controller selected the minimum-cost collision-free trajectory, allowing the robot to temporarily deviate from the original global path and safely navigate around the moving obstacle.
+The robot first follows the globally optimized path which was computed using the A* algorithm, then the path is pruned and then smoothed using PSO. Upon detecting the pedestrian, the MPPI (Model Predictive Path Integral) controller predicted multiple short-horizon feasible trajectories in real-time based on the measured LiDAR data, while accounting for obstacle clearance, path tracking precision and smoothness of the motion. The controller chose the path of the lowest cost to avoid collisions, with the robot temporarily off of the path of the original global path, but still navigating safely around the moving obstacle.
 
-After the pedestrian cleared the robot's path, the obstacle was removed from the local cost representation, and the MPPI controller naturally guided the robot back toward the original smoothed global trajectory. Since the global path remained valid, no global replanning was required. This local trajectory optimization enabled smooth, collision-free navigation while maintaining continuous progress toward the delivery destination without any manual intervention.
+Once the pedestrian was out of the robot's way, the obstacle was deleted from the local cost map and the MPPI controller took the robot back to the smoothed global trajectory. The global path was valid and no global replanning was needed. With this local trajectory optimization, collision-free, smooth, continuous navigation towards the delivery target was achieved without any manual inputs.
 
 \begin{figure}[H]
 	\centering
@@ -569,7 +568,7 @@ After the pedestrian cleared the robot's path, the obstacle was removed from the
 \end{figure}
 \subsection{Arrival at the Delivery Point}
 
-The robot is seen in Figure~\ref{fig:delivery_point} once it has arrived at its designated delivery room. The robot has halted at the chosen goal position after entering the authorized drop-off zone. The successful arrival shows that the objective coordinates obtained from the web interface were accurately converted into the map frame, allowing the robot to go through the environment securely and arrive at its destination without running into any obstacles.
+Once the robot reaches its delivery room, it is seen in Figure~\ref{fig:delivery_point}. The robot has stopped at the designated goal location once it enters the authorized drop-off area. The objective coordinate (obtained from the web interface) was successfully converted into the map frame, and the robot went through the environment safely, without colliding with any obstacles, as evidenced by the successful arrival.
 
 \begin{figure}[H]
 	\centering
@@ -600,26 +599,26 @@ Additionally, the existing design only allows one robot at a time and lacks a sy
 \section{Challenges Faced}
 
 Several technical difficulties arose during the implementation and integration of several software components during the autonomous parcel delivery system's development. Before a solid and dependable system was created, these difficulties necessitated a great deal of debugging, parameter adjusting, and iterative testing.\begin{itemize}
-	 \item \textbf{Obstacle Collision During Path Planning:}
-	Some projected routes passed too close to impediments in the early phases of path planning, raising the possibility of a collision. The robot was able to keep a safe distance while navigating to the destination thanks to the implementation of obstacle inflation and the definition of appropriate safety margins.
+     \item \textbf{Obstacle Collision During Path Planning:}
+	In the initial stages of path planning some projected paths were too close to the obstacles and could lead to a potential collision. Obstacle inflation and definition of safe margins allowed the robot to safely navigate to the destination.
 
 
 \item \textbf{Path Smoothing Issues:}
-The trajectories produced by the Improved A* algorithm had steep twists that were challenging for the robot to follow smoothly, even if they produced legitimate collision-free pathways. To provide smoother routes while keeping a safe distance from obstructions, cubic spline interpolation was employed. Achieving a balance between path accuracy and smoothness needed several iterations.
+The paths generated by the Improved A* algorithm were not only not collision free, but had sharp turns that were difficult to follow smoothly by the robot. The cubic spline interpolation was used to produce smoother curves and maintain a safe distance from obstructions. There was a few iterations to get the balance between path accuracy and smoothness right.
 
 \item \textbf{Gazebo Installation and Simulation Setup:}
-One of the project's early difficulties was setting up the Gazebo simulation environment. Occasionally, rendering and resource setting problems caused the simulator to display a black screen or fail to load the world. By choosing the appropriate rendering engine, setting up resource paths, and installing the necessary dependencies, these issues were fixed.
+The setup of Gazebo simulation environment was one of the initial challenges faced by the project. In rare cases, there were rendering and resources setting issues, which lead to black screen or world not loading. These problems were resolved by selecting the right rendering engine, ensuring the paths for resources were set up correctly, and installing the dependencies.
 
 
 \item \textbf{Custom World Development:}
-It was necessary to build rooms, hallways, furniture, doors, and moving human actors while making sure the robot had enough area to move about securely in order to create a realistic indoor setting. Before a stable simulation environment was reached, a number of changes were made to item sizes, collision characteristics, and model placement.
+It was necessary to build rooms, hallways, furniture, doors, and moving human actors while making sure the robot had enough area to move about securely in order to create a realistic indoor setting. A series of changes in the size of the items, collision properties, and placement of the models was made until a steady simulation environment was achieved.
 
 \item \textbf{Motion Controller (MPC) Tuning:}
-The robot first had trouble precisely following the paths that the global planner had produced. Before the robot could follow the intended course smoothly in various settings, the MPC controller needed to carefully adjust prediction horizons, control weights, and velocity limitations.
+The first problem with this robot is that it was initially having trouble following the paths accurately generated by the global planner. To enable the robot to follow the intended course in different scenarios, the MPC controller required fine tuning of prediction horizons, weights on the control and velocity limitations.
 
 
 \item \textbf{ROS~2 and Web Application Integration:}
-Another significant problem was integrating the Flutter web application with the ROS~2 navigation system. Sending delivery requests, receiving robot status updates, and accurately displaying real information required dependable communication between the Flutter frontend, Flask backend, and ROS~2 nodes.
+A major challenge was to integrate the Flutter web application into the ROS~2 navigation system. Reliable communication between the Flutter frontend, the Flask backend and the ROS~2 nodes was necessary to send delivery requests, receive robot status information and accurately display real information.
 
 
 \item \textbf{Package Dependency Conflicts:}
@@ -641,4 +640,4 @@ Despite these difficulties, a fully integrated autonomous package delivery syste
 
 \section{Summary}
 The design, execution, and assessment of the suggested Autonomous Parcel Delivery System were covered in this chapter through a number of progressive development phases. When the A* algorithm was originally used for global path planning, it produced paths inside the occupancy grid map that were free of collisions. To create shorter, smoother, and robot-friendly trajectories appropriate for autonomous navigation, path trimming and PSO-based smoothing were then used.Obstacle inflation ensured safe planning around static impediments, and a web-based interface was created to allow users to designate pickup and delivery locations.An MPPI controller was specially used to avoid dynamic impediments by carrying out real-time local trajectory optimization based on LiDAR readings, while an MPC controller precisely followed the optimized global trajectory for path execution.
-Ultimately, these elements were combined to create a realistic multi-room delivery scenario with pedestrians traveling across the ROS~2 and Gazebo simulation environments. The TurtleBot3 successfully produced a SLAM map, streamed real-time sensor data, planned and optimized collision-free routes, used the MPPI controller to avoid dynamic obstacles, and finished delivery tasks from pickup to drop-off. These findings support the suggested navigation framework's efficacy and dependability for autonomous interior package delivery.
+Ultimately, these elements were combined to create a realistic multi-room delivery scenario with pedestrians traveling across the ROS~2 and Gazebo simulation environments. The TurtleBot3 successfully produced a SLAM map, streamed real-time sensor data, planned and optimized collision-free routes, used the MPPI controller to avoid dynamic obstacles, and finished delivery tasks from pickup to drop-off. The results justify the effectiveness and reliability of the proposed navigation system for autonomous interior package delivery.

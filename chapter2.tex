@@ -41,20 +41,19 @@ These kinematic constraints limit the robot's ability to execute arbitrary motio
 The idea of autonomous mobile robot navigation is to allow robots to navigate in a safe and efficient way in a given environment. There are generally localization, mapping, path planning, obstacle avoidance, and motion control aspects of the navigation systems. These modules enable robots to know their locations, learn about the surrounding structures, design collision-free fields of movement and implement movement directions. Indoor delivery robotic systems are built on the incorporation of these elements of navigation within warehouses, hospitals, and academic institutions.
 \subsection{Trajectory Smoothing and Interpolation}
 
-Raw paths from planning algorithms like grid-based or sampling-based planners often have turns.These paths also have curvature and are not feasible for robots with kinematic constraints.The sharp turns and discontinuous curvature cause difficulties for differential drive robots.These robots need to follow motion profiles and meet their nonholonomic constraints.Differential drive robots have trouble, with paths that have turns.Their motion profiles must be smooth and continuous.They also have to comply with their constraints.. To overcome these constraints, they use trajectory smoothing to turn discrete paths represented as waypoints into continuous and differentiable paths with the use of waypoints as prongs of a path representation ~\cite{ravankar2018path}. This process uses the interpolation methods to create smooth curves, which simultaneously meet the velocity conditions, deceleration conditions, and curvature conditions that are necessary to achieve a stable robotic movement. Removal of the sudden directional changes provided by the trajectory smoothing leads to a better tracking precision, less mechanical forces on the actuators, and increased efficiency of the navigation in general. 
+Raw paths from planning algorithms like grid-based or sampling-based planners often have turns.These paths also have curvature and are not feasible for robots with kinematic constraints.The sharp turns and discontinuous curvature cause difficulties for differential drive robots.These robots need to follow motion profiles and meet their nonholonomic constraints.Differential drive robots have trouble, with paths that have turns.Their motion profiles must be smooth and continuous.They also have to comply with their constraints.. To overcome these constraints, they use trajectory smoothing to turn discrete paths represented as waypoints into continuous and differentiable paths with the use of waypoints as prongs of a path representation ~\cite{ravankar2018path}. This process is based on the technique of interpolation methods to produce smooth curves that must satisfy the velocity conditions, deceleration conditions and curvature conditions necessary to obtain stable robotic movement. When the sudden directional changes due to the trajectory smoothing are removed, the tracking accuracy would be improved, the mechanical forces acting on the actuators would be reduced, and the efficiency of the whole-navigation system would be raised.  
 
-Interpolation methods that use spline interpolations are really useful for making trajectories smooth. This is because spline interpolations are very flexible and make sense mathematically. There are a types of spline interpolations but the most common ones are cubic splines and B-splines.Cubic splines are good because they make curves that're smooth and have no sharp turns. They make sure that the position, velocity and acceleration of one part of the curve match the part. This means that cubic splines can move to the waypoints that we know and the transitions between different parts of the path are smooth.The cubic splines and B-splines are important, for interpolation methods based on spline interpolations. B-splines on the other hand offer a higher degree of flexibility, since they do not strictly interpolate the waypoints but approximate them. The nature of this allows B-splines to produce more smooth trajectories with finite curvature which is especially beneficial when motion tracking controllers are used in mobile robots. The use of spline-based smoothing makes the corresponding trajectory dynamically realistic and capable of execution by control algorithms, which in turn can be used by differential-drive robots when following planned paths safely and efficiently.
+These methods that use spline interpolations are very useful for smoothing trajectories, as are interpolation methods. This is because spline interpolations are very flexible and are mathematically meaningful. There are a types of spline interpolations but the most common ones are cubic splines and B-splines.Cubic splines are good because they make curves that're smooth and have no sharp turns. They ensure that the position, velocity and acceleration of each section of the curve are the same. This means that cubic splines can follow the set of waypoints for which we are given and the transitions between them are smooth.The cubic splines and B-splines are important, for interpolation methods based on spline interpolations. B-splines have the opposite characteristics, however, because they are not strictly interpolated but only approximated the waypoints. The nature of this gives B-splines the ability to generate more smooth trajectories with finite curvature which is particularly useful in mobile robot motion tracking when using motion tracking controllers. The generated trajectory is dynamically realistic and can be synthesised by control algorithms, and can be used by differential-drive robots to follow predetermined trajectories safely and efficiently, due to the use of spline-based smoothing to ensure the trajectory is dynamically realistic.
 
 \textbf{Natural Cubic Spline Interpolation for Path Smoothing}
 
-Path smoothing is essential in mobile robot navigation because discrete planning algorithms such as A* and RRT generate piecewise-linear trajectories with sharp directional changes. These non-circular trajectories are in contradiction with the kinematic limitations of the differential-drive robots, which causes sudden and jerky movement, reduced accuracy in tracking and increased mechanical fatigue. Trajectory-smoothing methods are used to transform discrete sequence of waypoints into continuous curves which are kinematically allowable to be actually executed by a robot through smooth and continuously differentiable curves.
+Mobile robots require a smoothing algorithm for navigation, since many algorithms like A* and RRT produce piecewise-linear paths with abrupt changes in direction. Such non-circular motions are in contradiction to the kinematic constraints of differential-drive robots, which leads to jerky motions, loss of tracking accuracy and mechanical fatigue. The discrete sequence of waypoints is converted to a continuous curve by trajectory smoothing methods, that are kinematically allowed, yet are continuous and differentiable, and could be actually executed by a robot by using continuously differentiable curves.
 
-Natural cubic splines are widely used as interpolation techniques in robotics because of their smooth nature, computational efficiency and the inherent ease of interpolating. A natural cubic spline is a discontinuous cubic polynomial that goes through each of the specified waypoints and applies continuity of the first and second derivatives at all continuity points.
+The natural cubic splines are very popular as an interpolation method in robotics, due to their smoothness and ease of computation, as well as the fact that they are naturally easy to interpolate. A natural cubic spline is a discontinuous cubic polynomial that passes through each one of the given waypoints and is continuous at both the first and second derivatives at all of the continuity points.
 
 These derivative conditions ensure that the resulting trajectory has smooth velocity and acceleration profiles which are essential in the realization of stable and compliant motion control.
-
 \textbf{Mathematical Definition of Natural Cubic Splines}
-The mathematical formulation of natural cubic splines follows standard numerical 
+The mathematical expression of natural cubic splines is in line with standard numerical 
 analysis approaches~\cite{siciliano2016springer}.
 Given a sequence of n + 1 waypoints $(x_0, y_0), (x_1, y_1), \ldots, (x_n, y_n)$, a natural cubic spline $S(t)$ consists of n cubic polynomial segments:
 
@@ -72,12 +71,12 @@ The spline coefficients $(a_i, b_i, c_i, d_i)$ are determined by enforcing the f
 S_i(t_i) &= y_i \quad \text{and} \quad S_i(t_{i+1}) = y_{i+1}
 \end{align}
 
-\item \textbf{$C^1$ Continuity:} First derivatives are continuous at interior points:
+The spline coefficients $(a_i, b_i, c_i, d_i)$ are obtained by satisfying the following conditions:
 \begin{equation}
 S_i'(t_{i+1}) = S_{i+1}'(t_{i+1}), \quad i = 0, 1, \ldots, n - 2
 \end{equation}
 
-\item \textbf{$C^2$ Continuity:} Second derivatives are continuous at interior points:
+\item \textbf{$C^2$ Continuity:} Second derivatives at the end points are zero:
 \begin{equation}
 S_i''(t_{i+1}) = S_{i+1}''(t_{i+1}), \quad i = 0, 1, \ldots, n - 2
 \end{equation}
@@ -88,21 +87,21 @@ S_0''(t_0) = 0 \quad \text{and} \quad S_{n-1}''(t_n) = 0
 \end{equation}
 \end{enumerate}
 
-These constraints produce a system of $(n+1)$ linear equations that can be efficiently solved using tridiagonal matrix methods. The natural boundary condition ensures that the resulting curve is the ``smoothest'' possible interpolation in terms of minimizing total curvature energy.
+These restrictions give rise to a tridiagonal matrix system of $(n+1)$ linear equations, which can be solved efficiently via tridiagonal matrix methods. The natural boundary condition guarantees that the curve that is obtained is the ``smoothest'' possible interpolation that minimizes the total curvature energy.
 
 \textbf{Parametric Representation for Robot Path Planning}
-For mobile robot trajectories in 2D space, a parametric representation is used instead of the standard $y = f(x)$ form. In parametric form, both x and y coordinates are expressed as functions of an independent parameter $t$:
+The standard $y = f(x)$ form is not used for mobile robot trajectories in 2D space; instead, a parameterization is used. Both x and y coordinates are functions of a parameter $t$ in parametric form:
 
 \begin{equation}
 P(t) = \begin{bmatrix} x(t) \\ y(t) \end{bmatrix}
 \end{equation}
 
-where $x(t)$ and $y(t)$ are separate natural cubic splines fitted to the waypoint coordinates.
+where \(x(t)\) and \(y(t)\) represent natural cubic splines that are independently fitted to the \(x\)- and \(y\)-coordinates of the waypoints, respectively.
 
 \textbf{Why Parametric Representation?}
 
 \begin{itemize}[noitemsep]
-\item \textbf{Handles Vertical Segments:} Standard splines require monotonically increasing x values, which fails for vertical or looping paths. Parametric splines avoid this restriction.
+\item \textbf{Handles Vertical Segments:} Unlike standard splines, which require monotonically increasing \(x\)-values and therefore cannot accurately represent vertical or looping paths, parametric splines eliminate this limitation by treating both coordinates as functions of a common parameter.
 \end{itemize}
 
 \subsection{Localization and Mapping Principles}
@@ -123,7 +122,7 @@ Motion control strategies help robots follow planned paths and move smoothly. Th
 
 \section{Related Technologies}
 
-The technologies discussed in this section collectively provide the technical framework required for designing an autonomous indoor navigation system.The classical planning methods, the learning-based navigation methods, the optimization methods and the sophisticated SLAM methods together offer the complementary features that lead to the reliability, versatility and efficiency of navigation. In addition, the NAV2 framework and ROS2-based architecture allow integrating perception, planning and control modules with ease. They are directly applicable to the proposed project as these technologies can be used to help select the navigation algorithm, localization method, and system integration approach required to create an effective autonomous delivery robot.
+Path planning is one of the problems in autonomous mobile robotics. Find a route from a start location to a target location without hitting anything in the way. This walk should be efficient as well. The path planner is extremely crucial as it impacts on the safety of the navigation, the smoothness of all the processes and the efficiency of time. Lots of algorithms have been proposed. Each one has its good and bad points like how good the path is, how much it costs to compute and how well it works in environments that are changing.In this section we will look at new path planning algorithms. We will also go though the reason for selecting the Improved A* algorithm for this project.
 
 \subsection{Related Technology 1 -- Path Planning Algorithms}
 Path planning is an issue in autonomous mobile robotics. We need to find a path, from a start location to a target without hitting anything. This path also needs to be efficient. The path planner is really important because it affects how safe the navigation is, how smooth everything runs and how well it works in time. There are a lot of algorithms that people have suggested. Each one has its good and bad points like how good the path is, how much it costs to compute and how well it works in environments that are changing.In this section we will look at new path planning algorithms. We will also explain why we chose the Improved A* algorithm for this project. The Improved A* algorithm is what we picked for this project.
@@ -138,15 +137,15 @@ f(n) = g(n) + h(n)
 
 where $g(n)$ is the accumulated cost from the start node to node $n$, and $h(n)$ is a heuristic estimate of the remaining cost from $n$ to the goal. When the heuristic is admissible (i.e., it never overestimates the true cost), A* guarantees an optimal solution. In indoor grid maps, Euclidean or Manhattan distance heuristics are typically employed\cite{zhang2022improved}.
 
-The A* method is really good at finding the path but it makes paths with a lot of sharp turns that are hard for robots to follow. These robots have wheels that move in ways so they cannot make these sharp turns easily. Because of this the path that A* finds is not good enough to use away. The A* path needs to be fixed and made better before we can use it on a robot or a robot, in a simulation.
+The path finding method A* is very good at finding the path, but it creates a path with a lot of sharp turns which a robot can not follow. These robots have wheels that don't allow them to make these sharp turns easily. However, the route that A* has discovered is not adequate to use it away. The A* path needs to be fixed and made better before we can use it on a robot or a robot, in a simulation.
 
 \subsubsection{Improved A* (IA*) Algorithm}
 
-The Improved A* (IA*) algorithm extends standard A* by addressing its limitations in robotic navigation contexts~\cite{wang2021mobile}. The three key enhancements introduced in IA* are:
+IA* is an extension of the A* algorithm, which introduces three key improvements for robotic navigation in such environments~\cite{wang2021mobile}:
 \begin{itemize}
 \item Diagonal Motion Support -- Enables movement in eight directions instead of four, resulting in shorter and more geometrically natural paths on occupancy grid maps.
-\item Obstacle Inflation -- Obstacles are virtually expanded by a configurable safety margin prior to planning, ensuring the robot maintains adequate clearance from walls and physical objects throughout navigation.
-\item Waypoint Pruning -- Redundant intermediate waypoints are removed using line-of-sight checks between non-adjacent nodes, producing a compact and clean waypoint set that significantly reduces downstream computational overhead.
+\item Obstacle Inflation -- Obstacles are virtually enlarged by a safety margin, which is defined in the robot's planning, thus providing a clear margin of safety for the robot while navigating walls and physical obstacles.
+\item Waypoint Pruning -- Line-of-sight checks are performed between non-adjacent nodes to remove unnecessary intermediate waypoints, resulting in a shorter and cleaner waypoint sequence that significantly reduces the computational effort required in the subsequent processing stages.
 \end{itemize}
 
 \subsubsection{Comparison with Other Path Planning Algorithms}
@@ -181,15 +180,15 @@ Potential Field & Reactive & No & Yes & Smooth & Local minima traps \\
 
 \subsubsection{Justification for Selecting Improved A*}
 
-Based on the comparison presented in Table~\ref{tab:path_planning_comparison}, the Improved A* algorithm was chosen as the global path planner for this project. Here are the reasons why:Dijkstras algorithm was ruled out because it explores every node, which's computationally expensive for large indoor maps. Standard A* was not enough since its output is jagged and grid-based requiring a lot of work.It also does not have safety margins. Pruning capabilities like Improved A* does.Other planners like RRT and RRT* were not picked because they are computationally costly behave unpredictably and produce paths.These planners are not suitable for 2D indoor environments, like ours.The Improved A* algorithm was selected as the global path planner. D* Lite, while well-suited for dynamic replanning, introduces unnecessary implementation complexity since dynamic obstacle avoidance in this project is managed at the local planner level using real-time sensor data. Potential Field methods were disqualified due to their well-known susceptibility to local minima traps in corridor-based layouts.
+From the comparison shown on Table~\ref{tab:path_planning_comparison}, the Improved A* algorithm was selected to be the global path planner for this project. The reasons for this are: Dijkstras algorithm explores all the nodes which is time intensive on large indoor maps, and Standard A* would give jagged output, which would be a lot of work with grid.It also does not have safety margins. Other planners such as RRT and RRT* were not selected as they are expensive to compute, and do not guarantee the paths that they generate.These planners may not be appropriate for 2D indoor spaces, such as ours.The use of Improved A* algorithm was chosen as the global path planner, as D* Lite would add unnecessary complexity of implementation as dynamic obstacle avoidance is handled in the local planner using real time sensor data. Local minima traps in corridor-based layouts are a known issue of Potential Field methods, which is why they were rejected.
 
-IA* satisfies all key requirements of the proposed system: it operates directly on the SLAM-generated occupancy grid map, guarantees a near-optimal collision-free path, enforces safety clearance through obstacle inflation, and produces a compact pruned waypoint set that integrates seamlessly with the cubic spline smoothing and Model Predictive Control pipeline described in the subsequent sections.
+The proposed system has all the key requirements covered by IA*: it works directly on the SLAM-generated occupancy grid map, ensures a near-optimal collision-free path, implements safety clearance by inflating obstacles and generates a compact pruned waypoint set that fits into the cubic spline smoothing and Model Predictive Control pipeline outlined in the next sections.
 
 \subsection{Related Technology 2 -- Path Smoothing and Optimization Techniques}
 
 \subsubsection{Overview}
 
-Path smoothing is a critical post-processing step in mobile robot navigation that transforms piecewise-linear paths generated by discrete planners (such as A* or RRT) into continuous, kinematically feasible trajectories. While various smoothing approaches exist in the literature, this section reviews both classical interpolation methods and optimization-based techniques to contextualize the natural cubic spline approach adopted in this project.
+Path smoothing is an important post-processing task for mobile robots navigating in real environments from piecewise-linear paths produced by discrete planners (e.g. A*, RRT). There are many smoothing methods available in the literature but in this section, we discuss two of them and consider the natural cubic spline method used in this project to put those methods into perspective.
 
 \subsubsection{Classical Interpolation Approaches}
 
@@ -198,74 +197,74 @@ B-Spline Approximation: B-Spline Approximation is different from Cubic Spline In
 
 \subsubsection{Optimization-Based Smoothing: PSO with Bezier Curves}
 
-Recent research has explored the use of Particle Swarm Optimization (PSO) combined with Bezier curves to generate optimized smooth paths~\cite{song2020smooth}. This approach treats path smoothing as an optimization problem where the positions of Bezier curve control points are the decision variables.
-
+There have been recent studies on using Particle Swarm Optimization (PSO) and Bezier curves to create smooth optimized paths~\cite{song2020smooth}. This method considers path smoothing as an optimization problem, with the location of the points of the Bezier curves being the variables to be optimized.
 \textbf{How it Works:}
 
 \begin{enumerate}[noitemsep]
-\item A high-degree Bezier curve (typically degree 6 or higher) is defined between the start and goal positions.
-\item PSO is used to optimize the positions of the interior control points.
+\item The positions of the interior control points are optimized by using PSO.
+\item The positions of the interior control points are optimized by using PSO.
 \item The fitness function minimizes:
 \begin{itemize}[noitemsep]
 \item Total path length
 \item Maximum curvature
 \item Curvature derivative (jerk)
-\item Collision penalties (distance to obstacles)
+\item Collisions with obstacles earn penalties (the distance between the object and obstacles).
 \end{itemize}
 \end{enumerate}
 
-The resulting Bezier curve provides a smooth, optimized trajectory with guaranteed high-order continuity.
+This produces a Bezier curve that is smooth and optimised and is guaranteed to have high order continuity.
 
 \textbf{Advantages:}
 
 \begin{itemize}[noitemsep]
-\item Explicit optimization allows direct control over path length and curvature bounds.
-\item High-degree Bezier curves naturally satisfy $G^3$-continuity without additional constraints.
-\item PSO is derivative-free, making it suitable for non-convex optimization landscapes with obstacle constraints.
+\item Direct optimization of path length and path curvature bounds is possible with explicit optimization.
+\item The $G^3$-continuity is naturally achieved by high degree Bezier curves with no further requirements.
+\item PSO is a derivative-free method, which is suitable for non-convex optimization landscape with obstacle constraints.
+
 \end{itemize}
 
 \textbf{Disadvantages:}
 
 \begin{itemize}[noitemsep]
-\item \textbf{Computational Cost:} PSO requires iterative evaluation of candidate solutions (typically 50-100 particles over 20-50 iterations), making it unsuitable for real-time replanning.
+\item \textbf{Computational Cost:} PSO needs to be evaluated iteratively (usually 50–100 particles evaluated in 20–50 iterations), which does not allow it to be used for real-time replanning.
 
-\item \textbf{Parameter Sensitivity:} PSO performance depends heavily on parameter tuning (inertia weight, cognitive/social coefficients).
+\item \textbf{Parameter Sensitivity:} The PSO parameters (inertia weight, cognitive/social coefficients) play a crucial role in performance.
 
-\item \textbf{No Interpolation Guarantee:} The optimized Bezier curve may deviate significantly from the original A* waypoints, potentially violating obstacle clearance in complex environments.
+\item \textbf{No Interpolation Guarantee:} The optimized Bezier curve can have a huge deviation from the original A* waypoints in complex environments, and it might not clear obstacles.
 
-\item \textbf{Convergence Uncertainty:} As a stochastic algorithm, PSO does not guarantee global optimality and may produce different results across runs.
+\item \textbf{Convergence Uncertainty:} PSO is a stochastic algorithm and does not ensure global optimality and may have different results on different runs.
 \end{itemize}
 
 \subsubsection{Hybrid Approaches: Local PSO Optimization with Spline Smoothing}
 
-Recognizing the complementary strengths of interpolation and optimization methods, this project adopts a hybrid approach:
+The complementary strengths of both interpolation and optimization methods are acknowledged and considered, therefore, this project takes a hybrid approach of:
 
 \begin{enumerate}[noitemsep]
-\item \textbf{Global Path Planning:} Improved A* generates a collision-free waypoint sequence.
-\item \textbf{Waypoint Pruning:} Line-of-sight checks remove redundant intermediate waypoints.
-\item \textbf{Local PSO Refinement (Optional):} For selected waypoints in tight corridors, PSO can optimize their positions within a small radius to reduce local curvature while maintaining obstacle clearance.
-\item \textbf{Natural Cubic Spline Smoothing:} The final (or pruned) waypoint sequence is smoothed using parametric cubic splines to generate the executable trajectory.
+\item \textbf{Global Path Planning:} Global Path Planning is achieved by improved A* which generates a collision-free waypoint sequence.
+\item \textbf{Waypoint Pruning:} Line-of-sight checks eliminate unnecessary intermediate waypoints.
+\item \textbf{Local PSO Refinement (Optional):}  In selected waypoints with tight corridors, it is possible to optimize their position within a small radius so that the curvature is minimized in the area without losing the obstacle clearance.
+\item \textbf{Natural Cubic Spline Smoothing:} The pruned waypoint sequence is then smoothed using parametric cubic splines to generate the final executable trajectory.
 \end{enumerate}
 
-The hybrid strategy combines the speed of spline interpolation with the ability to make improvements when necessary. This approach always uses spline smoothing to make sure the result is physically possible whether or not the Particle Swarm Optimization refinement is used. The spline smoothing step is a part of this process and it always happens, so the hybrid strategy always gives a result that works, even if the Particle Swarm Optimization refinement is not used.
+Hybrid means it will be a mix of spline interpolation and also improvements where needed. This method is always physically feasible, regardless of the use of the Particle Swarm Optimization refinement, thanks to spline smoothing. This involves a spline smoothing step, which is always performed and when used, always yields an acceptable result.
 
 \subsubsection{Justification for Cubic Spline Selection}
 
-For the autonomous parcel delivery application, natural cubic splines were selected over PSO-Bezier optimization for the following reasons:
+Due to the following reasons, natural cubic splines were chosen for the autonomous parcel delivery application over PSO-Bezier optimization:
 
 \begin{itemize}[noitemsep]
-\item \textbf{Real-Time Performance:} Indoor delivery robots require rapid replanning when obstacles appear. Cubic splines provide deterministic, fast smoothing suitable for dynamic environments.
+\item \textbf{Real-Time Performance:} The delivery robots in the indoor environment need to rapidly replan if there are obstacles. Deterministic and fast smoothing for dynamic environments is cubic splines.
 
-\item \textbf{Obstacle Avoidance Guarantee:} By interpolating through A* waypoints, cubic splines preserve the collision-free guarantees of the global planner. Bezier optimization may introduce deviations that require additional validation.
+\item \textbf{Obstacle Avoidance Guarantee:} Cubic splines interpolate through A* waypoints, thus maintaining the collision-free properties of the global planner. There can be deviations due to Bezier optimization that may need further validation.
 
-\item \textbf{Integration with MPC:} The parametric representation and analytical derivatives of cubic splines integrate seamlessly with Model Predictive Control, enabling accurate trajectory tracking.
+\item \textbf{Integration with MPC:} Cubic splines can be easily combined with the Model Predictive Control representation and analytical derivatives for accurate trajectory tracking.
 
-\item \textbf{Implementation Simplicity:} Using scipy.interpolate.CubicSpline reduces implementation complexity and improves code maintainability compared to implementing and tuning a PSO-Bezier optimizer.
+\item \textbf{Implementation Simplicity:} Using scipy.interpolate.CubicSpline is less complex to implement than implementing and tuning a PSO-Bezier optimizer, and more maintainable.
 \end{itemize}
 
 \subsection{Related Technology 3 -- Particle Swarm Optimization (PSO) Based Path Planning}
 
-The Particle Swarm Optimization (PSO) is an evolutionary optimization algorithm that is based on population which finds numerous applications in robotics and autonomous navigation in finding solutions to nonlinear complex optimization problems~\cite{krell2019collision}. PSO is used to address the smooth path planning problem of mobile robots in which control points of continuous high-degree Bézier curves are optimized.
+The Particle Swarm Optimization (PSO) is an evolutionary optimization algorithm that is based on population which finds numerous applications in robotics and autonomous navigation in finding solutions to nonlinear complex optimization problems~\cite{krell2019collision}. PSO has been applied for solving the smooth path planning problem of mobile robots, where a set of control points of continuous high-degree Bézier curves is optimized.
 
 The article constitutes robot path planning as an optimization problem with several objectives like minimization of the path length, obstacle avoidance, a smooth curvature, and motion continuity being addressed together. The authors point out that traditional path planning methods tend to produce piecewise linear or polygonal-shaped paths that have sharp turns. These disjunctions lead to the result of frequent changing of motion states leading to unstable robot motion, high energy consumption as well as mechanical stress.~\cite{song2020smooth}.
 
@@ -313,15 +312,15 @@ MPC optimizes control inputs over a finite prediction horizon by solving a const
 	x_{k+1} = A x_k + B u_k
 \end{equation}
 
-where the state vector contains position and velocity, $x = [x, y, v_x, v_y]^T$, and the control input consists of accelerations, $u = [a_x, a_y]^T$. This point-mass abstraction simplifies the robot dynamics while preserving the essential relationship between path geometry and tracking performance, allowing the effect of curvature continuity on control stability to be analysed without requiring explicit differential-drive wheel kinematics. MPC minimizes the following cost function:
+where the state vector contains position and velocity, $x = [x, y, v_x, v_y]^T$, and the control input consists of accelerations, $u = [a_x, a_y]^T$. This point-mass abstraction simplifies the robot dynamics while preserving the essential relationship between path geometry and tracking performance, allowing the effect of curvature continuity on control stability to be analysed without requiring explicit differential-drive wheel kinematics. MPC aims to minimize the following cost function:
 
 \begin{equation}
 	J = \min_{U} \sum_{i=1}^{N_p} \left( e_i^T Q e_i + u_i^T R u_i \right)
 \end{equation}
 
-where $e_i = x_i - x_{\text{ref},i}$ is the tracking error, $Q$ penalizes state deviation, $R$ penalizes control effort, and $N_p$ is the prediction horizon. MPC naturally handles constraints such as velocity limits and acceleration bounds through convex optimization solvers, achieving superior tracking accuracy when supplied with smooth reference trajectories.
+The tracking error, $e_i = x_i - x_{\text{ref},i}$, is penalized by $Q$; the tracking effort, $u_i$ or $y_i - x_{\text{ref},i}$, is penalized by $R$; and $N_p$ is the prediction horizon. Constraints like velocity limits and acceleration bounds are naturally imposed on MPC by convex optimization solvers, and when provided with smooth reference trajectories, MPC can prove more accurate at tracking them.
 
-The performance of the MPC really depends on how smooth the reference path's. If the path is not smooth and has turns it can cause big problems, with the prediction model. This means the MPC will make mistakes and the control will keep changing back and forth. Studies have shown that using paths can make a huge difference it can reduce the tracking error by a really big amount compared to using piecewise-linear references. The MPC performance is much better when the reference path is smooth~\cite{cao2024pure}.
+Very much the performance of the MPC depends on the smoothness of the reference path's. If the path is not smooth and has turns it can cause big problems, with the prediction model. This means the MPC will make mistakes and the control will keep changing back and forth. Studies have shown that using paths can make a huge difference it can reduce the tracking error by a really big amount compared to using piecewise-linear references. The MPC performance is much better when the reference path is smooth~\cite{cao2024pure}.
 
 \subsubsection{Pure Pursuit Control}
 
@@ -329,7 +328,8 @@ Pure Pursuit~\cite{cao2024pure}The robot figures out how to move by finding the 
 
 \subsubsection{Deep Reinforcement Learning (DRL) for Path Following}
 
-Recent research~\cite{cao2024pure} explores a way to control mobile robots. It uses a mix of Pure Pursuit steering and Soft Actor-Critic velocity control. This helps the robot adjust its speed based on the path it is taking.Some control methods that use Deep Reinforcement Learning can learn to behave in ways.. They need a lot of practice in a fake environment first. They are also hard to understand. Might not work well in new situations without more practice.On the hand Model Predictive Control is good, at handling limits and making robots behave predictably.. It needs smooth paths to work well.
+Recent research~\cite{cao2024pure} explores a way to control mobile robots. It uses a mix of Pure Pursuit steering and Soft Actor-Critic velocity control. This helps the robot adjust its speed based on the path it is taking.Some control methods that use Deep Reinforcement Learning can learn to behave in ways. They need a lot of practice in a fake environment first. It takes a considerable amount of practice in a fake environment before they can do this. They also are difficult to comprehend. May not be successful in new settings through additional practice.On the hand Model Predictive Control is good, at handling limits and making robots behave predictably.. It requires easy pathways for it to function properly.
+
 \begin{table}[htbp]
 	\centering
 	\caption{Motion Control Technologies Relevant to This Project}
@@ -349,11 +349,11 @@ Recent research~\cite{cao2024pure} explores a way to control mobile robots. It u
 
 \subsubsection{Relevance to Our Project}
 
-Model Predictive Control works with our system. It connects how smooth the planned path is to how the system follows it and controls its movements.The analysis we did shows that using paths is better than using direct waypoints.This is why we use paths in the controller.It helps in making the delivery of parcels smooth and stable when the system works on its own.The smoothed paths ensure that the system follows the path accurately.This accurate following leads to movements, during parcel delivery..
+MPC is compatible with our system. It relates the degree of smoothness of the anticipated trajectory with the ability of the system to follow and control the trajectory.What we've done is to do an analysis and it showed that it's better to use paths rather than using direct waypoints.That is why we make use of paths in the controller.It supports the delivery of parcels smoothly and evenly in standalone mode.The smoothed paths make sure that the system will follow the path and not miss any parts of it.This accurate following leads to movements, during parcel delivery.
 
 \subsection{Related Technology 5 -- Cellular Decomposition}
 
-Cellular decomposition is common place planning approach, representation of the environment of classical environment representation in autonomous robot navigation~\cite{galceran2013survey}. The way divides the robot space into sections with no overlaps. These sections are called cells. This makes it easier to navigate because the open area is now organized.It is a method that makes computing more efficient. It also reduces crashes. Helps create paths in a systematic way.The cell structure helps robots move around without bumping into things. This way the robot can find its way more easily.Cells make navigation simpler. The robot area is split into cells. This helps with path creation.
+One of the most common place planning techniques, called cellular decomposition, is used in autonomous robot navigation in classical environment representation~\cite{galceran2013survey}. The way divides the robot space into sections with no overlaps. These sections are called cells. This makes it easier to navigate because the open area is now organized.It is a method that makes computing more efficient. It also reduces crashes. Helps create paths in a systematic way.The cell structure helps robots move around without bumping into things. This way the robot can find its way more easily.Cells make navigation simpler. The robot area is split into cells. This helps with path creation.
 Recent studies indicate that cellular decomposition is done by subdividing the free space into a finite number of smaller cells where:
 
 \begin{equation}
@@ -362,12 +362,12 @@ W_{\text{free}} = \bigcup_{i=1}^{N} C_i
 
 where $C_i$ represents each decomposed navigable cell and $N$ is the total number of cells. Each cell is either free or occupied depending on if there is an obstacle in it. This way of breaking things down makes it easier to plan a path by moving through cells that are next, to each other instead of looking at the whole area.
 
-Most new ways of doing things use a method called cellular decomposition, where each cell is a convex shape meaning it satisfies certain conditions that make it convex.~\cite{choset2001coverage}. Convex cells are really important because they make sure that we can draw a line between any two points inside the cell without running into anything that gets in the way. The rule, for convex cells can be stated like this:
+Most new ways of doing things use a method called cellular decomposition, where each cell is a convex shape meaning it satisfies certain conditions that make it convex.~\cite{choset2001coverage}. Convex cells are very important as they ensure that you can draw a line between any two points within the cell without intersecting anything that may be present. The rule, for convex cells can be stated like this:
 \begin{equation}
 \forall p_1, p_2 \in C_i, \quad \lambda p_1 + (1-\lambda) p_2 \in C_i, \quad \lambda \in [0,1]
 \end{equation}
 
-This property makes path planning much simpler. Improves how well we detect collisions.Cellular decomposition helps create a graph that shows how cells are connected. Each cell is a node. Cells that are next to each other have lines between them on the graph.To find the path we look for the one that costs the least to travel between cells that are connected.The cost is usually based on things like distance or obstacles.The cost function, in cell-based planning is typically defined as:
+This property greatly simplifies path planning. Enhances the ability to detect collisions.Cellular decomposition enables the construction of a graph which illustrates the connections between cells. Each cell is a node. Cells that are next to each other have lines between them on the graph.To find the path we look for the one that costs the least to travel between cells that are connected.The cost is usually based on things like distance or obstacles.The cost function, in cell-based planning is typically defined as:
 
 \begin{equation}
 J = \sum_{i=1}^{n-1} d(C_i, C_{i+1}) + n \cdot c_{\text{transition}}
@@ -378,32 +378,32 @@ Cellular decomposition is a method that has been improved by research. This meth
 
 Some new ways of using decomposition can change the size of the cells based on where the obstacles are. This helps the method work better and find the path.
 
-One of the things about cellular decomposition is that it can make complex places easier to navigate. This is very useful when we are using robots inside buildings. Cellular decomposition is also good at helping robots avoid obstacles. We can easily use it with methods, like Particle Swarm Optimization and Model Predictive Control.
+Cellular decomposition can make complex places easier to navigate, in part. This is very useful if we are using robots within buildings. The cellular decomposition is also useful for avoiding obstacles for robots. We can easily use it with methods, like Particle Swarm Optimization and Model Predictive Control.
 
 \textbf{Advantages of Cellular Decomposition}
 
 \begin{itemize}
-\item Simplifies complex environments into structured navigation regions
-\item Reduces computational complexity by enabling graph-based path planning
-\item Improves collision avoidance through structured obstacle representation
+\item Breaks down complex environments to create a structure of navigation regions
+\item Compresses computation time by using graph based path planning.
+\item Enhances collision avoidance by using structured representation of obstacles
 \end{itemize}
 
 \subsubsection{Relevance with Our Project}
-The cellular decomposition is directly related to the navigation system that we are talking about because it gives us a clear picture of the robots workspace. We have divided the environment into grid cells so that we can tell the free space apart from the areas with obstacles. This way of breaking down the space is also helpful when we are planning the path that the robot will take because we can use algorithms like A* and Dynamic Programming to search for a path, through the cells instead of having to search the whole space. The cellular decomposition also helps us to detect collisions make maps more efficiently in a web-based planner and find the best paths and track the movements of the robot using PSO and MPC in the ROS2-Gazebo simulation platform.
+The cellular decomposition is directly related to the navigation system that we are talking about as this will give us a clear picture of the robots workspace. We have divided the space into grid cells to distinguish the free space from space with obstacles. This way of breaking down the space is also helpful when we are planning the path that the robot will take because we can use algorithms like A* and Dynamic Programming to search for a path, through the cells instead of having to search the whole space. The cellular decomposition also helps us to detect collisions make maps more efficiently in a web-based planner and find the best paths and track the movements of the robot using PSO and MPC in the ROS2-Gazebo simulation platform.
 
 \subsubsection{Limitations of Cellular Decomposition}
 
 \begin{itemize}
-\item \textbf{High Computational Cost:} Fine grid decomposition increases memory usage and computational complexity.
-\item \textbf{Resolution Dependency:} Large cells reduce planning accuracy, while small cells increase processing time.
-\item \textbf{Difficulty in Dynamic Environments:} Frequent environment changes require repeated decomposition and replanning.
-\item \textbf{Path Suboptimality:} Grid-based decomposition may produce longer or less smooth paths compared to continuous-space planning methods.
-\item \textbf{Scalability Issues:} Performance decreases when applied to very large or highly cluttered environments.
+\item \textbf{High Computational Cost:} The finer the grid, the more memory will be used and the more complex the calculation.
+\item \textbf{Resolution Dependency:} Small cells slow down processing speed and large cells decrease planning accuracy.
+\item \textbf{Difficulty in Dynamic Environments:} There is a need for repeated decomposition and replanning due to frequent changes in the environment.
+\item \textbf{Path Suboptimality:} Decomposition in the grid may result in longer or less smooth paths than continuous space planning methods.
+\item \textbf{Scalability Issues:} Works poorly in large or complex spaces.
 \end{itemize}
 
 \subsection{Related Technology 6 -- ROS2-Based Autonomous Robot Architectures}
 
-ROS has become an used middleware for developing robotic applications. However it had some issues with scalability and real-time performance.This led to the creation of ROS2, which aims to meet the needs of autonomous robot development.Recent studies in robotics show that many ROS2-based systems focus on improving autonomy.These systems represent the state-of-the-art in robotics.We will be learning about them this semester.The latest reviews cover ROS2-based systems designed to enhance autonomy.They include ROS2-based systems.Autonomy is an area of focus, for these systems.ROS2 is being used to improve autonomy.~\cite{bonci2023ros2}. The papers emphasize modular designs which isolate perception, planning, and control so that a system can remain scalable and flexible without being caught by an inflexible design. In other works, the topic of practical designing and executing autonomous mobile robots in unstructured indoor settings is examined~\cite{gargouri2024cost}. These systems include hardware such as motors, sensors and controllers in addition to software modules in navigation and obstacle avoidance. Architectural and hardware-centric methods are both shown to be able to use ROS2 to support autonomous navigation. The comparison shows the usefulness of mixing ROS2 modular software stacks with practical hardware integration; this has been our first-hand experience, which we are applying to the design of our proposed autonomous parcel delivery system.
+ROS is now an established middleware to create robotic applications. However it had some issues with scalability and real-time performance.This led to the creation of ROS2, which aims to meet the needs of autonomous robot development.Recent research on robotics reveals that many of the ROS2-based systems are dedicated to enhancing autonomy.They are the most advanced robots in the field.This Semester we will be learning about them.The newest reviews pertain to systems based on ROS2 to improve autonomy.This includes ROS2-based systems.Autonomy is an area of focus, for these systems.ROS2 is being used to improve autonomy.~\cite{bonci2023ros2}. The papers highlight modular designs where the perception, planning, and control are separated and ensure that the system can maintain scalability and flexibility without getting trapped in an inflexible design. In other works, the topic of practical designing and executing autonomous mobile robots in unstructured indoor settings is examined~\cite{gargouri2024cost}. These systems include hardware such as motors, sensors and controllers in addition to software modules in navigation and obstacle avoidance. Architectural and hardware-centric methods are both shown to be able to use ROS2 to support autonomous navigation. The comparison shows the usefulness of mixing ROS2 modular software stacks with practical hardware integration; this has been our first-hand experience, which we are applying to the design of our proposed autonomous parcel delivery system.
 
 \subsubsection{Advantages and Limitations of ROS2-Based Systems}
 
@@ -412,8 +412,8 @@ ROS2-based autonomous systems offer several advantages:
 \begin{itemize}
 \item Modular and scalable architecture
 \item Real-time communication support
-\item Improved reliability and fault tolerance
-\item Strong community and ecosystem support
+\item Greater reliability and fault-tolerance.Better reliability and fault tolerance.
+\item A strong community and ecosystem support base.
 \end{itemize}
 
 However, limitations include:
@@ -422,10 +422,11 @@ However, limitations include:
 \item Increased system complexity
 \item Steeper learning curve
 \item Hardware integration challenges
-\item Computational overhead on low-cost platforms
+\item Computational cost on low-cost platforms
 \end{itemize}
 
-Both architectural and implementation studies acknowledge these trade-offs and emphasize careful system design to balance performance and complexity.
+The trade-offs are recognized in both architectural and implementation studies, and the importance of balancing the design of the system involves complexity and performance issues.
+
 
 \subsection{Related Technology 7 -- ROS2 Navigation Stack (NAV2 Framework)}
 
@@ -436,7 +437,7 @@ SLAM systems are commonly categorized based on the primary sensor used for perce
 
 \subsection{Related Technology 9 -- DROID-SLAM Framework and Dense Bundle Adjustment}
 
-DROID-SLAM~\cite{teed2021droid} presents a deep learning-driven visual SLAM framework capable of operating with monocular, stereo, and RGB-D cameras. The system utilizes a recurrent neural architecture that does a sequential optimization of camera pose and dense depth maps. Another important innovation is the application of the Dense Bundle Adjustment (DBA) in a fully differentiable pipeline. In contrast to classical SLAM which executes sparse bundle adjustment, DROID-SLAM has a joint optimization of pixel-wise depth and camera poses across multiple frames. This repetition optimization does help a great deal to diminish drift and improves tracking strength which is particularly good in low-texture indoor places like walls and floors. Also, the framework makes generalizations across sensor modalities, without re-generalizing training. In the case of autonomous parcel delivery robots, the DROID-SLAM facilitates high levels of acculocalize rates with the help of a low-cost RGB or RGB-D camera alone.
+DROID-SLAM~\cite{teed2021droid} is a deep learning-based visual SLAM system that can be used with monocular, stereo, and RGB-D cameras. The system utilizes a recurrent neural architecture that does a sequential optimization of camera pose and dense depth maps. The use of Dense Bundle Adjustement (DBA) in a fully differentiable pipeline is another key innovation. Unlike the classical SLAM that performs sparse BA, DROID-SLAM performs joint optimization of pixel-wise depth and multiple camera poses. This repetition optimization does help a great deal to diminish drift and improves tracking strength which is particularly good in low-texture indoor places like walls and floors. Also, the framework makes generalizations across sensor modalities, without re-generalizing training. In the case of autonomous parcel delivery robots, the DROID-SLAM facilitates high levels of acculocalize rates with the help of a low-cost RGB or RGB-D camera alone.
 
 \begin{figure}[htbp]
 \centering
@@ -492,7 +493,7 @@ Table~\ref{tab:slam_comparison} summarizes different SLAM techniques used for ro
 
 \section{Related Projects}
 
-There are a number of research projects and experimental robotic systems that have made a contribution significantly to the creation of autonomous perception systems, frameworks of navigation and mixed control policies. Such researches give useful ideas about middleware integration, vision based perception, SLAM developments, and intelligent path planning strategies which affect the design of the proposed autonomous indoor parcel delivery system.
+There are a number of research projects and experimental robotic systems that have made a contribution significantly to the creation of autonomous perception systems, frameworks of navigation and mixed control policies. Such research provides valuable insights for middlewares integration, vision based perception, SLAM advancements, path planning strategies, among others, that impact the design of the proposed autonomous indoor parcel delivery system.
 
 \begin{table}[htbp]
 \centering
@@ -523,26 +524,26 @@ Table~\ref{tab:related_projects} summarizes major research contributions in auto
 
 \section{Related Studies / Research}
 
-Several research studies have investigated various issues of autonomous mobile robot navigation which will help in the design and development of the proposed indoor parcel delivery robot system.
+We investigated several research studies focusing on different aspects of navigation of autonomous mobile robots which will be useful to design and develop the indoor parcel delivery robot system.
 
 \begin{itemize}
-\item \textbf{Hybrid Path Planning Strategies:} It has been shown in comparative studies that the combination of classical graph-based algorithms (e.g., A*) with optimization and learning-based approaches works well.~\cite{ajeil2020grid}.Research suggests that hybrid navigation leads to better path optimality, adaptability and computational efficiency.
-\item \textbf{Path Smoothing and Trajectory Optimization:}  Work on trajectory smoothing techniques shows that raw paths typically consist of sharp turns and discontinuities~\cite{ravankar2018path}. The researches show that the spline based interpolation and curve fitting methods improve the smoothness of the motion, decrease the mechanical stresses and enhance the tracking accuracy.
-\item \textbf{PSO-Based Path Optimization:} Particle Swarm Optimization (PSO) has been extensively studied for robot trajectories~\cite{song2020smooth}. Research shows that PSO can minimize path length, curvature variation, and energy consumption. Improved PSO variants demonstrate faster convergence and enhanced optimization performance.
+\item \textbf{Hybrid Path Planning Strategies:} In a comparative study, it has been demonstrated that a mixture of classical graph-based algorithms (such as A*) and optimization and learning-based approaches is appropriate.~\cite{ajeil2020grid}.Studies indicate that the hybrid navigation results in improved path optimality, adaptability and computational efficiency.
+\item \textbf{Path Smoothing and Trajectory Optimization:}  We found that the raw paths usually contain discontinuities and sharp turns based on the work done on smoothing techniques for the smooth trajectories~\cite{ravankar2018path}. The researches show that the spline based interpolation and curve fitting methods improve the smoothness of the motion, decrease the mechanical stresses and enhance the tracking accuracy.
+\item \textbf{PSO-Based Path Optimization:} A large number of studies have been conducted on the field of robot trajectory optimization using Particle Swarm Optimization (PSO)~\cite{song2020smooth}. It has been revealed that PSO can reduce both path length and curvature variation and also reduce energy consumption. The improved PSO variants exhibit faster convergence with better optimization ability.
 
-\item \textbf{Dynamic Obstacle Avoidance in Indoor Environments:} Human-aware navigation research emphasizes integrating vision-based perception systems with real-time obstacle avoidance algorithms~\cite{kumar2024real}. Studies demonstrate that combining computer vision models with adaptive motion planning improves safety and reliability.
+\item \textbf{Dynamic Obstacle Avoidance in Indoor Environments:} The focus in human-aware navigation research is to incorporate vision sensors into the real-time obstacle avoidance algorithm.The problem of human-aware navigation focuses on the integration of vision-based perception systems with real-time obstacle avoidance algorithms~\cite{kumar2024real}. Research has shown that fusing computer vision models with adaptive motion planning enhances safety and reliability.
 
-\item \textbf{ROS2-Based Autonomous Navigation Frameworks:} Several studies have evaluated ROS2 middleware for autonomous robotic applications~\cite{hwang2023ros2}. These studies demonstrate that ROS2 provides modular architecture, real-time communication support, and improved scalability.
+\item \textbf{ROS2-Based Autonomous Navigation Frameworks:} There have been a number of studies that have assessed ROS2 middleware for autonomous robotic applications~\cite{hwang2023ros2}. The studies show that ROS2 offers modular architecture, support for real-time communication and enhanced scalability.
 
-\item \textbf{SLAM Performance in Indoor Navigation:} Comparative research on visual SLAM, LiDAR-based SLAM, and deep learning-based SLAM techniques indicates that visual SLAM provides cost-effective localization~\cite{rosinol2020kimera}.
+\item \textbf{SLAM Performance in Indoor Navigation:} Comparative studies of visual SLAM, LiDAR-based SLAM, and deep learning-based SLAM methods indicate that visual SLAM provides a cost-effective solution for indoor localization~\cite{rosinol2020kimera}.
 
-\item \textbf{Model Predictive Control for Mobile Robots:} Research on MPC demonstrates its ability to handle motion constraints, optimize trajectory tracking, and improve stability~\cite{nascimento2023nonlinear}. MPC-based controllers provide improved performance compared to classical PID controllers.
+\item \textbf{Model Predictive Control for Mobile Robots:} MPC has been shown to be effective for handling motion constraints, optimizing the trajectory tracking and enhancing stability in the context of research~\cite{nascimento2023nonlinear}. The controller based on MPC is better than the classical PID controller.
 
-\item \textbf{Simulation-Based Navigation Testing:} Studies on simulation environments highlight their importance in validating robot navigation algorithms before real-world deployment~\cite{park2021simulation}. Simulation platforms~\cite{koenig2004gazebo} allow safe testing of SLAM, obstacle avoidance, and path planning strategies.
+\item \textbf{Simulation-Based Navigation Testing:} The relevance of simulation environments for testing robot navigation algorithms prior to deployment in the real world have been emphasized in the studies~\cite{park2021simulation}. The simulation platforms~\cite{koenig2004gazebo} enable the safe testing of SLAM, obstacle avoidance, and path planning strategies.
 \end{itemize}
 
 \section{Limitations and Bottlenecks of the Existing Work}
-Despite several significant improvements in the autonomous movement of mobile robots, several current methods are limited by technical and practical factors, and hence their effectiveness is confined to a real-world delivery setting. These limitations can be related to difficulties in the optimisation of parameters, the quality of the path-generation, motion control stability, and environmental sensing. The detailed knowledge of these bottlenecks is invaluable to stipulate the areas in which a better navigation strategy and system architecture are justified.
+Although there are some great advancements in the field of autonomous mobile robot locomotion, some of the existing methods are constrained technically and practically and, thus, can only be effective in a real-world delivery scenario. These limitations can be related to difficulties in the optimisation of parameters, the quality of the path-generation, motion control stability, and environmental sensing. The detailed knowledge of these bottlenecks is invaluable to stipulate the areas in which a better navigation strategy and system architecture are justified.
 \begin{table}[htbp]
 \centering
 \caption{Limitations of Existing Work}
@@ -568,7 +569,7 @@ Lack of Integrated Hybrid Nav Systems & Most studies focus on individual compone
 \end{tabular}
 \end{table}
 
-The limitations highlighted in Table~\ref{tab:limitations} indicate the need for more adaptive, integrated, and optimization-driven navigation solutions. Solving these difficulties needs the integration of powerful perception methods, fluent and efficient route calculation, dynamic obstacle control, improved adaptive control, and improved dynamic control mechanisms. These observations are one of the strongest driving forces behind the creation of the suggested autonomous delivery robot system, which tries to address these constraints by using hybrid navigation and improved system integration.
+See Table~\ref{tab:limitations} for the limitations, suggesting a need for more adaptive, integrated, and optimization-driven navigation solutions. To tackle these challenges, advanced perception techniques, smooth and fast route planning, adaptive obstacle management and enhanced adaptive control and dynamic control systems are needed. These observations are one of the most motivating factors that will trigger the development of the proposed autonomous delivery robot system, which aims to overcome these limitations by adopting a hybrid navigation approach and enhancing system integration.
 
 \section{Problem Statement}
 

@@ -36,8 +36,8 @@
 \contentsline {figure}{\numberline {5.9}{\ignorespaces Tracking error analysis for Scenario 2}}{88}{figure.caption.61}%
 \contentsline {figure}{\numberline {5.10}{\ignorespaces Stress test with circular and triangular obstacles}}{89}{figure.caption.62}%
 \contentsline {figure}{\numberline {5.11}{\ignorespaces TurtleBot3 Model MPC Tracking of the PSO-Smoothed A* Trajectory at the Start of the Mission}}{90}{figure.caption.63}%
-\contentsline {figure}{\numberline {5.12}{\ignorespaces TurtleBot3 Model MPC Tracking of the PSO-Smoothed A* Trajectory at the End of the Mission}}{90}{figure.caption.64}%
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Obstacle inflation}}{91}{figure.caption.65}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces TurtleBot3 Model MPC Tracking of the PSO-Smoothed A* Trajectory at the End of the Mission}}{91}{figure.caption.64}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Obstacle inflation}}{92}{figure.caption.65}%
 \contentsline {figure}{\numberline {5.14}{\ignorespaces Web control dashboard used for defining boundaries, obstacles, and mission points}}{93}{figure.caption.66}%
 \contentsline {figure}{\numberline {5.15}{\ignorespaces Output of cellular decomposition showing workspace partitioning into cells, adjacency connectivity, and the generated global path from start to goal.}}{94}{figure.caption.67}%
 \contentsline {figure}{\numberline {5.16}{\ignorespaces Scenario A: Path planning with obstacle avoidance}}{95}{figure.caption.68}%
